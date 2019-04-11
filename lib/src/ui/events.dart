@@ -49,78 +49,169 @@ class _EventsState extends State<Events> with SingleTickerProviderStateMixin {
                 etb.yes();
             },
           ),
-          body: CustomScrollView(
-            slivers: <Widget>[
-              SliverPersistentHeader(
-                delegate: OverlappingSliverAppBar(
-                  expandedHeight: 150,
-                  title: Text(
-                    'Events',
-                    style: Theme.of(context).textTheme.title,
+          body: DefaultTabController(
+            length: 3,
+            child: NestedScrollView(
+              headerSliverBuilder: (context, innerScrolled){
+                return [
+                  SliverOverlapAbsorber(
+                    handle: NestedScrollView.sliverOverlapAbsorberHandleFor(context),
+                    // child: SliverAppBar(
+                    //   title: Text('Test'),
+                    //   pinned: true,
+                    //   expandedHeight: 200,
+                    //   forceElevated: innerScrolled,
+                    //   bottom: TabBar(
+                    //     tabs: <Widget>[
+                    //       Tab(text: '1',),
+                    //       Tab(text: '2',),
+                    //       Tab(text: '3',),
+                    //     ],
+                    //   ),
+                    // ),
+                    child: SliverPersistentHeader(
+                    delegate: OverlappingSliverAppBar(
+                      expandedHeight: 150,
+                      title: Text(
+                        'Events',
+                        style: Theme.of(context).textTheme.title,
+                      ),
+                      needTabBar: true,
+                      tabBar: TabBar(
+                        indicatorPadding: EdgeInsets.all(4),
+                        labelPadding: EdgeInsets.zero,
+                        labelColor: Colors.white,
+                        indicatorSize: TabBarIndicatorSize.label,
+                        tabs: snapshot.data
+                            ? [
+                                Tab(text: 'Day 1'),
+                                Tab(text: 'Day 2'),
+                                Tab(text: 'Day 3'),
+                              ]
+                            : [
+                                Tab(text: 'Technical'),
+                                Tab(text: 'Cultural'),
+                                Tab(text: 'Fun'),
+                              ],
+                      ),
+                    ),
+                    pinned: true,
                   ),
-                  needTabBar: true,
-                  tabBar: TabBar(
-                    indicatorPadding: EdgeInsets.all(4),
-                    labelPadding: EdgeInsets.zero,
-                    labelColor: Colors.white,
-                    indicatorSize: TabBarIndicatorSize.label,
-                    controller: _tabController,
-                    tabs: snapshot.data
-                        ? [
-                            Tab(text: 'Day 1'),
-                            Tab(text: 'Day 2'),
-                            Tab(text: 'Day 3'),
-                          ]
-                        : [
-                            Tab(text: 'Technical'),
-                            Tab(text: 'Cultural'),
-                            Tab(text: 'Fun'),
-                          ],
                   ),
-                ),
-                pinned: true,
+                ];
+              },
+              body: TabBarView(
+                children: <Widget>[
+                  getItem('first'),
+                  getItem('Second'),
+                  getItem('Third'),
+                ],
               ),
-              SliverFillRemaining(
-                child: FutureBuilder(
-                  future: snapshot.data
-                      ? EventProvider().getEvents(EventProviderType.DAY)
-                      : EventProvider().getEvents(EventProviderType.CATEGORY),
-                  builder: (context,
-                      AsyncSnapshot<List<List<EventModel>>> snapshot) {
-                    if (snapshot.hasData) {
-                      return TabBarView(
-                        controller: _tabController,
-                        children: <Widget>[
-                          SlideInList(
-                            children: getCategoryEventList(snapshot.data[0]),
-                            duration: Duration(milliseconds: 1200),
-                            delay: Duration(milliseconds: 800),
-                          ),
-                          SlideInList(
-                            children: getCategoryEventList(snapshot.data[1]),
-                            duration: Duration(milliseconds: 1200),
-                            delay: Duration(milliseconds: 800),
-                          ),
-                          SlideInList(
-                            children: getCategoryEventList(snapshot.data[2]),
-                            duration: Duration(milliseconds: 1200),
-                            delay: Duration(milliseconds: 800),
-                          ),
-                        ],
-                      );
-                    } else
-                      return Center(
-                        child: CircularProgressIndicator(
-                          strokeWidth: 2,
-                        ),
-                      );
-                  },
-                ),
-              ),
-            ],
+              // child: CustomScrollView(
+              //   slivers: <Widget>[
+              //     SliverPersistentHeader(
+              //       delegate: OverlappingSliverAppBar(
+              //         expandedHeight: 150,
+              //         title: Text(
+              //           'Events',
+              //           style: Theme.of(context).textTheme.title,
+              //         ),
+              //         needTabBar: true,
+              //         tabBar: TabBar(
+              //           indicatorPadding: EdgeInsets.all(4),
+              //           labelPadding: EdgeInsets.zero,
+              //           labelColor: Colors.white,
+              //           indicatorSize: TabBarIndicatorSize.label,
+              //           controller: _tabController,
+              //           tabs: snapshot.data
+              //               ? [
+              //                   Tab(text: 'Day 1'),
+              //                   Tab(text: 'Day 2'),
+              //                   Tab(text: 'Day 3'),
+              //                 ]
+              //               : [
+              //                   Tab(text: 'Technical'),
+              //                   Tab(text: 'Cultural'),
+              //                   Tab(text: 'Fun'),
+              //                 ],
+              //         ),
+              //       ),
+              //       pinned: true,
+              //     ),
+              //     SliverFillRemaining(
+              //       child: FutureBuilder(
+              //         future: snapshot.data
+              //             ? EventProvider().getEvents(EventProviderType.DAY)
+              //             : EventProvider().getEvents(EventProviderType.CATEGORY),
+              //         builder: (context,
+              //             AsyncSnapshot<List<List<EventModel>>> snapshot) {
+              //           if (snapshot.hasData) {
+              //             return TabBarView(
+              //               controller: _tabController,
+              //               children: <Widget>[
+              //                 SlideInList(
+              //                   children: getCategoryEventList(snapshot.data[0]),
+              //                   duration: Duration(milliseconds: 1200),
+              //                   delay: Duration(milliseconds: 800),
+              //                 ),
+              //                 SlideInList(
+              //                   children: getCategoryEventList(snapshot.data[1]),
+              //                   duration: Duration(milliseconds: 1200),
+              //                   delay: Duration(milliseconds: 800),
+              //                 ),
+              //                 SlideInList(
+              //                   children: getCategoryEventList(snapshot.data[2]),
+              //                   duration: Duration(milliseconds: 1200),
+              //                   delay: Duration(milliseconds: 800),
+              //                 ),
+              //               ],
+              //             );
+              //           } else
+              //             return Center(
+              //               child: CircularProgressIndicator(
+              //                 strokeWidth: 2,
+              //               ),
+              //             );
+              //         },
+              //       ),
+              //     ),
+              //   ],
+              // ),
+            ),
           ),
         );
       },
+    );
+  }
+
+  Widget getItem(String name){
+    return SafeArea(
+      top: false,
+      bottom: false,
+      child: Builder(
+        builder: (context){
+          return CustomScrollView(
+            key: PageStorageKey<String>(name),
+            slivers: <Widget>[
+              SliverOverlapInjector(
+                handle: NestedScrollView.sliverOverlapAbsorberHandleFor(context),
+              ),
+              SliverPadding(
+                padding: EdgeInsets.all(8),
+                sliver: SliverFixedExtentList(
+                  itemExtent: 48,
+                  delegate: SliverChildBuilderDelegate(
+                    (context, index){
+                      return ListTile(title: Text('$index'),);
+                    },
+                    childCount: 40,
+                  ),
+                ),
+              ),
+            ],
+          );
+        },
+      ),
     );
   }
 
