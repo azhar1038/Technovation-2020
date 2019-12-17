@@ -1,7 +1,5 @@
 import 'package:rxdart/rxdart.dart';
 
-_NotificationBloc notificationBloc = _NotificationBloc();
-
 class _NotificationBloc{
   bool notification = false;
   BehaviorSubject<bool> _notificationDetector;
@@ -26,3 +24,5 @@ class _NotificationBloc{
     _notificationDetector.close();
   }
 }
+
+final _NotificationBloc notificationBloc = _NotificationBloc();

@@ -21,7 +21,7 @@ class _TopBarState extends State<TopBar> {
         height: 50,
         margin: EdgeInsets.all(8),
         child: CustomPaint(
-          painter: BeveledPainter(
+          painter: _BeveledPainter(
             background: Theme.of(context).cardColor,
           ),
           child: Padding(
@@ -71,10 +71,10 @@ class _TopBarState extends State<TopBar> {
   }
 }
 
-class BeveledPainter extends CustomPainter {
+class _BeveledPainter extends CustomPainter {
   Color background;
 
-  BeveledPainter({
+  _BeveledPainter({
     @required this.background,
   });
 
