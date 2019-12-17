@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:technovation_2020/src/custom_widget/top_bar.dart';
+import 'package:technovation2020/src/bloc/notification_bloc.dart';
+import 'package:technovation2020/src/custom_widget/top_bar.dart';
 
 class Technovation extends StatelessWidget {
   @override
@@ -12,10 +13,23 @@ class Technovation extends StatelessWidget {
       ),
       home: Scaffold(
         appBar: TopBar(
-          title: 'Test',
+          title: 'Technovation',
         ),
         body: Center(
-          child: Text('Hello'),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              RaisedButton(
+                child: Text('New Notification'),
+                onPressed: notificationBloc.yes,
+              ),
+              SizedBox(width: 20,),
+              RaisedButton(
+                child: Text('No Notification'),
+                onPressed: notificationBloc.no,
+              ),
+            ],
+          ),
         ),
       ),
     );
