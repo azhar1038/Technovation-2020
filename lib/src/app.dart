@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:technovation2020/src/ui/home.dart';
+import 'package:technovation2020/src/ui/tabs.dart';
 
 class Technovation extends StatelessWidget {
   @override
@@ -10,7 +10,7 @@ class Technovation extends StatelessWidget {
         brightness: Brightness.dark,
         scaffoldBackgroundColor: Colors.black,
       ),
-      home: Home(),
+      home: Tabs(),
     );
   }
 }
