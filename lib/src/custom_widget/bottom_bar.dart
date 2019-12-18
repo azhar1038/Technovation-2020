@@ -79,7 +79,7 @@ class _BottomBarState extends State<BottomBar> with TickerProviderStateMixin {
         Container(
           height: 55,
           decoration: BoxDecoration(
-            color: Theme.of(context).cardColor,
+            color: Theme.of(context).bottomAppBarColor,
           ),
           child: Row(
             mainAxisSize: MainAxisSize.max,

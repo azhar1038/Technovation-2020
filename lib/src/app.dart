@@ -7,8 +7,12 @@ class Technovation extends StatelessWidget {
     return MaterialApp(
       title: 'Technovation',
       theme: ThemeData(
+        backgroundColor: Colors.black,
         brightness: Brightness.dark,
-        scaffoldBackgroundColor: Colors.black,
+        primarySwatch: Colors.purple,
+        primaryColor: Colors.purple[200],
+        bottomAppBarColor: Colors.purple[200].withOpacity(0.3),
+        scaffoldBackgroundColor: Color(0xff121212),
       ),
       home: Tabs(),
     );

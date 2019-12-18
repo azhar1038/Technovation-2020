@@ -13,7 +13,7 @@ class Home extends StatelessWidget {
             child: Container(
               alignment: Alignment.center,
               child: Text(
-                "TECHNOVATION 2020",
+                "TECHNOVATION 2020",//TODO: Add the image.
                 style: TextStyle(
                   fontSize: 30,
                   fontWeight: FontWeight.w900,
@@ -23,8 +23,24 @@ class Home extends StatelessWidget {
           ),
           Expanded(
             flex: 2,
-            child: Center(
-              child: Slideshow(),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                Slideshow(),
+                Container(
+                  padding: EdgeInsets.all(20),
+                  child: Text(
+                    '\" The Tag Line \"',//TODO: Add the tag line.
+                    style: TextStyle(
+                      fontSize: 25,
+                      fontStyle: FontStyle.italic,
+                      fontWeight: FontWeight.w300,
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
         ],
