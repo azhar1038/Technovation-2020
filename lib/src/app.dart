@@ -8,6 +8,7 @@ class Technovation extends StatelessWidget {
       title: 'Technovation',
       theme: ThemeData(
         backgroundColor: Colors.black,
+        accentColor: Colors.white,
         brightness: Brightness.dark,
         primarySwatch: Colors.purple,
         primaryColor: Colors.purple[200],

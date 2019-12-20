@@ -49,6 +49,12 @@ flutter:
    - images/event3.jpg
    - images/event4.jpg
    - images/event5.jpg
+   - images/000.jpg
+   - images/001.jpg
+   - images/100.jpg
+   - images/101.jpg
+   - images/200.jpg
+   - images/201.jpg
    - images/logo.png
    - json/events.json
 
