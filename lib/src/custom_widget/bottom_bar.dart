@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:technovation2020/src/bloc/bottom_select_bloc.dart';
-
 const double ICON_OFF = -3;
 const double ICON_ON = 0;
 const double TEXT_OFF = 3;
@@ -125,7 +123,6 @@ class _BottomBarState extends State<BottomBar> with TickerProviderStateMixin {
                   setState(() {
                     nextIcon = Icons.favorite_border;
                     currentSelected = 2;
-                    bottomSelectBloc.change(2);
                   });
                   _initAnimationAndStart(_positionAnimation.value, 0.33);
                 },
@@ -139,7 +136,6 @@ class _BottomBarState extends State<BottomBar> with TickerProviderStateMixin {
                   setState(() {
                     nextIcon = Icons.person;
                     currentSelected = 3;
-                    bottomSelectBloc.change(3);
                   });
                   _initAnimationAndStart(_positionAnimation.value, 1);
                 },
