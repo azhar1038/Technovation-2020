@@ -8,11 +8,31 @@ class Tabs extends StatefulWidget {
 }
 
 class _TabsState extends State<Tabs> {
+  PageController _pageController;
+
+  @override
+  void initState() {
+    super.initState();
+    _pageController = new PageController(initialPage: 0,);
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: BottomBar(),
-      body: Home(),
+      bottomNavigationBar: BottomBar(
+        onItemPressed: (int i){
+          _pageController.jumpToPage(i);
+        },
+      ),
+      body: PageView(
+        controller: _pageController,
+        physics: NeverScrollableScrollPhysics(),
+        children: <Widget>[
+          Home(),
+          Container(color: Colors.red,),
+          Container(color: Colors.green,),
+          Container(color: Colors.blue,),
+        ],
+      ),
     );
   }
 }

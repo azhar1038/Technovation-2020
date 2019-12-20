@@ -1,23 +1,45 @@
 import 'package:flutter/material.dart';
+import 'package:technovation2020/src/custom_widget/fade_in.dart';
 import 'package:technovation2020/src/custom_widget/slideshow.dart';
+import 'package:technovation2020/src/bloc/fancy_line_bloc.dart';
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
+  @override
+  _HomeState createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  List<String> fancyLine = [
+    "Get ready for the best Music Party",
+    "Guess who is coming to meet you!",
+    "Rock and Roll !",
+    "It's Never late to learn new things.",
+    "What the heck a Sale \nposter is doing here!"
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
-          Expanded(
-            flex: 1,
-            child: Container(
-              alignment: Alignment.center,
-              child: Text(
-                "TECHNOVATION 2020",//TODO: Add the image.
-                style: TextStyle(
-                  fontSize: 30,
-                  fontWeight: FontWeight.w900,
-                ),
+          Container(
+            alignment: Alignment.bottomCenter,
+            padding: EdgeInsets.only(top: 30),
+            child: Image.asset(
+              'images/logo.png',
+              width: 250.0,
+            ),
+            //),
+          ),
+          Container(
+            padding: EdgeInsets.all(10),
+            child: Text(
+              '\" The Tag Line \"', //TODO: Add the tag line.
+              style: TextStyle(
+                fontSize: 25,
+                fontStyle: FontStyle.italic,
+                fontWeight: FontWeight.w300,
               ),
             ),
           ),
@@ -25,20 +47,27 @@ class Home extends StatelessWidget {
             flex: 2,
             child: Column(
               mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
                 Slideshow(),
-                Container(
-                  padding: EdgeInsets.all(20),
-                  child: Text(
-                    '\" The Tag Line \"',//TODO: Add the tag line.
-                    style: TextStyle(
-                      fontSize: 25,
-                      fontStyle: FontStyle.italic,
-                      fontWeight: FontWeight.w300,
-                    ),
-                  ),
+                StreamBuilder(
+                  stream: fancyLineBloc.indexStream,
+                  builder: (context, AsyncSnapshot<int> snapshot) {
+                    String text = '';
+                    if (snapshot.hasData) {
+                      text = fancyLine[snapshot.data];
+                    }
+                    return FadeIn(
+                      child: Text(
+                        text,
+                        style: TextStyle(
+                          fontSize: 20.0,
+                          fontWeight: FontWeight.w200,
+                        ),
+                      ),
+                    );
+                  },
                 ),
               ],
             ),

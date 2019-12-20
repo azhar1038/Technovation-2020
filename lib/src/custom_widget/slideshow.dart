@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:technovation2020/src/bloc/fancy_line_bloc.dart';
 
 class Slideshow extends StatefulWidget {
   @override
@@ -61,6 +62,9 @@ class _SlideshowState extends State<Slideshow> {
           autoPlayCurve: Curves.fastOutSlowIn,
           enlargeCenterPage: true,
           scrollDirection: Axis.horizontal,
+          onPageChanged: (int i){
+            fancyLineBloc.change(i);
+          },
         ),
       ),
     );

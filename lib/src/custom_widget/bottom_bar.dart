@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:technovation2020/src/bloc/bottom_select_bloc.dart';
 
 const double ICON_OFF = -3;
 const double ICON_ON = 0;
@@ -10,6 +11,10 @@ const int ANIM_DURATION = 300;
 const Color COLOR = Colors.white;
 
 class BottomBar extends StatefulWidget {
+  final Function(int) onItemPressed;
+
+  BottomBar({@required this.onItemPressed});
+
   @override
   _BottomBarState createState() => _BottomBarState();
 }
@@ -90,6 +95,7 @@ class _BottomBarState extends State<BottomBar> with TickerProviderStateMixin {
                 iconData: Icons.home,
                 title: "HOME",
                 callbackFunction: () {
+                  widget.onItemPressed(0);
                   setState(() {
                     nextIcon = Icons.home;
                     currentSelected = 0;
@@ -102,6 +108,7 @@ class _BottomBarState extends State<BottomBar> with TickerProviderStateMixin {
                 iconData: Icons.event_note,
                 title: "EVENTS",
                 callbackFunction: () {
+                  widget.onItemPressed(1);
                   setState(() {
                     nextIcon = Icons.event_note;
                     currentSelected = 1;
@@ -114,9 +121,11 @@ class _BottomBarState extends State<BottomBar> with TickerProviderStateMixin {
                 iconData: Icons.favorite_border,
                 title: "FAVORITE",
                 callbackFunction: () {
+                  widget.onItemPressed(2);
                   setState(() {
                     nextIcon = Icons.favorite_border;
                     currentSelected = 2;
+                    bottomSelectBloc.change(2);
                   });
                   _initAnimationAndStart(_positionAnimation.value, 0.33);
                 },
@@ -126,9 +135,11 @@ class _BottomBarState extends State<BottomBar> with TickerProviderStateMixin {
                 iconData: Icons.person,
                 title: "ABOUT",
                 callbackFunction: () {
+                  widget.onItemPressed(3);
                   setState(() {
                     nextIcon = Icons.person;
                     currentSelected = 3;
+                    bottomSelectBloc.change(3);
                   });
                   _initAnimationAndStart(_positionAnimation.value, 1);
                 },
@@ -140,8 +151,8 @@ class _BottomBarState extends State<BottomBar> with TickerProviderStateMixin {
           child: Container(
             decoration: BoxDecoration(color: Colors.transparent),
             child: Align(
-              heightFactor: 1,
-              alignment: Alignment(_positionAnimation.value, 0),
+              heightFactor: 0,
+              alignment: Alignment(_positionAnimation.value, 1),
               child: FractionallySizedBox(
                 widthFactor: 1 / 4,
                 child: Stack(
