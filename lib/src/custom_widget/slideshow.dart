@@ -10,6 +10,8 @@ class Slideshow extends StatefulWidget {
 class _SlideshowState extends State<Slideshow> {
   List<Widget> images;
 
+  FancyLineBloc _fancyLineBloc;
+
   Widget getImage(String asset) {
     return Container(
       width: 300,
@@ -42,6 +44,7 @@ class _SlideshowState extends State<Slideshow> {
       getImage('images/event4.jpg'),
       getImage('images/event5.jpg'),
     ];
+    _fancyLineBloc = FancyLineBloc();
   }
 
   @override
@@ -63,7 +66,7 @@ class _SlideshowState extends State<Slideshow> {
           enlargeCenterPage: true,
           scrollDirection: Axis.horizontal,
           onPageChanged: (int i){
-            fancyLineBloc.change(i);
+            _fancyLineBloc.change(i);
           },
         ),
       ),

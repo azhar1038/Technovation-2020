@@ -1,11 +1,19 @@
 import 'package:rxdart/rxdart.dart';
 
-class _NotificationBloc{
+class NotificationBloc{
   bool notification = false;
   BehaviorSubject<bool> _notificationDetector;
 
-  _NotificationBloc(){
-    _notificationDetector = BehaviorSubject<bool>.seeded(false);
+  static NotificationBloc _notificationBloc;
+
+  factory NotificationBloc(){
+    if(_notificationBloc == null)
+      _notificationBloc = NotificationBloc._();
+    return _notificationBloc;
+  }
+
+  NotificationBloc._(){
+    _notificationDetector = BehaviorSubject<bool>();
   }
 
   Stream<bool> get notificationStream => _notificationDetector.stream;
@@ -24,5 +32,3 @@ class _NotificationBloc{
     _notificationDetector.close();
   }
 }
-
-final _NotificationBloc notificationBloc = _NotificationBloc();

@@ -13,7 +13,7 @@ class _TabsState extends State<Tabs> {
   @override
   void initState() {
     super.initState();
-    _pageController = new PageController(initialPage: 0,);
+    _pageController = new PageController(initialPage: 0);
   }
   @override
   Widget build(BuildContext context) {

@@ -9,13 +9,21 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  List<String> fancyLine = [
-    "Get ready for the best Music Party",
-    "Guess who is coming to meet you!",
-    "Rock and Roll !",
-    "It's Never late to learn new things.",
-    "What the heck a Sale \nposter is doing here!"
-  ];
+  List<String> fancyLine;
+  FancyLineBloc _fancyLineBloc;
+
+  @override
+  void initState() {
+    super.initState();
+    fancyLine = [
+      "Get ready for the best Music Party",
+      "Guess who is coming to meet you!",
+      "Rock and Roll !",
+      "It's Never late to learn new things.",
+      "What the heck a Sale \nposter is doing here!"
+    ];
+    _fancyLineBloc = FancyLineBloc();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +60,8 @@ class _HomeState extends State<Home> {
               children: <Widget>[
                 Slideshow(),
                 StreamBuilder(
-                  stream: fancyLineBloc.indexStream,
+                  stream: _fancyLineBloc.indexStream,
+                  initialData: 0,
                   builder: (context, AsyncSnapshot<int> snapshot) {
                     String text = '';
                     if (snapshot.hasData) {

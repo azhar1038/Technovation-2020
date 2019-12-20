@@ -1,11 +1,18 @@
 import 'package:rxdart/rxdart.dart';
 
-class _FancyLineBloc{
+class FancyLineBloc{
   int index = 0;
-  BehaviorSubject<int> _indexSubject;
+  PublishSubject<int> _indexSubject;
+
+  static FancyLineBloc _fancyLineBloc;
   
-  _FancyLineBloc(){
-    _indexSubject = BehaviorSubject<int>.seeded(0);
+  factory FancyLineBloc(){
+    if(_fancyLineBloc == null) _fancyLineBloc = FancyLineBloc._();
+    return _fancyLineBloc;
+  }
+
+  FancyLineBloc._(){
+    _indexSubject = PublishSubject<int>();
   }
 
   Stream<int> get indexStream => _indexSubject.stream;
@@ -15,9 +22,7 @@ class _FancyLineBloc{
     _indexSubject.add(index);
   }
 
-  void close(){
+  void dispose(){
     _indexSubject.close();
   }
 }
-
-final _FancyLineBloc fancyLineBloc = _FancyLineBloc();

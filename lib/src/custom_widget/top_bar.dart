@@ -14,6 +14,14 @@ class TopBar extends StatefulWidget implements PreferredSizeWidget {
 }
 
 class _TopBarState extends State<TopBar> {
+  NotificationBloc _notificationBloc;
+
+  @override
+  void initState() {
+    super.initState();
+    _notificationBloc = NotificationBloc();
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -40,9 +48,9 @@ class _TopBarState extends State<TopBar> {
                     Positioned(
                       right: 0,
                       child: StreamBuilder(
-                        stream: notificationBloc.notificationStream,
+                        stream: _notificationBloc.notificationStream,
+                        initialData: false,
                         builder: (context, AsyncSnapshot<bool> snapshot){
-                          if(snapshot.data == null) return Container();
                           if(snapshot.data){
                             return Container(
                               decoration: BoxDecoration(
@@ -68,6 +76,12 @@ class _TopBarState extends State<TopBar> {
         ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _notificationBloc.dispose();
   }
 }
 
