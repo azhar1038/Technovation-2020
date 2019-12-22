@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 const double ICON_OFF = -3;
 const double ICON_ON = 0;
 const double TEXT_OFF = 3;
@@ -82,7 +83,14 @@ class _BottomBarState extends State<BottomBar> with TickerProviderStateMixin {
         Container(
           height: 55,
           decoration: BoxDecoration(
-            color: Theme.of(context).bottomAppBarColor,
+            gradient: LinearGradient(
+              begin: Alignment.bottomLeft,
+              end: Alignment.topRight,
+              colors: [
+                Color(0xff16406c),
+                Color(0xff122c3d),
+              ],
+            ),
           ),
           child: Row(
             mainAxisSize: MainAxisSize.max,
