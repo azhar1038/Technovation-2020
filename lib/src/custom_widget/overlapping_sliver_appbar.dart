@@ -16,10 +16,10 @@ class OverlappingSliverAppBar extends SliverPersistentHeaderDelegate {
   @override
   Widget build(
       BuildContext context, double shrinkOffset, bool overlapsContent) {
-    double top = expandedHeight - shrinkOffset - 50;
+    double top = expandedHeight - shrinkOffset-45;
     double opacity = 1 - shrinkOffset / (expandedHeight - 50);
     return Stack(
-      fit: StackFit.loose,
+      fit: StackFit.expand,
       overflow: Overflow.visible,
       children: <Widget>[
         Container(
@@ -47,10 +47,10 @@ class OverlappingSliverAppBar extends SliverPersistentHeaderDelegate {
         ),
         needTabBar
             ? Positioned(
-                top: top > 40 ? top : 40,
+                top: top > 25 ? top : 25,
                 left: (MediaQuery.of(context).size.width - 250) / 2,
                 child: Card(
-                  elevation: 12,
+                  elevation: 6,
                   shape: BeveledRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),

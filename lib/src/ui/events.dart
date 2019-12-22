@@ -1,4 +1,3 @@
-import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:technovation2020/src/bloc/event_type_bloc.dart';
 import 'package:technovation2020/src/custom_widget/overlapping_sliver_appbar.dart';
@@ -53,7 +52,7 @@ class _EventsState extends State<Events> with SingleTickerProviderStateMixin {
             slivers: <Widget>[
               SliverPersistentHeader(
                 delegate: OverlappingSliverAppBar(
-                  expandedHeight: 150,
+                  expandedHeight: 120,
                   title: Text(
                     'Events',
                     style: Theme.of(context).textTheme.title,
