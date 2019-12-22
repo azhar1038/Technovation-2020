@@ -25,63 +25,56 @@ class _EventsState extends State<Events> with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: TopBar(
-        title: 'Technovation',
-        bottom: TabBar(
-          indicatorColor: Colors.white,
-          labelColor: Colors.white,
-          tabs: <Widget>[
-            Tab(
-              text: 'Technical',
+      body: CustomScrollView(
+        slivers: <Widget>[
+          SliverPersistentHeader(
+            delegate: OverlappingSliverAppBar(
+                expandedHeight: 150, tabController: _tabController),
+            pinned: true,
+          ),
+          SliverFillRemaining(
+            child: FutureBuilder(
+              future: EventProvider().getEvents(),
+              builder:
+                  (context, AsyncSnapshot<List<List<EventModel>>> snapshot) {
+                if (snapshot.hasData) {
+                  return TabBarView(
+                    controller: _tabController,
+                    children: <Widget>[
+                      SlideInList(
+                        children: getCategoryEventList(snapshot.data[0]),
+                        duration: Duration(milliseconds: 600),
+                        delay: Duration(milliseconds: 300),
+                      ),
+                      SlideInList(
+                        children: getCategoryEventList(snapshot.data[1]),
+                        duration: Duration(milliseconds: 600),
+                        delay: Duration(milliseconds: 300),
+                      ),
+                      SlideInList(
+                        children: getCategoryEventList(snapshot.data[2]),
+                        duration: Duration(milliseconds: 600),
+                        delay: Duration(milliseconds: 300),
+                      ),
+                    ],
+                  );
+                } else
+                  return Center(
+                    child: CircularProgressIndicator(
+                      strokeWidth: 2,
+                    ),
+                  );
+              },
             ),
-            Tab(
-              text: 'Cultural',
-            ),
-            Tab(
-              text: 'Fun',
-            ),
-          ],
-          controller: _tabController,
-        ),
-      ),
-      body: FutureBuilder(
-        future: EventProvider().getEvents(),
-        builder: (context, AsyncSnapshot<List<List<EventModel>>> snapshot) {
-          if (snapshot.hasData) {
-            return TabBarView(
-              controller: _tabController,
-              children: <Widget>[
-                SlideInList(
-                  children: getCategoryEventList(0, snapshot.data),
-                  duration: Duration(milliseconds: 800),
-                  delay: Duration(milliseconds: 300),
-                ),
-                SlideInList(
-                  children: getCategoryEventList(1, snapshot.data),
-                  duration: Duration(milliseconds: 800),
-                  delay: Duration(milliseconds: 300),
-                ),
-                SlideInList(
-                  children: getCategoryEventList(2, snapshot.data),
-                  duration: Duration(milliseconds: 800),
-                  delay: Duration(milliseconds: 300),
-                ),
-              ],
-            );
-          } else
-            return Center(
-              child: CircularProgressIndicator(
-                strokeWidth: 2,
-              ),
-            );
-        },
+          ),
+        ],
       ),
     );
   }
 
-  List<Widget> getCategoryEventList(int index, List<List<EventModel>> events) {
+  List<Widget> getCategoryEventList(List<EventModel> events) {
     List<Widget> res = [];
-    events[index].forEach((EventModel em) {
+    events.forEach((EventModel em) {
       String time;
       if (em.day == 0 || em.time.isEmpty)
         time = "Will be Updated";
@@ -109,7 +102,9 @@ class _EventsState extends State<Events> with SingleTickerProviderStateMixin {
               height: 80,
               fit: BoxFit.cover,
             ),
-            SizedBox(width: 10,),
+            SizedBox(
+              width: 10,
+            ),
             Container(
               height: 80,
               padding: EdgeInsets.all(8),
@@ -128,7 +123,9 @@ class _EventsState extends State<Events> with SingleTickerProviderStateMixin {
                         Icons.access_time,
                         size: 15,
                       ),
-                      SizedBox(width: 10,),
+                      SizedBox(
+                        width: 10,
+                      ),
                       Text(
                         time,
                         style: TextStyle(
@@ -146,9 +143,11 @@ class _EventsState extends State<Events> with SingleTickerProviderStateMixin {
                         Icons.location_on,
                         size: 15,
                       ),
-                      SizedBox(width: 10,),
+                      SizedBox(
+                        width: 10,
+                      ),
                       Text(
-                        em.location,
+                        em.location.isEmpty ? 'Will be updated' : em.location,
                         style: TextStyle(
                           fontSize: 14,
                           fontStyle: FontStyle.italic,
@@ -165,5 +164,84 @@ class _EventsState extends State<Events> with SingleTickerProviderStateMixin {
       ));
     });
     return res;
+  }
+}
+
+class OverlappingSliverAppBar extends SliverPersistentHeaderDelegate {
+  final double expandedHeight;
+  final TabController tabController;
+
+  OverlappingSliverAppBar({this.expandedHeight, this.tabController});
+
+  @override
+  Widget build(
+      BuildContext context, double shrinkOffset, bool overlapsContent) {
+    double top = expandedHeight - shrinkOffset - 50;
+    return Stack(
+      fit: StackFit.loose,
+      overflow: Overflow.visible,
+      children: <Widget>[
+        Container(
+          color: Color(0xff122c3d),
+          height: expandedHeight - 25,
+        ),
+        Container(
+          alignment: Alignment.centerLeft,
+          child: Opacity(
+            opacity: 1 - (shrinkOffset / expandedHeight),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                'Technovation',
+                style: Theme.of(context).textTheme.title,
+              ),
+            ),
+          ),
+        ),
+        Positioned(
+          top: top > 40 ? top : 40,
+          left: (MediaQuery.of(context).size.width - 250) / 2,
+          child: Card(
+            elevation: 24,
+            shape: BeveledRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: Container(
+              height: 50,
+              width: 250,
+              decoration: ShapeDecoration(
+                color: Color(0x24ffffff),
+                shape: BeveledRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+              ),
+              child: TabBar(
+                indicatorPadding: EdgeInsets.all(4),
+                labelPadding: EdgeInsets.zero,
+                labelColor: Colors.white,
+                indicatorSize: TabBarIndicatorSize.label,
+                controller: tabController,
+                tabs: <Widget>[
+                  Tab(text: 'Technical'),
+                  Tab(text: 'Cultural'),
+                  Tab(text: 'Fun'),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  @override
+  double get maxExtent => expandedHeight;
+
+  @override
+  double get minExtent => 70;
+
+  @override
+  bool shouldRebuild(SliverPersistentHeaderDelegate oldDelegate) {
+    return true;
   }
 }

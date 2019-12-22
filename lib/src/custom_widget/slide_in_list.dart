@@ -79,7 +79,7 @@ class _SlideListItemState extends State<_SlideListItem>
       duration: widget.duration,
     );
 
-    _offsetFloat = Tween<Offset>(begin: Offset(-1.0, 0), end: Offset.zero)
+    _offsetFloat = Tween<Offset>(begin: Offset(0, 0.5), end: Offset.zero)
         .animate(CurvedAnimation(parent: _controller, curve: Curves.easeOut));
     _opacity = Tween<double>(begin: 0, end: 1).animate(_controller);
   }
