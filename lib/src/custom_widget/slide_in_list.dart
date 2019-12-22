@@ -79,27 +79,30 @@ class _SlideListItemState extends State<_SlideListItem>
       duration: widget.duration,
     );
 
-    _offsetFloat = Tween<Offset>(begin: Offset(0, 0.5), end: Offset.zero)
-        .animate(CurvedAnimation(parent: _controller, curve: Curves.easeOut));
-    _opacity = Tween<double>(begin: 0, end: 1).animate(_controller);
+    _offsetFloat =
+        Tween<Offset>(begin: Offset(0, 0.5), end: Offset.zero).animate(
+      CurvedAnimation(
+        parent: _controller,
+        curve: Interval(0.5, 1, curve: Curves.easeOut),
+      ),
+    );
+    _opacity = Tween<double>(begin: 0, end: 1).animate(
+      CurvedAnimation(
+        parent: _controller,
+        curve: Interval(0.5, 1, curve: Curves.easeOut),
+      ),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
-    return StreamBuilder(
-      stream: widget.listBloc.listStream,
-      initialData: -1,
-      builder: (context, AsyncSnapshot<int> snapshot) {
-        if (snapshot.data >= widget.position && snapshot.data > -1)
-          _controller.forward();
-        return SlideTransition(
-          position: _offsetFloat,
-          child: FadeTransition(
-            opacity: _opacity,
-            child: widget.child,
-          ),
-        );
-      },
+    _controller.forward();
+    return SlideTransition(
+      position: _offsetFloat,
+      child: FadeTransition(
+        opacity: _opacity,
+        child: widget.child,
+      ),
     );
   }
 
@@ -108,5 +111,4 @@ class _SlideListItemState extends State<_SlideListItem>
     _controller.dispose();
     super.dispose();
   }
-
 }

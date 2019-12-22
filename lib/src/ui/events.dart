@@ -38,10 +38,15 @@ class _EventsState extends State<Events> with SingleTickerProviderStateMixin {
             shape: BeveledRectangleBorder(
               borderRadius: BorderRadius.circular(16),
             ),
-            child: Icon(snapshot.data?Icons.category:Icons.schedule),
+            child: Icon(
+              snapshot.data ? Icons.category : Icons.schedule,
+              size: 18,
+            ),
             onPressed: () {
-              if(snapshot.data) etb.no();
-              else etb.yes();
+              if (snapshot.data)
+                etb.no();
+              else
+                etb.yes();
             },
           ),
           body: CustomScrollView(
@@ -88,18 +93,18 @@ class _EventsState extends State<Events> with SingleTickerProviderStateMixin {
                         children: <Widget>[
                           SlideInList(
                             children: getCategoryEventList(snapshot.data[0]),
-                            duration: Duration(milliseconds: 600),
-                            delay: Duration(milliseconds: 300),
+                            duration: Duration(milliseconds: 1200),
+                            delay: Duration(milliseconds: 800),
                           ),
                           SlideInList(
                             children: getCategoryEventList(snapshot.data[1]),
-                            duration: Duration(milliseconds: 600),
-                            delay: Duration(milliseconds: 300),
+                            duration: Duration(milliseconds: 1200),
+                            delay: Duration(milliseconds: 800),
                           ),
                           SlideInList(
                             children: getCategoryEventList(snapshot.data[2]),
-                            duration: Duration(milliseconds: 600),
-                            delay: Duration(milliseconds: 300),
+                            duration: Duration(milliseconds: 1200),
+                            delay: Duration(milliseconds: 800),
                           ),
                         ],
                       );
