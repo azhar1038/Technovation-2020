@@ -42,71 +42,6 @@ class _EventsState extends State<Events>{
                 etb.yes();
             },
           ),
-<<<<<<< HEAD
-          body: CustomScrollView(
-            slivers: <Widget>[
-              SliverPersistentHeader(
-                delegate: OverlappingSliverAppBar(
-                  expandedHeight: 120,
-                  title: Text(
-                    'Events',
-                    style: Theme.of(context).textTheme.title,
-                  ),
-                  needTabBar: true,
-                  tabBar: TabBar(
-                    indicatorPadding: EdgeInsets.all(4),
-                    labelPadding: EdgeInsets.zero,
-                    labelColor: Colors.white,
-                    indicatorSize: TabBarIndicatorSize.label,
-                    controller: _tabController,
-                    tabs: snapshot.data
-                        ? [
-                            Tab(text: 'Day 1'),
-                            Tab(text: 'Day 2'),
-                            Tab(text: 'Day 3'),
-                          ]
-                        : [
-                            Tab(text: 'Technical'),
-                            Tab(text: 'Cultural'),
-                            Tab(text: 'Fun'),
-                          ],
-                  ),
-                ),
-                pinned: true,
-              ),
-              SliverFillRemaining(
-                child: FutureBuilder(
-                  future: snapshot.data
-                      ? EventProvider().getEvents(EventProviderType.DAY)
-                      : EventProvider().getEvents(EventProviderType.CATEGORY),
-                  builder: (context,
-                      AsyncSnapshot<List<List<EventModel>>> snapshot) {
-                    if (snapshot.hasData) {
-                      return TabBarView(
-                        controller: _tabController,
-                        children: <Widget>[
-                          SlideInList(
-                            children: getCategoryEventList(snapshot.data[0]),
-                            duration: Duration(milliseconds: 1200),
-                            delay: Duration(milliseconds: 800),
-                          ),
-                          SlideInList(
-                            children: getCategoryEventList(snapshot.data[1]),
-                            duration: Duration(milliseconds: 1200),
-                            delay: Duration(milliseconds: 800),
-                          ),
-                          SlideInList(
-                            children: getCategoryEventList(snapshot.data[2]),
-                            duration: Duration(milliseconds: 1200),
-                            delay: Duration(milliseconds: 800),
-                          ),
-                        ],
-                      );
-                    } else
-                      return Center(
-                        child: CircularProgressIndicator(
-                          strokeWidth: 2,
-=======
           body: DefaultTabController(
             length: 3,
             child: NestedScrollView(
@@ -121,7 +56,6 @@ class _EventsState extends State<Events>{
                         title: Text(
                           'Events',
                           style: Theme.of(context).textTheme.title,
->>>>>>> test
                         ),
                         needTabBar: true,
                         tabBar: TabBar(
