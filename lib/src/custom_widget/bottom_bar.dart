@@ -124,12 +124,12 @@ class _BottomBarState extends State<BottomBar> with TickerProviderStateMixin {
               ),
               TabItem(
                 selected: currentSelected == 2,
-                iconData: Icons.favorite_border,
-                title: "FAVORITE",
+                iconData: Icons.notifications_none,
+                title: "NOTIFICATION",
                 callbackFunction: () {
                   widget.onItemPressed(2);
                   setState(() {
-                    nextIcon = Icons.favorite_border;
+                    nextIcon = Icons.notifications_none;
                     currentSelected = 2;
                   });
                   _initAnimationAndStart(_positionAnimation.value, 0.33);
@@ -272,9 +272,12 @@ class _TabItemState extends State<TabItem> {
                   padding: const EdgeInsets.all(8.0),
                   child: Text(
                     widget.title,
+                    softWrap: false,
+                    overflow: TextOverflow.fade,
                     style: TextStyle(
                       color: COLOR,
                       fontWeight: FontWeight.w600,
+                      fontSize: 12,
                     ),
                   ),
                 )),
