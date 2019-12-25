@@ -1,23 +1,22 @@
 import 'package:flutter/material.dart';
 
-class OverlappingSliverAppBar extends SliverPersistentHeaderDelegate {
+class NotchedSliverAppBar extends SliverPersistentHeaderDelegate {
   final double expandedHeight;
   final Widget title;
   final TabBar tabBar;
   final bool needTabBar;
 
-  OverlappingSliverAppBar({
+  NotchedSliverAppBar({
     this.expandedHeight = 150,
     @required this.title,
     this.tabBar,
     this.needTabBar = false,
   }) : assert(!needTabBar || tabBar != null);
-
   @override
   Widget build(
       BuildContext context, double shrinkOffset, bool overlapsContent) {
-    double top = expandedHeight - shrinkOffset-45;
-    double opacity = 1 - shrinkOffset / (expandedHeight - 50);
+    double top = expandedHeight - shrinkOffset - 45;
+    double opacity = 1 - shrinkOffset / (expandedHeight - 70);
     return Stack(
       fit: StackFit.expand,
       overflow: Overflow.visible,
@@ -41,7 +40,16 @@ class OverlappingSliverAppBar extends SliverPersistentHeaderDelegate {
             opacity: opacity >= 0 ? opacity : 0,
             child: Padding(
               padding: const EdgeInsets.all(8.0),
-              child: title,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  title,
+                  IconButton(
+                    icon: Icon(Icons.search),
+                    onPressed: (){},
+                  ),
+                ],
+              ),
             ),
           ),
         ),

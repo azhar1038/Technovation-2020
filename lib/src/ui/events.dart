@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:technovation2020/src/bloc/event_type_bloc.dart';
-import 'package:technovation2020/src/custom_widget/overlapping_sliver_appbar.dart';
+import 'package:technovation2020/src/custom_widget/notched_sliverappbar.dart';
 import 'package:technovation2020/src/custom_widget/slide_in.dart';
 import 'package:technovation2020/src/model/event_model.dart';
 import 'package:technovation2020/src/resource/event_provider.dart';
@@ -51,7 +51,7 @@ class _EventsState extends State<Events>{
                     handle: NestedScrollView.sliverOverlapAbsorberHandleFor(
                         context),
                     child: SliverPersistentHeader(
-                      delegate: OverlappingSliverAppBar(
+                      delegate: NotchedSliverAppBar(
                         expandedHeight: 150,
                         title: Text(
                           'Events',
