@@ -210,7 +210,6 @@ class _BottomBarState extends State<BottomBar> with TickerProviderStateMixin {
   }
 
   _initAnimationAndStart(double from, double to) {
-    print('Test');
     _positionTween.begin = from;
     _positionTween.end = to;
 
