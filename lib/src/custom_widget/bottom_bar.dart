@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:technovation2020/src/bloc/notification_bloc.dart';
 
 const double ICON_OFF = -3;
 const double ICON_ON = 0;
@@ -8,6 +9,8 @@ const double ALPHA_OFF = 0;
 const double ALPHA_ON = 1;
 const int ANIM_DURATION = 300;
 const Color COLOR = Colors.white;
+
+NotificationBloc notificationBloc = NotificationBloc();
 
 class BottomBar extends StatefulWidget {
   final Function(int) onItemPressed;
@@ -36,7 +39,6 @@ class _BottomBarState extends State<BottomBar> with TickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
-
     _animationController = AnimationController(
         vsync: this, duration: Duration(milliseconds: ANIM_DURATION));
     _fadeOutController = AnimationController(
@@ -123,6 +125,7 @@ class _BottomBarState extends State<BottomBar> with TickerProviderStateMixin {
                 },
               ),
               TabItem(
+                isNotification: true,
                 selected: currentSelected == 2,
                 iconData: Icons.notifications_none,
                 title: "NOTIFICATION",
@@ -152,49 +155,51 @@ class _BottomBarState extends State<BottomBar> with TickerProviderStateMixin {
           ),
         ),
         IgnorePointer(
-          child: Container(
-            decoration: BoxDecoration(color: Colors.transparent),
-            child: Align(
-              heightFactor: 0,
-              alignment: Alignment(_positionAnimation.value, 1),
-              child: FractionallySizedBox(
-                widthFactor: 1 / 4,
-                child: Stack(
-                  alignment: Alignment.center,
-                  children: <Widget>[
-                    SizedBox(
-                      height: 110,
-                      width: 90,
-                      child: Center(
+          child: GestureDetector(
+            child: Container(
+              decoration: BoxDecoration(color: Colors.transparent),
+              child: Align(
+                heightFactor: 0,
+                alignment: Alignment(_positionAnimation.value, 1),
+                child: FractionallySizedBox(
+                  widthFactor: 1 / 4,
+                  child: Stack(
+                    alignment: Alignment.center,
+                    children: <Widget>[
+                      SizedBox(
+                        height: 110,
+                        width: 90,
+                        child: Center(
+                          child: Container(
+                            width: 70,
+                            height: 70,
+                            decoration: ShapeDecoration(
+                              shape: BeveledRectangleBorder(
+                                borderRadius: BorderRadius.circular(40),
+                              ),
+                              color: COLOR,
+                            ),
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 60,
+                        width: 60,
                         child: Container(
-                          width: 70,
-                          height: 70,
-                          decoration: ShapeDecoration(
-                            shape: BeveledRectangleBorder(
-                              borderRadius: BorderRadius.circular(40),
-                            ),
-                            color: COLOR,
-                          ),
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 60,
-                      width: 60,
-                      child: Container(
-                        child: Padding(
-                          padding: const EdgeInsets.all(0.0),
-                          child: Opacity(
-                            opacity: fabIconAlpha,
-                            child: Icon(
-                              activeIcon,
-                              color: Colors.black,
+                          child: Padding(
+                            padding: const EdgeInsets.all(0.0),
+                            child: Opacity(
+                              opacity: fabIconAlpha,
+                              child: Icon(
+                                activeIcon,
+                                color: Colors.black,
+                              ),
                             ),
                           ),
                         ),
-                      ),
-                    )
-                  ],
+                      )
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -205,6 +210,7 @@ class _BottomBarState extends State<BottomBar> with TickerProviderStateMixin {
   }
 
   _initAnimationAndStart(double from, double to) {
+    print('Test');
     _positionTween.begin = from;
     _positionTween.end = to;
 
@@ -216,15 +222,17 @@ class _BottomBarState extends State<BottomBar> with TickerProviderStateMixin {
 }
 
 class TabItem extends StatefulWidget {
-  TabItem(
-      {@required this.selected,
-      @required this.iconData,
-      @required this.title,
-      @required this.callbackFunction});
+  TabItem({
+    @required this.selected,
+    @required this.iconData,
+    @required this.title,
+    @required this.callbackFunction,
+    this.isNotification = false,
+  });
 
   final String title;
   final IconData iconData;
-  final bool selected;
+  final bool selected, isNotification;
   final Function callbackFunction;
 
   @override
@@ -263,8 +271,6 @@ class _TabItemState extends State<TabItem> {
         fit: StackFit.expand,
         children: [
           Container(
-            height: double.infinity,
-            width: double.infinity,
             child: AnimatedAlign(
                 duration: Duration(milliseconds: ANIM_DURATION),
                 alignment: Alignment(0, textYAlign),
@@ -283,8 +289,6 @@ class _TabItemState extends State<TabItem> {
                 )),
           ),
           Container(
-            height: double.infinity,
-            width: double.infinity,
             child: AnimatedAlign(
               duration: Duration(milliseconds: ANIM_DURATION),
               curve: Curves.easeIn,
@@ -292,18 +296,48 @@ class _TabItemState extends State<TabItem> {
               child: AnimatedOpacity(
                 duration: Duration(milliseconds: ANIM_DURATION),
                 opacity: iconAlpha,
-                child: IconButton(
-                  highlightColor: Colors.transparent,
-                  splashColor: Colors.transparent,
-                  padding: EdgeInsets.all(0),
-                  alignment: Alignment(0, 0),
-                  icon: Icon(
-                    widget.iconData,
-                    color: COLOR,
-                  ),
-                  onPressed: () {
-                    widget.callbackFunction();
-                  },
+                child: Stack(
+                  children: <Widget>[
+                    IconButton(
+                      highlightColor: Colors.transparent,
+                      splashColor: Colors.transparent,
+                      padding: EdgeInsets.all(0),
+                      alignment: Alignment(0, 0),
+                      icon: Icon(
+                        widget.iconData,
+                        color: COLOR,
+                      ),
+                      onPressed: () {
+                        widget.callbackFunction();
+                      },
+                    ),
+                    widget.isNotification
+                        ? StreamBuilder<bool>(
+                            stream: notificationBloc.notificationStream,
+                            initialData: false,
+                            builder: (context, snapshot) {
+                              if (snapshot.data)
+                                return Positioned(
+                                  top: 10,
+                                  right: 10,
+                                  child: Container(
+                                    height: 12,
+                                    width: 12,
+                                    decoration: BoxDecoration(
+                                      color: Colors.red,
+                                      borderRadius: BorderRadius.circular(6),
+                                    ),
+                                  ),
+                                );
+                              else
+                                return Container(
+                                  height: 0,
+                                  width: 0,
+                                );
+                            },
+                          )
+                        : Container(height: 0, width: 0),
+                  ],
                 ),
               ),
             ),
