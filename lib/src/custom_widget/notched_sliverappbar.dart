@@ -4,14 +4,16 @@ class NotchedSliverAppBar extends SliverPersistentHeaderDelegate {
   final double expandedHeight;
   final Widget title;
   final TabBar tabBar;
-  final bool needTabBar;
+  final IconData icon;
+  final VoidCallback onAction;
 
   NotchedSliverAppBar({
     this.expandedHeight = 150,
     @required this.title,
+    this.icon,
+    this.onAction,
     this.tabBar,
-    this.needTabBar = false,
-  }) : assert(!needTabBar || tabBar != null);
+  }) : assert(icon == null || onAction != null);
   @override
   Widget build(
       BuildContext context, double shrinkOffset, bool overlapsContent) {
@@ -44,16 +46,18 @@ class NotchedSliverAppBar extends SliverPersistentHeaderDelegate {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   title,
-                  IconButton(
-                    icon: Icon(Icons.search),
-                    onPressed: (){},
-                  ),
+                  icon != null
+                      ? IconButton(
+                          icon: Icon(icon),
+                          onPressed: onAction,
+                        )
+                      : Container(),
                 ],
               ),
             ),
           ),
         ),
-        needTabBar
+        tabBar != null
             ? Positioned(
                 top: top > 25 ? top : 25,
                 left: (MediaQuery.of(context).size.width - 250) / 2,

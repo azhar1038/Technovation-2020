@@ -57,7 +57,6 @@ class _EventsState extends State<Events>{
                           'Events',
                           style: Theme.of(context).textTheme.title,
                         ),
-                        needTabBar: true,
                         tabBar: TabBar(
                           indicatorPadding: EdgeInsets.all(4),
                           labelPadding: EdgeInsets.zero,
@@ -75,6 +74,10 @@ class _EventsState extends State<Events>{
                                   Tab(text: 'Fun'),
                                 ],
                         ),
+                        icon: Icons.search,
+                        onAction: (){
+                          print('Search');
+                        }
                       ),
                       pinned: true,
                     ),
