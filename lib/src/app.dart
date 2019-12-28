@@ -39,6 +39,9 @@ class _TechnovationState extends State<Technovation> {
         bottomAppBarColor: Color(0xff122c3d),
         scaffoldBackgroundColor: Color(0xff09131d),
         cardColor: Color(0xff122c3d),
+        dialogTheme: DialogTheme(
+          backgroundColor: Color(0xff122c3d),
+        ),
         appBarTheme: AppBarTheme(
           brightness: Brightness.dark,
           color: Color(0xff122c3d),

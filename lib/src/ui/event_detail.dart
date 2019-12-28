@@ -21,8 +21,8 @@ class _EventDetailState extends State<EventDetail> {
         shape: BeveledRectangleBorder(
           borderRadius: BorderRadius.circular(30),
         ),
-        child: Icon(Icons.call),
-        onPressed: ()=>onCallPressed(),
+        child: Icon(Icons.call, size: 18,),
+        onPressed: () => onCallPressed(),
       ),
       body: CustomScrollView(
         slivers: <Widget>[
@@ -68,19 +68,13 @@ class _EventDetailState extends State<EventDetail> {
           SliverList(
             delegate: SliverChildListDelegate(
               [
-                Padding(
+                Container(
+                  height: MediaQuery.of(context).size.height,
                   padding: EdgeInsets.all(16),
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      Text(
-                        'Day ${widget.event.day} | ${widget.event.time ?? ''}',
-                        style: body,
-                      ),
-                      SizedBox(
-                        height: 32,
-                      ),
                       Text(
                         'Description: ',
                         style: header,
@@ -92,64 +86,100 @@ class _EventDetailState extends State<EventDetail> {
                         widget.event.description,
                         style: body,
                       ),
+
+                      //----------------Rules-------------------
+                      widget.event.rules.length > 0
+                          ? Column(
+                              mainAxisSize: MainAxisSize.min,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                SizedBox(
+                                  height: 32,
+                                ),
+                                Text(
+                                  'Rules: ',
+                                  style: header,
+                                ),
+                                SizedBox(
+                                  height: 16,
+                                ),
+                                Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: List.generate(
+                                    widget.event.rules.length,
+                                    (int index) {
+                                      return Padding(
+                                        padding:
+                                            const EdgeInsets.only(bottom: 8.0),
+                                        child: Text(
+                                          '${index + 1}) ${widget.event.rules[index]}',
+                                          style: body,
+                                        ),
+                                      );
+                                    },
+                                  ),
+                                ),
+                              ],
+                            )
+                          : Container(),
+                      //--------------------Judgement-----------------
+                      widget.event.judgement.length > 0
+                          ? Column(
+                              mainAxisSize: MainAxisSize.min,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                SizedBox(
+                                  height: 24,
+                                ),
+                                Text(
+                                  'Judgement: ',
+                                  style: header,
+                                ),
+                                SizedBox(
+                                  height: 16,
+                                ),
+                                Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: List.generate(
+                                    widget.event.judgement.length,
+                                    (int index) {
+                                      return Padding(
+                                        padding:
+                                            const EdgeInsets.only(bottom: 8.0),
+                                        child: Text(
+                                          '${index + 1}) ${widget.event.judgement[index]}',
+                                          style: body,
+                                        ),
+                                      );
+                                    },
+                                  ),
+                                ),
+                              ],
+                            )
+                          : Container(),
+
                       SizedBox(
-                        height: 32,
-                      ),
-                      Text(
-                        'Rules: ',
-                        style: header,
-                      ),
-                      IgnorePointer(
-                        child: ListView.builder(
-                          itemCount: widget.event.rules.length,
-                          itemExtent: 30,
-                          shrinkWrap: true,
-                          itemBuilder: (context, index) {
-                            return Text(
-                              '${index + 1}) ${widget.event.rules[index]}',
-                              style: body,
-                            );
-                          },
-                        ),
-                      ),
-                      SizedBox(
-                        height: 32,
-                      ),
-                      Text(
-                        'Judgement: ',
-                        style: header,
-                      ),
-                      IgnorePointer(
-                        child: ListView.builder(
-                          itemCount: widget.event.judgement.length,
-                          itemExtent: 30,
-                          shrinkWrap: true,
-                          itemBuilder: (context, index) {
-                            return Text(
-                              '${index + 1}) ${widget.event.judgement[index]}',
-                              style: body,
-                            );
-                          },
-                        ),
-                      ),
-                      SizedBox(
-                        height: 32,
+                        height: 24,
                       ),
                       Text(
                         'Coordinators: ',
                         style: header,
                       ),
-                      IgnorePointer(
-                        child: ListView.builder(
-                          itemCount: widget.event.coordinators.length,
-                          itemExtent: 30,
-                          shrinkWrap: true,
-                          itemBuilder: (context, index) {
-                            return Container(
-                              height: 30,
-                              alignment: Alignment.centerLeft,
+                      SizedBox(
+                        height: 16,
+                      ),
+                      Column(
+                        mainAxisSize: MainAxisSize.min,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: List.generate(
+                          widget.event.coordinators.length,
+                          (int index) {
+                            return Padding(
+                              padding: const EdgeInsets.only(bottom: 8.0),
                               child: Text(
-                                '${widget.event.coordinators[index]}',
+                                '${index + 1}) ${widget.event.coordinators[index]}',
                                 style: body,
                               ),
                             );
@@ -167,22 +197,28 @@ class _EventDetailState extends State<EventDetail> {
     );
   }
 
-  void onCallPressed(){
+  void onCallPressed() {
     showDialog(
-      context: context,
-      builder: (context){
-        return SimpleDialog(
-          title: Text('Call Coordinators'),
-          contentPadding: EdgeInsets.all(16),
-          children: List.generate(widget.event.coordinators.length, (int index){
-            return FlatButton(
-              onPressed: ()=>call(widget.event.coordinatorsNumber[index]),
-              child: Text(widget.event.coordinators, style: Theme.of(context).textTheme.subhead,),
-            );
-          }),
-        );
-      }
-    );
+        context: context,
+        builder: (context) {
+          return SimpleDialog(
+            title: Text('Call Coordinators'),
+            contentPadding: EdgeInsets.all(16),
+            children:
+                List.generate(widget.event.coordinators.length, (int index) {
+              return FlatButton(
+                onPressed: () => call(widget.event.coordinatorsNumber[index]),
+                child: Container(
+                  width: double.infinity,
+                  child: Text(
+                    widget.event.coordinators[index],
+                    style: Theme.of(context).textTheme.subhead,
+                  ),
+                ),
+              );
+            }),
+          );
+        });
   }
 
   void call(String num) {

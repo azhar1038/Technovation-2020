@@ -28,9 +28,9 @@ class _EventsState extends State<Events>{
       builder: (context, snapshot) {
         return Scaffold(
           floatingActionButton: FloatingActionButton(
-            mini: true,
+            //mini: true,
             shape: BeveledRectangleBorder(
-              borderRadius: BorderRadius.circular(16),
+              borderRadius: BorderRadius.circular(30),
             ),
             child: Icon(
               snapshot.data ? Icons.category : Icons.schedule,
