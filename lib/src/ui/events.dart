@@ -14,11 +14,23 @@ class Events extends StatefulWidget {
 
 class _EventsState extends State<Events> {
   EventTypeBloc etb;
+  EventProvider eventProvider;
 
   @override
   void initState() {
     etb = EventTypeBloc();
+    EventProvider.create().then((EventProvider ep) {
+      setState(() {
+        eventProvider = ep;
+      });
+    });
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    eventProvider.close();
+    super.dispose();
   }
 
   @override
@@ -80,45 +92,49 @@ class _EventsState extends State<Events> {
                           onAction: () async {
                             EventModel result = await showSearch(
                               context: context,
-                              delegate: EventsSearchDelegate(),
-                            );
-                            if(result != null)
-                            Navigator.of(context).push(
-                              MaterialPageRoute(
-                                builder: (context)=>EventDetail(
-                                  event: result,
-                                  tag: 'image',
-                                ),
+                              delegate: EventsSearchDelegate(
+                                events: eventProvider.events,
                               ),
                             );
+                            if (result != null)
+                              Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (context) => EventDetail(
+                                    event: result,
+                                    tag: 'image',
+                                  ),
+                                ),
+                              );
                           }),
                       pinned: true,
                     ),
                   ),
                 ];
               },
-              body: FutureBuilder(
-                future: snapshot.data
-                    ? EventProvider().getEvents(EventProviderType.DAY)
-                    : EventProvider().getEvents(EventProviderType.CATEGORY),
-                builder:
-                    (context, AsyncSnapshot<List<List<EventModel>>> snapshot) {
-                  if (snapshot.hasData) {
-                    return TabBarView(
-                      children: <Widget>[
-                        getPage('first', snapshot.data[0]),
-                        getPage('second', snapshot.data[1]),
-                        getPage('third', snapshot.data[2]),
-                      ],
-                    );
-                  } else
-                    return Center(
+              body: eventProvider != null
+                  ? Builder(
+                      builder: (context) {
+                        List<List<EventModel>> eventsByType;
+                        if (snapshot.data)
+                          eventsByType = eventProvider
+                              .getEventsByType(EventProviderType.DAY);
+                        else
+                          eventsByType = eventProvider
+                              .getEventsByType(EventProviderType.CATEGORY);
+                        return TabBarView(
+                          children: <Widget>[
+                            getPage('first', eventsByType[0]),
+                            getPage('second', eventsByType[1]),
+                            getPage('third', eventsByType[2]),
+                          ],
+                        );
+                      },
+                    )
+                  : Center(
                       child: CircularProgressIndicator(
                         strokeWidth: 2,
                       ),
-                    );
-                },
-              ),
+                    ),
             ),
           ),
         );

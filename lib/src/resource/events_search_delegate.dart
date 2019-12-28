@@ -2,6 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:technovation2020/src/model/event_model.dart';
 
 class EventsSearchDelegate extends SearchDelegate<EventModel> {
+  final List<EventModel> events;
+
+  EventsSearchDelegate({
+    @required this.events,
+  });
 
   @override
   ThemeData appBarTheme(BuildContext context) {
@@ -12,7 +17,6 @@ class EventsSearchDelegate extends SearchDelegate<EventModel> {
       primaryIconTheme: IconThemeData(
         color: Colors.white,
       ),
-      
     );
   }
 
@@ -32,17 +36,39 @@ class EventsSearchDelegate extends SearchDelegate<EventModel> {
   Widget buildLeading(BuildContext context) {
     return IconButton(
       icon: Icon(Icons.arrow_back_ios),
-      onPressed: ()=>close(context, null),
+      onPressed: () => close(context, null),
     );
   }
 
   @override
   Widget buildResults(BuildContext context) {
-    return Container();
+    String lQuery = query.toLowerCase();
+    final results = events.where((event) => event.name.toLowerCase().contains(lQuery));
+    return ListView(
+      children: results
+          .map<ListTile>(
+            (event) => ListTile(
+              title: Text(event.name),
+              onTap: ()=>close(context, event),
+            ),
+          )
+          .toList(),
+    );
   }
 
   @override
   Widget buildSuggestions(BuildContext context) {
-    return Container();
+    String lQuery = query.toLowerCase();
+    final results = events.where((event) => event.name.toLowerCase().contains(lQuery));
+    return ListView(
+      children: results
+          .map<ListTile>(
+            (event) => ListTile(
+              title: Text(event.name),
+              onTap: ()=>close(context, event),
+            ),
+          )
+          .toList(),
+    );
   }
 }
