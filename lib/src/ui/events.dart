@@ -4,6 +4,7 @@ import 'package:technovation2020/src/custom_widget/notched_sliverappbar.dart';
 import 'package:technovation2020/src/custom_widget/slide_in.dart';
 import 'package:technovation2020/src/model/event_model.dart';
 import 'package:technovation2020/src/resource/event_provider.dart';
+import 'package:technovation2020/src/resource/events_search_delegate.dart';
 import 'package:technovation2020/src/ui/event_detail.dart';
 
 class Events extends StatefulWidget {
@@ -11,7 +12,7 @@ class Events extends StatefulWidget {
   _EventsState createState() => _EventsState();
 }
 
-class _EventsState extends State<Events>{
+class _EventsState extends State<Events> {
   EventTypeBloc etb;
 
   @override
@@ -53,33 +54,44 @@ class _EventsState extends State<Events>{
                         context),
                     child: SliverPersistentHeader(
                       delegate: NotchedSliverAppBar(
-                        expandedHeight: 150,
-                        title: Text(
-                          'Events',
-                          style: Theme.of(context).textTheme.title,
-                        ),
-                        tabBar: TabBar(
-                          indicatorPadding: EdgeInsets.all(4),
-                          labelPadding: EdgeInsets.zero,
-                          labelColor: Colors.white,
-                          indicatorSize: TabBarIndicatorSize.label,
-                          tabs: snapshot.data
-                              ? [
-                                  Tab(text: 'Day 1'),
-                                  Tab(text: 'Day 2'),
-                                  Tab(text: 'Day 3'),
-                                ]
-                              : [
-                                  Tab(text: 'Technical'),
-                                  Tab(text: 'Cultural'),
-                                  Tab(text: 'Fun'),
-                                ],
-                        ),
-                        icon: Icons.search,
-                        onAction: (){
-                          print('Search');
-                        }
-                      ),
+                          expandedHeight: 150,
+                          title: Text(
+                            'Events',
+                            style: Theme.of(context).textTheme.title,
+                          ),
+                          tabBar: TabBar(
+                            indicatorPadding: EdgeInsets.all(4),
+                            labelPadding: EdgeInsets.zero,
+                            labelColor: Colors.white,
+                            indicatorSize: TabBarIndicatorSize.label,
+                            tabs: snapshot.data
+                                ? [
+                                    Tab(text: 'Day 1'),
+                                    Tab(text: 'Day 2'),
+                                    Tab(text: 'Day 3'),
+                                  ]
+                                : [
+                                    Tab(text: 'Technical'),
+                                    Tab(text: 'Cultural'),
+                                    Tab(text: 'Fun'),
+                                  ],
+                          ),
+                          icon: Icons.search,
+                          onAction: () async {
+                            EventModel result = await showSearch(
+                              context: context,
+                              delegate: EventsSearchDelegate(),
+                            );
+                            if(result != null)
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (context)=>EventDetail(
+                                  event: result,
+                                  tag: 'image',
+                                ),
+                              ),
+                            );
+                          }),
                       pinned: true,
                     ),
                   ),
@@ -154,10 +166,10 @@ class _EventsState extends State<Events>{
         SlideIn(
           duration: Duration(seconds: 1),
           child: GestureDetector(
-            onTap: (){
+            onTap: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
-                  builder: (context)=>EventDetail(
+                  builder: (context) => EventDetail(
                     event: em,
                     tag: em.image,
                   ),
@@ -209,8 +221,8 @@ class _EventsState extends State<Events>{
                       children: <Widget>[
                         Text(
                           em.name,
-                          style:
-                              TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+                          style: TextStyle(
+                              fontSize: 16, fontWeight: FontWeight.w600),
                         ),
                         Row(
                           mainAxisSize: MainAxisSize.min,
@@ -243,7 +255,9 @@ class _EventsState extends State<Events>{
                               width: 10,
                             ),
                             Text(
-                              em.location.isEmpty ? 'Will be updated' : em.location,
+                              em.location.isEmpty
+                                  ? 'Will be updated'
+                                  : em.location,
                               style: TextStyle(
                                 fontSize: 14,
                                 fontStyle: FontStyle.italic,
