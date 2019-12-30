@@ -3,18 +3,22 @@ import 'package:flutter/material.dart';
 class SlideIn extends StatefulWidget {
   final Widget child;
   final Duration duration;
+  final double startX;
+  final double startY;
 
   SlideIn({
     this.child,
     this.duration,
-  });
+    this.startX = 0,
+    this.startY = 0.5,
+  })  : assert(startX >= -1 && startX <= 1),
+        assert(startY >= -1 && startY <= 1);
 
   @override
   _SlideInState createState() => _SlideInState();
 }
 
-class _SlideInState extends State<SlideIn>
-    with SingleTickerProviderStateMixin {
+class _SlideInState extends State<SlideIn> with SingleTickerProviderStateMixin {
   AnimationController _controller;
   Animation<Offset> _offsetFloat;
   Animation<double> _opacity;
@@ -29,7 +33,7 @@ class _SlideInState extends State<SlideIn>
     );
 
     _offsetFloat =
-        Tween<Offset>(begin: Offset(0, 0.5), end: Offset.zero).animate(
+        Tween<Offset>(begin: Offset(widget.startX, widget.startY), end: Offset.zero).animate(
       CurvedAnimation(
         parent: _controller,
         curve: Interval(0.5, 1, curve: Curves.easeOut),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:technovation2020/src/custom_widget/bottom_bar.dart';
+import 'package:technovation2020/src/ui/about.dart';
 import 'package:technovation2020/src/ui/events.dart';
 import 'package:technovation2020/src/ui/home.dart';
 import 'package:technovation2020/src/ui/notifications.dart';
@@ -32,7 +33,7 @@ class _TabsState extends State<Tabs> {
           Home(),
           Events(),
           Notifications(),
-          Container(color: Colors.blue,),
+          About(),
         ],
       ),
     );

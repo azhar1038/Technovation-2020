@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:technovation2020/src/model/event_model.dart';
+import 'package:technovation2020/src/resource/call.dart';
 
 class EventDetail extends StatefulWidget {
   final EventModel event;
@@ -223,6 +224,6 @@ class _EventDetailState extends State<EventDetail> {
 
   void call(String num) {
     print('Calling $num ...');
-    //TODO: Do the calling
+    Call.call(num);
   }
 }
