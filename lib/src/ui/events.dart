@@ -15,15 +15,23 @@ class Events extends StatefulWidget {
 class _EventsState extends State<Events> {
   EventTypeBloc etb;
   EventProvider eventProvider;
+  bool error;
 
   @override
   void initState() {
+    error = false;
     etb = EventTypeBloc();
+
     EventProvider.create().then((EventProvider ep) {
       setState(() {
         eventProvider = ep;
       });
+    }).catchError((e) {
+      setState(() {
+        error = true;
+      });
     });
+
     super.initState();
   }
 
@@ -31,6 +39,44 @@ class _EventsState extends State<Events> {
   void dispose() {
     eventProvider.close();
     super.dispose();
+  }
+
+  Widget getBody(snapshot) {
+    if (eventProvider != null) {
+      return Builder(
+        builder: (context) {
+          List<List<EventModel>> eventsByType;
+          if (snapshot.data)
+            eventsByType = eventProvider.getEventsByType(EventProviderType.DAY);
+          else
+            eventsByType =
+                eventProvider.getEventsByType(EventProviderType.CATEGORY);
+          return TabBarView(
+            children: <Widget>[
+              getPage('first', eventsByType[0]),
+              getPage('second', eventsByType[1]),
+              getPage('third', eventsByType[2]),
+            ],
+          );
+        },
+      );
+    } else if (error) {
+      return Center(
+        child: Text(
+          'Server Timeout.\nPlease try again.',
+          style: Theme.of(context).textTheme.subhead.copyWith(
+            color: Colors.white60,
+            fontWeight: FontWeight.w300,
+          ),
+        ),
+      );
+    } else {
+      return Center(
+        child: CircularProgressIndicator(
+          strokeWidth: 2,
+        ),
+      );
+    }
   }
 
   @override
@@ -41,7 +87,6 @@ class _EventsState extends State<Events> {
       builder: (context, snapshot) {
         return Scaffold(
           floatingActionButton: FloatingActionButton(
-            //mini: true,
             shape: BeveledRectangleBorder(
               borderRadius: BorderRadius.circular(30),
             ),
@@ -111,30 +156,7 @@ class _EventsState extends State<Events> {
                   ),
                 ];
               },
-              body: eventProvider != null
-                  ? Builder(
-                      builder: (context) {
-                        List<List<EventModel>> eventsByType;
-                        if (snapshot.data)
-                          eventsByType = eventProvider
-                              .getEventsByType(EventProviderType.DAY);
-                        else
-                          eventsByType = eventProvider
-                              .getEventsByType(EventProviderType.CATEGORY);
-                        return TabBarView(
-                          children: <Widget>[
-                            getPage('first', eventsByType[0]),
-                            getPage('second', eventsByType[1]),
-                            getPage('third', eventsByType[2]),
-                          ],
-                        );
-                      },
-                    )
-                  : Center(
-                      child: CircularProgressIndicator(
-                        strokeWidth: 2,
-                      ),
-                    ),
+              body: getBody(snapshot),
             ),
           ),
         );

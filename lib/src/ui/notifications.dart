@@ -37,8 +37,21 @@ class _NotificationsState extends State<Notifications> {
           ),
           FutureBuilder(
             future: NotificationProvider().getNotifications(),
-            builder: (context, AsyncSnapshot<List<NotificationModel>> snapshot) {
-              if (snapshot.hasData) {
+            builder:
+                (context, AsyncSnapshot<List<NotificationModel>> snapshot) {
+              if (snapshot.hasError) {
+                return SliverFillRemaining(
+                  child: Center(
+                    child: Text(
+                      'Server Timeout.\nPlease try again.',
+                      style: Theme.of(context).textTheme.subhead.copyWith(
+                            color: Colors.white60,
+                            fontWeight: FontWeight.w300,
+                          ),
+                    ),
+                  ),
+                );
+              } else if (snapshot.hasData) {
                 return SliverList(
                   delegate: SliverChildBuilderDelegate(
                     (context, index) {
@@ -62,10 +75,15 @@ class _NotificationsState extends State<Notifications> {
                                 alignment: Alignment.bottomRight,
                                 child: Text(
                                   snapshot.data[index].time,
-                                  style: Theme.of(context).textTheme.subtitle.copyWith(color: Colors.white38),
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .subtitle
+                                      .copyWith(color: Colors.white38),
                                 ),
                               ),
-                              Divider(color: Colors.white24,),
+                              Divider(
+                                color: Colors.white24,
+                              ),
                             ],
                           ),
                         ),
@@ -74,13 +92,15 @@ class _NotificationsState extends State<Notifications> {
                     childCount: snapshot.data.length,
                   ),
                 );
-              }else
-              return SliverFillRemaining(
-                child: Container(
-                  alignment: Alignment.center,
-                  child: CircularProgressIndicator(),
-                ),
-              );
+              } else
+                return SliverFillRemaining(
+                  child: Container(
+                    alignment: Alignment.center,
+                    child: CircularProgressIndicator(
+                      strokeWidth: 2,
+                    ),
+                  ),
+                );
             },
           ),
         ],

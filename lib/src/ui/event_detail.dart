@@ -224,6 +224,16 @@ class _EventDetailState extends State<EventDetail> {
 
   void call(String num) {
     print('Calling $num ...');
-    Call.call(num);
+    try{
+      Call.call(num);
+    }catch(e){
+      createSnackBar('Failed to make call');
+    }
+  }
+
+  void createSnackBar(String message){
+    Scaffold.of(context).showSnackBar(SnackBar(
+      content: Text(message),
+    ));
   }
 }
