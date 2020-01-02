@@ -1,5 +1,9 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:technovation2020/src/bloc/notification_bloc.dart';
+import 'package:technovation2020/src/ui/first_time.dart';
 import 'package:technovation2020/src/ui/tabs.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 
@@ -48,7 +52,65 @@ class _TechnovationState extends State<Technovation> {
           textTheme: TextTheme(),
         ),
       ),
-      home: Tabs(),
+      builder: (context, child){
+        return ScrollConfiguration(
+          behavior: _NoGlowBehavior(),
+          child: child,
+        );
+      },
+      home: _SplashScreen(),
     );
+  }
+}
+
+class _SplashScreen extends StatefulWidget {
+  @override
+  __SplashScreenState createState() => __SplashScreenState();
+}
+
+class __SplashScreenState extends State<_SplashScreen> {
+  Timer t;
+
+  Future checkFirstTime() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    bool _seen = prefs.getBool('firstTime') ?? false;
+    if (_seen) {
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(
+          builder: (context) => Tabs(),
+        ),
+      );
+    }else{
+      await prefs.setBool('firstTime', true);
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(
+          builder: (context) => FirstTime(),
+        ),
+      );
+    }
+  }
+
+  @override
+  void initState() {
+    t = Timer(Duration(milliseconds: 1000), () {
+      checkFirstTime();
+    });
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: Image.asset('android/app/src/main/res/drawable/logo.png'),
+      ),
+    );
+  }
+}
+
+class _NoGlowBehavior extends ScrollBehavior{
+  @override
+  Widget buildViewportChrome(BuildContext context, Widget child, AxisDirection axisDirection) {
+    return child;
   }
 }
