@@ -295,49 +295,75 @@ class _TabItemState extends State<TabItem> {
               child: AnimatedOpacity(
                 duration: Duration(milliseconds: ANIM_DURATION),
                 opacity: iconAlpha,
-                child: Stack(
-                  children: <Widget>[
-                    IconButton(
-                      highlightColor: Colors.transparent,
-                      splashColor: Colors.transparent,
-                      padding: EdgeInsets.all(0),
-                      alignment: Alignment(0, 0),
-                      icon: Icon(
+                child: IconButton(
+                  highlightColor: Colors.transparent,
+                  splashColor: Colors.transparent,
+                  padding: EdgeInsets.all(0),
+                  alignment: Alignment(0, 0),
+                  icon: Stack(
+                    children: <Widget>[
+                      Icon(
                         widget.iconData,
                         color: COLOR,
                       ),
-                      onPressed: () {
-                        widget.callbackFunction();
-                      },
-                    ),
-                    widget.isNotification
-                        ? StreamBuilder<bool>(
-                            stream: notificationBloc.notificationStream,
-                            initialData: false,
-                            builder: (context, snapshot) {
-                              if (snapshot.data)
-                                return Positioned(
-                                  top: 10,
-                                  right: 10,
-                                  child: Container(
-                                    height: 12,
-                                    width: 12,
-                                    decoration: BoxDecoration(
-                                      color: Colors.red,
-                                      borderRadius: BorderRadius.circular(6),
+                      widget.isNotification
+                          ? StreamBuilder<bool>(
+                              stream: notificationBloc.notificationStream,
+                              initialData: false,
+                              builder: (context, snapshot) {
+                                if (snapshot.data)
+                                  return Positioned(
+                                    top: 0,
+                                    right: 0,
+                                    child: Container(
+                                      height: 12,
+                                      width: 12,
+                                      decoration: BoxDecoration(
+                                        color: Colors.red,
+                                        borderRadius: BorderRadius.circular(6),
+                                      ),
                                     ),
-                                  ),
-                                );
-                              else
-                                return Container(
-                                  height: 0,
-                                  width: 0,
-                                );
-                            },
-                          )
-                        : Container(height: 0, width: 0),
-                  ],
+                                  );
+                                else
+                                  return Container(
+                                    height: 0,
+                                    width: 0,
+                                  );
+                              },
+                            )
+                          : Container(height: 0, width: 0),
+                    ],
+                  ),
+                  onPressed: () {
+                    widget.callbackFunction();
+                  },
                 ),
+                // widget.isNotification
+                //     ? StreamBuilder<bool>(
+                //         stream: notificationBloc.notificationStream,
+                //         initialData: true,
+                //         builder: (context, snapshot) {
+                //           if (snapshot.data)
+                //             return Positioned(
+                //               top: 10,
+                //               right: 10,
+                //               child: Container(
+                //                 height: 12,
+                //                 width: 12,
+                //                 decoration: BoxDecoration(
+                //                   color: Colors.red,
+                //                   borderRadius: BorderRadius.circular(6),
+                //                 ),
+                //               ),
+                //             );
+                //           else
+                //             return Container(
+                //               height: 0,
+                //               width: 0,
+                //             );
+                //         },
+                //       )
+                //     : Container(height: 0, width: 0),
               ),
             ),
           )
