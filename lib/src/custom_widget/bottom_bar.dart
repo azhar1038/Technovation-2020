@@ -140,12 +140,12 @@ class _BottomBarState extends State<BottomBar> with TickerProviderStateMixin {
               ),
               TabItem(
                 selected: currentSelected == 3,
-                iconData: Icons.person,
+                iconData: Icons.dashboard,
                 title: "ABOUT",
                 callbackFunction: () {
                   widget.onItemPressed(3);
                   setState(() {
-                    nextIcon = Icons.person;
+                    nextIcon = Icons.dashboard;
                     currentSelected = 3;
                   });
                   _initAnimationAndStart(_positionAnimation.value, 1);

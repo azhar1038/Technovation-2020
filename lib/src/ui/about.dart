@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:technovation2020/src/custom_widget/fade_in.dart';
+import 'package:technovation2020/src/custom_widget/notched_sliverappbar.dart';
 import 'package:technovation2020/src/custom_widget/slide_in.dart';
 
 class About extends StatefulWidget {
@@ -19,40 +20,26 @@ class _AboutState extends State<About> {
 
     return CustomScrollView(
       slivers: <Widget>[
-        SliverAppBar(
-          expandedHeight: 200,
-          flexibleSpace: FlexibleSpaceBar(
-            titlePadding: EdgeInsets.only(bottom: 20, left: 20),
-            title: Text(
-              'Technovation',
-              style: Theme.of(context).textTheme.title,
-            ),
-            background: Stack(
-              fit: StackFit.expand,
-              children: <Widget>[
-                Image.asset(
-                  'images/event1.jpg',
-                  fit: BoxFit.cover,
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                        begin: Alignment.topCenter,
-                        end: Alignment.bottomCenter,
-                        colors: [
-                          Color(0x00000000),
-                          Color(0xcc000000)
-                        ]),
-                  ),
-                ),
-              ],
+        SliverPersistentHeader(
+          pinned: true,
+          delegate: NotchedSliverAppBar(
+            expandedHeight: 200,
+            minHeight: 64,
+            background: Container(
+              alignment: Alignment.center,
+              color: Theme.of(context).scaffoldBackgroundColor,
+              padding: const EdgeInsets.all(32.0),
+              child: Image.asset(
+                'android/app/src/main/res/drawable/logo.png',
+                fit: BoxFit.contain,
+              ),
             ),
           ),
-          pinned: true,
         ),
         SliverList(
           delegate: SliverChildListDelegate(
             <Widget>[
+              SizedBox(height: 32),
               header('Technovation', -1),
               FadeIn(
                 duration: Duration(seconds: 2),
@@ -99,39 +86,56 @@ class _AboutState extends State<About> {
   Widget header(String title, double startX) {
     List<Color> gradient;
     Alignment alignment;
+    BorderRadiusGeometry borderRadius;
     if (startX < 0) {
       gradient = [
-        Color(0xff005dea),
-        Colors.transparent,
+        Color(0xff005bea),
+        Color(0xff00a6fb),
       ];
       alignment = Alignment.centerLeft;
+      borderRadius = BorderRadius.only(
+        topRight: Radius.circular(16),
+        bottomRight: Radius.circular(16),
+      );
     } else if (startX > 0) {
       gradient = [
-        Colors.transparent,
-        Color(0xff005dea),
+        Color(0xff00a6fb),
+        Color(0xff005bea),
       ];
       alignment = Alignment.centerRight;
+      borderRadius = BorderRadius.only(
+        topLeft: Radius.circular(16),
+        bottomLeft: Radius.circular(16),
+      );
     }
     return SlideIn(
       startX: startX,
       startY: 0,
       duration: Duration(seconds: 1),
       child: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.centerLeft,
-            end: Alignment.centerRight,
-            colors: gradient,
-          ),
-        ),
+        height: 56,
         alignment: alignment,
-        padding: EdgeInsets.all(16),
-        child: Text(
-          title,
-          style: TextStyle(
-            fontSize: 24,
-            fontWeight: FontWeight.w800,
-            color: Colors.white,
+        child: Container(
+          width: MediaQuery.of(context).size.width / 1.3,
+          decoration: ShapeDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.centerLeft,
+              end: Alignment.centerRight,
+              colors: gradient,
+            ),
+            shape: BeveledRectangleBorder(
+              borderRadius: borderRadius,
+            ),
+          ),
+          alignment: alignment,
+          padding: EdgeInsets.all(16),
+          child: Text(
+            title,
+            style: TextStyle(
+              fontSize: 24,
+              fontWeight: FontWeight.w800,
+              color: Colors.white,
+            ),
           ),
         ),
       ),

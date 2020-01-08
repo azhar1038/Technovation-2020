@@ -2,23 +2,21 @@ import 'package:flutter/material.dart';
 
 class NotchedSliverAppBar extends SliverPersistentHeaderDelegate {
   final double expandedHeight;
-  final Widget title;
+  final Widget background;
   final TabBar tabBar;
-  final IconData icon;
-  final VoidCallback onAction;
+  final double minHeight;
 
   NotchedSliverAppBar({
     this.expandedHeight = 150,
-    @required this.title,
-    this.icon,
-    this.onAction,
+    @required this.background,
     this.tabBar,
-  }) : assert(icon == null || onAction != null);
+    this.minHeight = 64,
+  });
   @override
   Widget build(
       BuildContext context, double shrinkOffset, bool overlapsContent) {
     double top = expandedHeight - shrinkOffset - 45;
-    double opacity = 1 - shrinkOffset / (expandedHeight - 70);
+    double opacity = 1 - shrinkOffset / (expandedHeight - minHeight);
     return Stack(
       fit: StackFit.expand,
       overflow: Overflow.visible,
@@ -40,26 +38,12 @@ class NotchedSliverAppBar extends SliverPersistentHeaderDelegate {
           alignment: Alignment.centerLeft,
           child: Opacity(
             opacity: opacity >= 0 ? opacity : 0,
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  title,
-                  icon != null
-                      ? IconButton(
-                          icon: Icon(icon),
-                          onPressed: onAction,
-                        )
-                      : Container(),
-                ],
-              ),
-            ),
+            child:background
           ),
         ),
         tabBar != null
             ? Positioned(
-                top: top > 25 ? top : 25,
+                top: top,
                 left: (MediaQuery.of(context).size.width - 250) / 2,
                 child: Card(
                   elevation: 6,
@@ -95,7 +79,7 @@ class NotchedSliverAppBar extends SliverPersistentHeaderDelegate {
   double get maxExtent => expandedHeight;
 
   @override
-  double get minExtent => 70;
+  double get minExtent => minHeight;
 
   @override
   bool shouldRebuild(SliverPersistentHeaderDelegate oldDelegate) {

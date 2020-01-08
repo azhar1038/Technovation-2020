@@ -65,9 +65,9 @@ class _EventsState extends State<Events> {
         child: Text(
           'Server Timeout.\nPlease try again.',
           style: Theme.of(context).textTheme.subhead.copyWith(
-            color: Colors.white60,
-            fontWeight: FontWeight.w300,
-          ),
+                color: Colors.white60,
+                fontWeight: FontWeight.w300,
+              ),
         ),
       );
     } else {
@@ -111,46 +111,57 @@ class _EventsState extends State<Events> {
                         context),
                     child: SliverPersistentHeader(
                       delegate: NotchedSliverAppBar(
-                          expandedHeight: 150,
-                          title: Text(
-                            'Events',
-                            style: Theme.of(context).textTheme.title,
-                          ),
-                          tabBar: TabBar(
-                            indicatorPadding: EdgeInsets.all(4),
-                            labelPadding: EdgeInsets.zero,
-                            labelColor: Colors.white,
-                            indicatorSize: TabBarIndicatorSize.label,
-                            tabs: snapshot.data
-                                ? [
-                                    Tab(text: 'Day 1'),
-                                    Tab(text: 'Day 2'),
-                                    Tab(text: 'Day 3'),
-                                  ]
-                                : [
-                                    Tab(text: 'Technical'),
-                                    Tab(text: 'Cultural'),
-                                    Tab(text: 'Fun'),
-                                  ],
-                          ),
-                          icon: Icons.search,
-                          onAction: () async {
-                            EventModel result = await showSearch(
-                              context: context,
-                              delegate: EventsSearchDelegate(
-                                events: eventProvider.events,
+                        expandedHeight: 150,
+                        background: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: <Widget>[
+                              Text(
+                                'Events',
+                                style: Theme.of(context).textTheme.title,
                               ),
-                            );
-                            if (result != null)
-                              Navigator.of(context).push(
-                                MaterialPageRoute(
-                                  builder: (context) => EventDetail(
-                                    event: result,
-                                    tag: 'image',
-                                  ),
-                                ),
-                              );
-                          }),
+                              IconButton(
+                                icon: Icon(Icons.search),
+                                onPressed: () async {
+                                  EventModel result = await showSearch(
+                                    context: context,
+                                    delegate: EventsSearchDelegate(
+                                      events: eventProvider.events,
+                                    ),
+                                  );
+                                  if (result != null)
+                                    Navigator.of(context).push(
+                                      MaterialPageRoute(
+                                        builder: (context) => EventDetail(
+                                          event: result,
+                                          tag: 'image',
+                                        ),
+                                      ),
+                                    );
+                                },
+                              )
+                            ],
+                          ),
+                        ),
+                        tabBar: TabBar(
+                          indicatorPadding: EdgeInsets.all(4),
+                          labelPadding: EdgeInsets.zero,
+                          labelColor: Colors.white,
+                          indicatorSize: TabBarIndicatorSize.label,
+                          tabs: snapshot.data
+                              ? [
+                                  Tab(text: 'Day 1'),
+                                  Tab(text: 'Day 2'),
+                                  Tab(text: 'Day 3'),
+                                ]
+                              : [
+                                  Tab(text: 'Technical'),
+                                  Tab(text: 'Cultural'),
+                                  Tab(text: 'Fun'),
+                                ],
+                        ),
+                      ),
                       pinned: true,
                     ),
                   ),

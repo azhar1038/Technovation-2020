@@ -27,9 +27,12 @@ class _NotificationsState extends State<Notifications> {
         slivers: <Widget>[
           SliverPersistentHeader(
             delegate: NotchedSliverAppBar(
-              title: Text(
-                'Notifications',
-                style: Theme.of(context).textTheme.title,
+              background: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  'Notifications',
+                  style: Theme.of(context).textTheme.title,
+                ),
               ),
               expandedHeight: 150,
             ),
