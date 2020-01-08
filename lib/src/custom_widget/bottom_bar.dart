@@ -338,32 +338,6 @@ class _TabItemState extends State<TabItem> {
                     widget.callbackFunction();
                   },
                 ),
-                // widget.isNotification
-                //     ? StreamBuilder<bool>(
-                //         stream: notificationBloc.notificationStream,
-                //         initialData: true,
-                //         builder: (context, snapshot) {
-                //           if (snapshot.data)
-                //             return Positioned(
-                //               top: 10,
-                //               right: 10,
-                //               child: Container(
-                //                 height: 12,
-                //                 width: 12,
-                //                 decoration: BoxDecoration(
-                //                   color: Colors.red,
-                //                   borderRadius: BorderRadius.circular(6),
-                //                 ),
-                //               ),
-                //             );
-                //           else
-                //             return Container(
-                //               height: 0,
-                //               width: 0,
-                //             );
-                //         },
-                //       )
-                //     : Container(height: 0, width: 0),
               ),
             ),
           )
