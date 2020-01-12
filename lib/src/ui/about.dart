@@ -3,6 +3,7 @@ import 'package:technovation2020/src/custom_widget/beveled_button.dart';
 import 'package:technovation2020/src/custom_widget/notched_sliverappbar.dart';
 import 'package:technovation2020/src/custom_widget/slide_in.dart';
 import 'package:technovation2020/src/resource/intent.dart';
+import 'package:technovation2020/src/ui/team.dart';
 
 class About extends StatefulWidget {
   @override
@@ -81,7 +82,11 @@ class _AboutState extends State<About> {
                         BeveledButton(
                           icon: Icon(Icons.group),
                           text: Text('Our Team'),
-                          onTap: () => print('Tapped'),
+                          onTap: () => Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context) => Team(),
+                            ),
+                          ),
                         ),
                         BeveledButton(
                           icon: Icon(Icons.business_center),
@@ -109,9 +114,9 @@ class _AboutState extends State<About> {
                             color: Colors.white,
                           ),
                           onTap: () {
-                            try{
-                              IntentHelper.web('google.com');
-                            }catch(e){
+                            try {
+                              IntentHelper.web('igittechnovation.in');
+                            } catch (e) {
                               createSnackBar('Failed to Open.');
                             }
                           },
@@ -122,9 +127,9 @@ class _AboutState extends State<About> {
                             height: 40,
                           ),
                           onTap: () {
-                            try{
-                              IntentHelper.web('facebook.com');
-                            }catch(e){
+                            try {
+                              IntentHelper.web('m.facebook.com/Technovation2020/?ref=bookmarks');
+                            } catch (e) {
                               createSnackBar('Failed to Open.');
                             }
                           },
@@ -135,9 +140,9 @@ class _AboutState extends State<About> {
                             height: 40,
                           ),
                           onTap: () {
-                            try{
-                              IntentHelper.web('instagram.com');
-                            }catch(e){
+                            try {
+                              IntentHelper.web('instagram.com/technovation2020?igshid=1q1dyc186xc6x');
+                            } catch (e) {
                               createSnackBar('Failed to Open.');
                             }
                           },
@@ -204,7 +209,7 @@ class _AboutState extends State<About> {
     );
   }
 
-  void createSnackBar(String message){
+  void createSnackBar(String message) {
     Scaffold.of(context).showSnackBar(SnackBar(
       content: Text(message),
     ));
