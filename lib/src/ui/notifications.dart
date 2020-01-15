@@ -68,7 +68,7 @@ class _NotificationsState extends State<Notifications> {
                                 alignment: Alignment.topLeft,
                                 child: Text(
                                   snapshot.data[index].body,
-                                  style: Theme.of(context).textTheme.title,
+                                  style: Theme.of(context).textTheme.subhead,
                                 ),
                               ),
                               SizedBox(
@@ -81,7 +81,10 @@ class _NotificationsState extends State<Notifications> {
                                   style: Theme.of(context)
                                       .textTheme
                                       .subtitle
-                                      .copyWith(color: Colors.white38),
+                                      .copyWith(
+                                        color: Colors.white38,
+                                        fontStyle: FontStyle.italic,
+                                      ),
                                 ),
                               ),
                               Divider(

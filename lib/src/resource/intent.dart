@@ -10,9 +10,9 @@ class IntentHelper {
     }
   }
 
-  static web(String url) {
+  static Future<void> web(String url) async {
     try {
-      platform.invokeMethod('webIntent', {'url': url});
+      return await platform.invokeMethod('webIntent', {'url': url});
     } on PlatformException catch (e) {
       throw IntentException('Failed to open. $e');
     }

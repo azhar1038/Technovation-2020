@@ -101,7 +101,7 @@ class _BottomBarState extends State<BottomBar> with TickerProviderStateMixin {
               TabItem(
                 selected: currentSelected == 0,
                 iconData: Icons.home,
-                title: "HOME",
+                title: "Home",
                 callbackFunction: () {
                   widget.onItemPressed(0);
                   setState(() {
@@ -114,7 +114,7 @@ class _BottomBarState extends State<BottomBar> with TickerProviderStateMixin {
               TabItem(
                 selected: currentSelected == 1,
                 iconData: Icons.event_note,
-                title: "EVENTS",
+                title: "Events",
                 callbackFunction: () {
                   widget.onItemPressed(1);
                   setState(() {
@@ -128,7 +128,7 @@ class _BottomBarState extends State<BottomBar> with TickerProviderStateMixin {
                 isNotification: true,
                 selected: currentSelected == 2,
                 iconData: Icons.notifications_none,
-                title: "NOTIFICATION",
+                title: "Notification",
                 callbackFunction: () {
                   widget.onItemPressed(2);
                   setState(() {
@@ -141,7 +141,7 @@ class _BottomBarState extends State<BottomBar> with TickerProviderStateMixin {
               TabItem(
                 selected: currentSelected == 3,
                 iconData: Icons.dashboard,
-                title: "ABOUT",
+                title: "About",
                 callbackFunction: () {
                   widget.onItemPressed(3);
                   setState(() {
@@ -280,8 +280,9 @@ class _TabItemState extends State<TabItem> {
                     softWrap: false,
                     overflow: TextOverflow.fade,
                     style: TextStyle(
+                      fontFamily: 'IMFellGreatPrimerSC',
                       color: COLOR,
-                      fontWeight: FontWeight.w600,
+                      fontWeight: FontWeight.w500,
                       fontSize: 12,
                     ),
                   ),

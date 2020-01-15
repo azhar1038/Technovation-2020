@@ -15,6 +15,11 @@ class EventDetail extends StatefulWidget {
 class _EventDetailState extends State<EventDetail> {
   @override
   Widget build(BuildContext context) {
+    String time;
+    if (widget.event.day == 0 || widget.event.time.isEmpty)
+      time = "Will be Updated";
+    else
+      time = "Day ${widget.event.day} | ${widget.event.time}";
     TextStyle header = Theme.of(context).textTheme.headline;
     TextStyle body = Theme.of(context).textTheme.subhead;
     return Scaffold(
@@ -22,7 +27,10 @@ class _EventDetailState extends State<EventDetail> {
         shape: BeveledRectangleBorder(
           borderRadius: BorderRadius.circular(30),
         ),
-        child: Icon(Icons.call, size: 18,),
+        child: Icon(
+          Icons.call,
+          size: 18,
+        ),
         onPressed: () => onCallPressed(),
       ),
       body: CustomScrollView(
@@ -76,6 +84,48 @@ class _EventDetailState extends State<EventDetail> {
                     mainAxisSize: MainAxisSize.min,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
+                      Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: <Widget>[
+                          Icon(
+                            Icons.access_time,
+                            size: 16,
+                          ),
+                          SizedBox(
+                            width: 8,
+                          ),
+                          Text(
+                            time,
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w300,
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(height: 8,),
+                      Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: <Widget>[
+                          Icon(
+                            Icons.location_on,
+                            size: 16,
+                          ),
+                          SizedBox(
+                            width: 8,
+                          ),
+                          Text(
+                            widget.event.location.isEmpty
+                                ? 'Will be updated'
+                                : widget.event.location,
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w300,
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(height: 16,),
                       Text(
                         'Description: ',
                         style: header,
@@ -224,14 +274,14 @@ class _EventDetailState extends State<EventDetail> {
 
   void call(String num) {
     print('Calling $num ...');
-    try{
+    try {
       IntentHelper.call(num);
-    }catch(e){
+    } catch (e) {
       createSnackBar('Failed to make call');
     }
   }
 
-  void createSnackBar(String message){
+  void createSnackBar(String message) {
     Scaffold.of(context).showSnackBar(SnackBar(
       content: Text(message),
     ));

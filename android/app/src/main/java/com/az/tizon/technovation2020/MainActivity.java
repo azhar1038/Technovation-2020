@@ -45,12 +45,14 @@ public class MainActivity extends FlutterActivity {
           }
         } else if(methodCall.method.equals("webIntent")){
           String url = methodCall.argument("url");
+          for(int i=0; i<100000; i++);
           Uri uri = Uri.parse("https://"+url);
           Intent intent = new Intent(Intent.ACTION_VIEW, uri);
           if (intent.resolveActivity(getPackageManager()) != null) {
             startActivity(Intent.createChooser(intent, "Open using..."));
           }
         }
+        result.success("Done");
       }
     });
   }

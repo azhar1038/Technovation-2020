@@ -51,8 +51,15 @@ class _TechnovationState extends State<Technovation> {
           color: Color(0xff122c3d),
           textTheme: TextTheme(),
         ),
+        textTheme: TextTheme(
+          title: TextStyle(
+            fontFamily: 'IMFellGreatPrimerSC',
+            fontSize: 24,
+            fontWeight: FontWeight.w500,
+          ),
+        ),
       ),
-      builder: (context, child){
+      builder: (context, child) {
         return ScrollConfiguration(
           behavior: _NoGlowBehavior(),
           child: child,
@@ -80,7 +87,7 @@ class __SplashScreenState extends State<_SplashScreen> {
           builder: (context) => Tabs(),
         ),
       );
-    }else{
+    } else {
       await prefs.setBool('firstTime', true);
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(
@@ -108,9 +115,10 @@ class __SplashScreenState extends State<_SplashScreen> {
   }
 }
 
-class _NoGlowBehavior extends ScrollBehavior{
+class _NoGlowBehavior extends ScrollBehavior {
   @override
-  Widget buildViewportChrome(BuildContext context, Widget child, AxisDirection axisDirection) {
+  Widget buildViewportChrome(
+      BuildContext context, Widget child, AxisDirection axisDirection) {
     return child;
   }
 }

@@ -70,7 +70,7 @@ class _AboutState extends State<About> {
                   style: body,
                 ),
               ),
-              header('ABOUT US', 1),
+              header('About Us', 1),
               Container(
                 padding: EdgeInsets.symmetric(horizontal: 10, vertical: 30),
                 child: Column(
@@ -119,11 +119,18 @@ class _AboutState extends State<About> {
                             color: Colors.white,
                           ),
                           onTap: () {
-                            try {
-                              IntentHelper.web('igittechnovation.in');
-                            } catch (e) {
+                            createWait();
+                            // try {
+                            //   createWait();
+                            //   IntentHelper.web('igittechnovation.co.in');
+                            // } catch (e) {
+                            //   createSnackBar('Failed to Open.');
+                            // }
+                            IntentHelper.web('igittechnovation.co.in').then((_) {
+                              Navigator.of(context).pop();
+                            }).catchError((error){
                               createSnackBar('Failed to Open.');
-                            }
+                            });
                           },
                         ),
                         GestureDetector(
@@ -160,7 +167,8 @@ class _AboutState extends State<About> {
                       height: 32,
                     ),
                     GestureDetector(
-                      onTap: ()=>IntentHelper.web('github.com/mdazharuddin1011999/'),
+                      onTap: () =>
+                          IntentHelper.web('github.com/mdazharuddin1011999/'),
                       child: Text(
                         '----- App by Md.Azharuddin -----',
                         style: TextStyle(
@@ -222,8 +230,9 @@ class _AboutState extends State<About> {
           child: Text(
             title,
             style: TextStyle(
+              fontFamily: 'IMFellGreatPrimerSC',
               fontSize: 24,
-              fontWeight: FontWeight.w800,
+              fontWeight: FontWeight.w500,
               color: Colors.white,
             ),
           ),
@@ -236,5 +245,18 @@ class _AboutState extends State<About> {
     Scaffold.of(context).showSnackBar(SnackBar(
       content: Text(message),
     ));
+  }
+
+  void createWait() {
+    showDialog(
+        context: context,
+        barrierDismissible: false,
+        builder: (context) {
+          return Center(
+            child: CircularProgressIndicator(
+              strokeWidth: 2,
+            ),
+          );
+        });
   }
 }
