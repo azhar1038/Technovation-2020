@@ -325,6 +325,7 @@ class _EventsState extends State<Events> {
         ),
       );
     });
+    res.add(SizedBox(height: 32));
     return res;
   }
 }

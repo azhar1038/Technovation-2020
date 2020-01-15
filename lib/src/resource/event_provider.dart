@@ -15,12 +15,12 @@ class EventProvider {
       _eventProvider.events = [];
       try {
         DataSnapshot ds = await FirebaseHelper.getEvents();
-        ds.value.forEach((event) {
+        ds.value.forEach((key, event) {
           _eventProvider.events
               .add(EventModel.fromJson(Map<String, dynamic>.from(event)));
         });
       } catch (e) {
-        throw FirebaseHelperException(e.cause);
+        throw FirebaseHelperException('$e');
       }
     }
     return _eventProvider;

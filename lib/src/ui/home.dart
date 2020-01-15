@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:technovation2020/src/custom_widget/fade_in.dart';
 import 'package:technovation2020/src/custom_widget/slideshow.dart';
 import 'package:technovation2020/src/bloc/fancy_line_bloc.dart';
+import 'package:technovation2020/src/model/event_model.dart';
+import 'package:technovation2020/src/resource/firebase_helper.dart';
+import 'package:technovation2020/src/ui/event_detail.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -31,15 +34,14 @@ class _HomeState extends State<Home> {
       body: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [
-              Color(0xff122e4d),
-              Color(0xff122c3d),
-              Color(0xff09131d),
-              Color(0xff09131a),
-            ]
-          ),
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [
+                Color(0xff122e4d),
+                Color(0xff122c3d),
+                Color(0xff09131d),
+                Color(0xff09131a),
+              ]),
         ),
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -72,7 +74,15 @@ class _HomeState extends State<Home> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
-                  Slideshow(),
+                  Slideshow(
+                    onImageClick: (String id) {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => SpecialEventDetail(id: id),
+                        ),
+                      );
+                    },
+                  ),
                   StreamBuilder(
                     stream: _fancyLineBloc.indexStream,
                     initialData: 0,
@@ -97,6 +107,46 @@ class _HomeState extends State<Home> {
             ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class SpecialEventDetail extends StatelessWidget {
+  final String id;
+
+  SpecialEventDetail({
+    this.id,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: FutureBuilder(
+        future: FirebaseHelper.getEvent(id),
+        builder: (context, AsyncSnapshot<EventModel> snapshot) {
+          if (snapshot.connectionState == ConnectionState.done) {
+            if (snapshot.hasData && !snapshot.hasError) {
+              return EventDetail(event: snapshot.data, tag: 'image');
+            } else {
+              return Center(
+                child: Text(
+                  'Server Timeout.\nPlease try again.',
+                  style: Theme.of(context).textTheme.subhead.copyWith(
+                        color: Colors.white60,
+                        fontWeight: FontWeight.w300,
+                      ),
+                ),
+              );
+            }
+          } else {
+            return Center(
+              child: CircularProgressIndicator(
+                strokeWidth: 2,
+              ),
+            );
+          }
+        },
       ),
     );
   }

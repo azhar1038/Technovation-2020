@@ -49,53 +49,8 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
    - android/app/src/main/res/drawable/logo.png
-   - images/anonymous.jpg
-   - images/intro0.jpg
-   - images/intro1.jpg
-   - images/intro2.jpg
-   - images/intro3.jpg
-   - images/intro4.jpg
-   - images/intro5.jpg
-   - images/intro6.jpg
-   - images/intro7.jpg
-   - images/event1.jpg
-   - images/event2.jpg
-   - images/event3.jpg
-   - images/event4.jpg
-   - images/event5.jpg
-   - images/000.jpg
-   - images/001.jpg
-   - images/002.jpg
-   - images/003.jpg
-   - images/004.jpg
-   - images/005.jpg
-   - images/006.jpg
-   - images/007.jpg
-   - images/008.jpg
-   - images/100.jpg
-   - images/101.jpg
-   - images/102.jpg
-   - images/103.jpg
-   - images/104.jpg
-   - images/105.jpg
-   - images/106.jpg
-   - images/107.jpg
-   - images/108.jpg
-   - images/200.jpg
-   - images/201.jpg
-   - images/202.jpg
-   - images/203.jpg
-   - images/204.jpg
-   - images/205.jpg
-   - images/206.jpg
-   - images/207.jpg
-   - images/208.jpg
-   - images/209.jpg
-   - images/logo.png
-   - images/website.png
-   - images/facebook.png
-   - images/instagram.png
-
+   - images/
+  
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 

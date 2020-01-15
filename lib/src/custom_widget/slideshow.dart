@@ -3,6 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:technovation2020/src/bloc/fancy_line_bloc.dart';
 
 class Slideshow extends StatefulWidget {
+  final Function(String) onImageClick;
+
+  Slideshow({
+    this.onImageClick,
+  });
+
   @override
   _SlideshowState createState() => _SlideshowState();
 }
@@ -12,7 +18,7 @@ class _SlideshowState extends State<Slideshow> {
 
   FancyLineBloc _fancyLineBloc;
 
-  Widget getImage(String asset) {
+  Widget getImage(String asset, String id) {
     return Container(
       width: 300,
       padding: EdgeInsets.all(10),
@@ -20,13 +26,16 @@ class _SlideshowState extends State<Slideshow> {
         painter: _BorderPainter(
           border: Colors.white,
         ),
-        child: Container(
-          padding: EdgeInsets.zero,
-          child: ClipPath(
-            clipper: _BorderClipper(),
-            child: Image.asset(
-              asset,
-              fit: BoxFit.cover,
+        child: GestureDetector(
+          onTap: ()=>widget.onImageClick(id),
+          child: Container(
+            padding: EdgeInsets.zero,
+            child: ClipPath(
+              clipper: _BorderClipper(),
+              child: Image.asset(
+                asset,
+                fit: BoxFit.cover,
+              ),
             ),
           ),
         ),
@@ -38,11 +47,11 @@ class _SlideshowState extends State<Slideshow> {
   void initState() {
     super.initState();
     images = [
-      getImage('images/event1.jpg'),
-      getImage('images/event2.jpg'),
-      getImage('images/event3.jpg'),
-      getImage('images/event4.jpg'),
-      getImage('images/event5.jpg'),
+      getImage('images/event1.jpg', '100'),
+      getImage('images/event2.jpg', '201'),
+      getImage('images/event3.jpg', '001'),
+      getImage('images/event4.jpg', '000'),
+      getImage('images/event5.jpg', '103'),
     ];
     _fancyLineBloc = FancyLineBloc();
   }
@@ -65,7 +74,7 @@ class _SlideshowState extends State<Slideshow> {
           autoPlayCurve: Curves.fastOutSlowIn,
           enlargeCenterPage: true,
           scrollDirection: Axis.horizontal,
-          onPageChanged: (int i){
+          onPageChanged: (int i) {
             _fancyLineBloc.change(i);
           },
         ),

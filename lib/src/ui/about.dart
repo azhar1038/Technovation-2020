@@ -3,6 +3,7 @@ import 'package:technovation2020/src/custom_widget/beveled_button.dart';
 import 'package:technovation2020/src/custom_widget/notched_sliverappbar.dart';
 import 'package:technovation2020/src/custom_widget/slide_in.dart';
 import 'package:technovation2020/src/resource/intent.dart';
+import 'package:technovation2020/src/ui/sponsors.dart';
 import 'package:technovation2020/src/ui/team.dart';
 
 class About extends StatefulWidget {
@@ -97,7 +98,11 @@ class _AboutState extends State<About> {
                               textAlign: TextAlign.center,
                             ),
                           ),
-                          onTap: () => print('TAPPED'),
+                          onTap: () => Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context) => Sponsors(),
+                            ),
+                          ),
                         ),
                       ],
                     ),
@@ -110,7 +115,7 @@ class _AboutState extends State<About> {
                         GestureDetector(
                           child: Image.asset(
                             'images/website.png',
-                            height: 32,
+                            height: 40,
                             color: Colors.white,
                           ),
                           onTap: () {
@@ -128,7 +133,8 @@ class _AboutState extends State<About> {
                           ),
                           onTap: () {
                             try {
-                              IntentHelper.web('m.facebook.com/Technovation2020/?ref=bookmarks');
+                              IntentHelper.web(
+                                  'm.facebook.com/Technovation2020/?ref=bookmarks');
                             } catch (e) {
                               createSnackBar('Failed to Open.');
                             }
@@ -141,13 +147,30 @@ class _AboutState extends State<About> {
                           ),
                           onTap: () {
                             try {
-                              IntentHelper.web('instagram.com/technovation2020?igshid=1q1dyc186xc6x');
+                              IntentHelper.web(
+                                  'instagram.com/technovation2020?igshid=1q1dyc186xc6x');
                             } catch (e) {
                               createSnackBar('Failed to Open.');
                             }
                           },
                         ),
                       ],
+                    ),
+                    SizedBox(
+                      height: 32,
+                    ),
+                    GestureDetector(
+                      onTap: ()=>IntentHelper.web('github.com/mdazharuddin1011999/'),
+                      child: Text(
+                        '----- App by Md.Azharuddin -----',
+                        style: TextStyle(
+                          wordSpacing: 3,
+                          letterSpacing: 2,
+                          fontStyle: FontStyle.italic,
+                          fontWeight: FontWeight.w300,
+                          color: Colors.white54,
+                        ),
+                      ),
                     ),
                   ],
                 ),
