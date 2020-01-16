@@ -1,3 +1,4 @@
+import 'package:technovation2020/src/custom_widget/floating_dots.dart';
 import 'package:flutter/material.dart';
 import 'package:technovation2020/src/custom_widget/fade_in.dart';
 import 'package:technovation2020/src/custom_widget/slideshow.dart';
@@ -43,67 +44,80 @@ class _HomeState extends State<Home> {
                 Color(0xff09131a),
               ]),
         ),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
+        child: Stack(
           children: <Widget>[
-            Container(
-              alignment: Alignment.bottomCenter,
-              padding: EdgeInsets.only(top: 30),
-              height: 180,
-              child: Image.asset(
-                'images/logo.png',
-                width: 250.0,
-              ),
-              //),
+            FloatingDotGroup(
+              number: 16,
+              direction: Direction.up,
+              trajectory: Trajectory.random,
+              size: DotSize.small,
+              colors: <Color>[Colors.white, Colors.lightBlueAccent,],
+              opacity: 0.5,
+              speed: DotSpeed.mixed,
             ),
-            Container(
-              padding: EdgeInsets.all(10),
-              child: Text(
-                '\" The Tag Line \"', //TODO: Add the tag line.
-                style: TextStyle(
-                  fontSize: 25,
-                  fontStyle: FontStyle.italic,
-                  fontWeight: FontWeight.w300,
+            Column(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                Container(
+                  alignment: Alignment.bottomCenter,
+                  padding: EdgeInsets.only(top: 30),
+                  height: 180,
+                  child: Image.asset(
+                    'images/logo.png',
+                    width: 250.0,
+                  ),
+                  //),
                 ),
-              ),
-            ),
-            Expanded(
-              flex: 2,
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                  Slideshow(
-                    onImageClick: (String id) {
-                      Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (context) => SpecialEventDetail(id: id),
-                        ),
-                      );
-                    },
+                Container(
+                  padding: EdgeInsets.all(10),
+                  child: Text(
+                    '\" The Tag Line \"', //TODO: Add the tag line.
+                    style: TextStyle(
+                      fontSize: 25,
+                      fontStyle: FontStyle.italic,
+                      fontWeight: FontWeight.w300,
+                    ),
                   ),
-                  StreamBuilder(
-                    stream: _fancyLineBloc.indexStream,
-                    initialData: 0,
-                    builder: (context, AsyncSnapshot<int> snapshot) {
-                      String text = '';
-                      if (snapshot.hasData) {
-                        text = fancyLine[snapshot.data];
-                      }
-                      return FadeIn(
-                        child: Text(
-                          text,
-                          style: TextStyle(
-                            fontSize: 20.0,
-                            fontWeight: FontWeight.w200,
-                          ),
-                        ),
-                      );
-                    },
+                ),
+                Expanded(
+                  flex: 2,
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: <Widget>[
+                      Slideshow(
+                        onImageClick: (String id) {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context) => SpecialEventDetail(id: id),
+                            ),
+                          );
+                        },
+                      ),
+                      StreamBuilder(
+                        stream: _fancyLineBloc.indexStream,
+                        initialData: 0,
+                        builder: (context, AsyncSnapshot<int> snapshot) {
+                          String text = '';
+                          if (snapshot.hasData) {
+                            text = fancyLine[snapshot.data];
+                          }
+                          return FadeIn(
+                            child: Text(
+                              text,
+                              style: TextStyle(
+                                fontSize: 20.0,
+                                fontWeight: FontWeight.w200,
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+                    ],
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ],
         ),

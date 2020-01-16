@@ -109,7 +109,7 @@ class _EventsState extends State<Events> {
                   SliverOverlapAbsorber(
                     handle: NestedScrollView.sliverOverlapAbsorberHandleFor(
                         context),
-                    child: SliverPersistentHeader(
+                    sliver: SliverPersistentHeader(
                       delegate: NotchedSliverAppBar(
                         expandedHeight: 150,
                         background: Padding(

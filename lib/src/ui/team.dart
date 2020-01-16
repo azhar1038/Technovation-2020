@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:technovation2020/src/custom_widget/floating_dots.dart';
 import 'package:technovation2020/src/model/team_model.dart';
 import 'package:technovation2020/src/resource/team_provider.dart';
 
@@ -23,18 +24,32 @@ class _TeamState extends State<Team> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: PageView(
-        controller: _pageController,
-        scrollDirection: Axis.vertical,
+      body: Stack(
+
         children: <Widget>[
-          _TeamPage(
-            key: PageStorageKey(0),
-            type: TeamType.BTECH,
+          FloatingDotGroup(
+            number: 16,
+            direction: Direction.up,
+            trajectory: Trajectory.random,
+            size: DotSize.small,
+            colors: <Color>[Colors.white, Colors.lightBlueAccent,],
+            opacity: 0.5,
+            speed: DotSpeed.mixed,
           ),
-          _TeamPage(
-            key: PageStorageKey(1),
-            type: TeamType.MCA,
-          )
+          PageView(
+            controller: _pageController,
+            scrollDirection: Axis.vertical,
+            children: <Widget>[
+              _TeamPage(
+                key: PageStorageKey(0),
+                type: TeamType.BTECH,
+              ),
+              _TeamPage(
+                key: PageStorageKey(1),
+                type: TeamType.MCA,
+              )
+            ],
+          ),
         ],
       ),
     );

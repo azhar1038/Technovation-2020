@@ -69,7 +69,7 @@ class _SlideshowState extends State<Slideshow> {
           initialPage: 0,
           enableInfiniteScroll: true,
           autoPlay: true,
-          autoPlayInterval: Duration(seconds: 5),
+          autoPlayInterval: Duration(seconds: 3),
           pauseAutoPlayOnTouch: Duration(seconds: 2),
           autoPlayCurve: Curves.fastOutSlowIn,
           enlargeCenterPage: true,
