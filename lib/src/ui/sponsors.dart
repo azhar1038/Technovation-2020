@@ -28,12 +28,11 @@ class Sponsors extends StatelessWidget {
         children: <Widget>[
           FloatingDotGroup(
             number: 16,
-            direction: Direction.up,
-            trajectory: Trajectory.random,
-            size: DotSize.small,
-            colors: <Color>[Colors.white, Colors.lightBlueAccent,],
+            colors: <Color>[
+              Colors.white,
+              Colors.lightBlueAccent,
+            ],
             opacity: 0.5,
-            speed: DotSpeed.mixed,
           ),
           ListView.builder(
             itemCount: sponsors.length,
@@ -51,7 +50,7 @@ class Sponsors extends StatelessWidget {
                         bottomRight: Radius.circular(16),
                       ),
                     ),
-                    color: Colors.white24,
+                    color: Color.fromRGBO(68, 75, 93, 0.8),
                   ),
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
@@ -67,7 +66,8 @@ class Sponsors extends StatelessWidget {
                       Text(
                         sponsors[i].name,
                         textAlign: TextAlign.center,
-                        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 16),
                       ),
                       SizedBox(height: 24),
                       Text(
@@ -81,7 +81,8 @@ class Sponsors extends StatelessWidget {
                         child: OutlineButton(
                           child: Text('Know More...'),
                           highlightedBorderColor: Colors.white,
-                          onPressed: ()=>IntentHelper.web(sponsors[i].website),
+                          onPressed: () =>
+                              IntentHelper.web(sponsors[i].website),
                         ),
                       ),
                     ],

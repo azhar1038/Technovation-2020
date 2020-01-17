@@ -119,18 +119,12 @@ class _AboutState extends State<About> {
                             color: Colors.white,
                           ),
                           onTap: () {
-                            createWait();
-                            // try {
-                            //   createWait();
-                            //   IntentHelper.web('igittechnovation.co.in');
-                            // } catch (e) {
-                            //   createSnackBar('Failed to Open.');
-                            // }
-                            IntentHelper.web('igittechnovation.co.in').then((_) {
-                              Navigator.of(context).pop();
-                            }).catchError((error){
+                            try {
+                              createWait();
+                              IntentHelper.web('igittechnovation.co.in');
+                            } catch (e) {
                               createSnackBar('Failed to Open.');
-                            });
+                            }
                           },
                         ),
                         GestureDetector(

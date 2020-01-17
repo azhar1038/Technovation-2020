@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:technovation2020/src/custom_widget/floating_dots.dart';
 import 'package:technovation2020/src/model/team_model.dart';
@@ -25,16 +27,14 @@ class _TeamState extends State<Team> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
-
         children: <Widget>[
           FloatingDotGroup(
             number: 16,
-            direction: Direction.up,
-            trajectory: Trajectory.random,
-            size: DotSize.small,
-            colors: <Color>[Colors.white, Colors.lightBlueAccent,],
+            colors: <Color>[
+              Colors.white,
+              Colors.lightBlueAccent,
+            ],
             opacity: 0.5,
-            speed: DotSpeed.mixed,
           ),
           PageView(
             controller: _pageController,
@@ -122,10 +122,6 @@ class __TeamPageState extends State<_TeamPage> {
               children: widget.data.map((TeamModel m) => getItem(m)).toList(),
             ),
           ),
-          // Padding(
-          //   padding: const EdgeInsets.only(bottom: 8.0),
-          //   child: getIcon(),
-          // ),
         ],
       ),
     );
@@ -136,11 +132,13 @@ class __TeamPageState extends State<_TeamPage> {
     return Align(
       alignment: Alignment.center,
       child: AspectRatio(
-        aspectRatio: 9/16,
+        aspectRatio: 9 / 16,
         child: Container(
           margin: EdgeInsets.all(16),
           padding: EdgeInsets.all(24),
-          color: Colors.white24,
+          decoration: BoxDecoration(
+            color: Color.fromRGBO(68, 75, 93, 0.8),
+          ),
           alignment: Alignment.center,
           child: Column(
             mainAxisSize: MainAxisSize.min,
@@ -149,7 +147,7 @@ class __TeamPageState extends State<_TeamPage> {
                 child: Align(
                   alignment: Alignment.topCenter,
                   child: AspectRatio(
-                    aspectRatio:9/16,
+                    aspectRatio: 9 / 16,
                     child: Material(
                       elevation: 8,
                       child: Image.asset(

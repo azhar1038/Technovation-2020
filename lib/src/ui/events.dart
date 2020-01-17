@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart' show DateFormat;
 import 'package:technovation2020/src/bloc/event_type_bloc.dart';
 import 'package:technovation2020/src/custom_widget/notched_sliverappbar.dart';
 import 'package:technovation2020/src/custom_widget/slide_in.dart';
@@ -23,9 +24,10 @@ class _EventsState extends State<Events> {
     etb = EventTypeBloc();
 
     EventProvider.create().then((EventProvider ep) {
-      setState(() {
-        eventProvider = ep;
-      });
+      if (mounted)
+        setState(() {
+          eventProvider = ep;
+        });
     }).catchError((e) {
       setState(() {
         error = true;
@@ -37,7 +39,7 @@ class _EventsState extends State<Events> {
 
   @override
   void dispose() {
-    eventProvider.close();
+    if (eventProvider != null) eventProvider.close();
     super.dispose();
   }
 
@@ -109,7 +111,7 @@ class _EventsState extends State<Events> {
                   SliverOverlapAbsorber(
                     handle: NestedScrollView.sliverOverlapAbsorberHandleFor(
                         context),
-                    sliver: SliverPersistentHeader(
+                    child: SliverPersistentHeader(
                       delegate: NotchedSliverAppBar(
                         expandedHeight: 150,
                         background: Padding(
@@ -207,10 +209,14 @@ class _EventsState extends State<Events> {
     List<Widget> res = [];
     events.forEach((EventModel em) {
       String time;
-      if (em.day == 0 || em.time.isEmpty)
+      if (em.day == 0 || em.time == 0)
         time = "Will be Updated";
-      else
-        time = "Day ${em.day} | ${em.time}";
+      else {
+        String innerTime = DateFormat("hh:mm a")
+            .format(DateTime.fromMillisecondsSinceEpoch(em.time))
+            .toString();
+        time = "Day ${em.day} | $innerTime";
+      }
       res.add(
         SlideIn(
           duration: Duration(seconds: 1),

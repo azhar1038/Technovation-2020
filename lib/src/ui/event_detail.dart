@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart' show DateFormat;
 import 'package:technovation2020/src/model/event_model.dart';
 import 'package:technovation2020/src/resource/intent.dart';
 
@@ -16,10 +17,14 @@ class _EventDetailState extends State<EventDetail> {
   @override
   Widget build(BuildContext context) {
     String time;
-    if (widget.event.day == 0 || widget.event.time.isEmpty)
-      time = "Will be Updated";
-    else
-      time = "Day ${widget.event.day} | ${widget.event.time}";
+      if (widget.event.day == 0 || widget.event.time == 0)
+        time = "Will be Updated";
+      else {
+        String innerTime = DateFormat("hh:mm a")
+            .format(DateTime.fromMillisecondsSinceEpoch(widget.event.time))
+            .toString();
+        time = "Day ${widget.event.day} | $innerTime";
+      }
     TextStyle header = Theme.of(context).textTheme.headline;
     TextStyle body = Theme.of(context).textTheme.subhead;
     return Scaffold(
@@ -45,8 +50,9 @@ class _EventDetailState extends State<EventDetail> {
             flexibleSpace: FlexibleSpaceBar(
               title: Text(
                 widget.event.name,
-                style: Theme.of(context).textTheme.title,
+                style: Theme.of(context).textTheme.title.copyWith(fontSize: 18),
               ),
+              centerTitle: true,
               background: Stack(
                 fit: StackFit.expand,
                 children: <Widget>[
@@ -103,7 +109,9 @@ class _EventDetailState extends State<EventDetail> {
                           ),
                         ],
                       ),
-                      SizedBox(height: 8,),
+                      SizedBox(
+                        height: 8,
+                      ),
                       Row(
                         mainAxisSize: MainAxisSize.min,
                         children: <Widget>[
@@ -125,7 +133,9 @@ class _EventDetailState extends State<EventDetail> {
                           ),
                         ],
                       ),
-                      SizedBox(height: 16,),
+                      SizedBox(
+                        height: 16,
+                      ),
                       Text(
                         'Description: ',
                         style: header,

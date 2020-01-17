@@ -20,6 +20,7 @@ class EventProvider {
               .add(EventModel.fromJson(Map<String, dynamic>.from(event)));
         });
       } catch (e) {
+        print(e);
         throw FirebaseHelperException('$e');
       }
     }
@@ -32,9 +33,15 @@ class EventProvider {
       events.forEach((event) {
         res[event.id ~/ 100].add(event);
       });
+      res.forEach((List<EventModel> l) {
+        l.sort((a, b) => a.day.compareTo(b.day));
+      });
     } else if (type == EventProviderType.DAY) {
       events.forEach((event) {
         if (event.day != 0) res[event.day - 1].add(event);
+      });
+      res.forEach((List<EventModel> l) {
+        l.sort((a, b) => b.time.compareTo(a.time));
       });
     }
     return res;

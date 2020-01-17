@@ -48,12 +48,11 @@ class _HomeState extends State<Home> {
           children: <Widget>[
             FloatingDotGroup(
               number: 16,
-              direction: Direction.up,
-              trajectory: Trajectory.random,
-              size: DotSize.small,
-              colors: <Color>[Colors.white, Colors.lightBlueAccent,],
+              colors: <Color>[
+                Colors.white,
+                Colors.lightBlueAccent,
+              ],
               opacity: 0.5,
-              speed: DotSpeed.mixed,
             ),
             Column(
               mainAxisSize: MainAxisSize.min,
@@ -61,7 +60,7 @@ class _HomeState extends State<Home> {
                 Container(
                   alignment: Alignment.bottomCenter,
                   padding: EdgeInsets.only(top: 30),
-                  height: 180,
+                  height: 160,
                   child: Image.asset(
                     'images/logo.png',
                     width: 250.0,
@@ -71,7 +70,7 @@ class _HomeState extends State<Home> {
                 Container(
                   padding: EdgeInsets.all(10),
                   child: Text(
-                    '\" The Tag Line \"', //TODO: Add the tag line.
+                    '\" A Saga of the Arcane \"',
                     style: TextStyle(
                       fontSize: 25,
                       fontStyle: FontStyle.italic,

@@ -1,4 +1,6 @@
-class EventModel{
+//import 'package:intl/intl.dart' show DateFormat;
+
+class EventModel {
   int _id;
   String _image;
   String _name;
@@ -9,20 +11,26 @@ class EventModel{
   List<dynamic> _judgement;
   String _location;
   int _day;
-  String _time;
+  int _time;
 
-  EventModel.fromJson(Map<String, dynamic> details){
+  EventModel.fromJson(Map<String, dynamic> details) {
     _id = details['id'];
-   _image = details['image'];
-   _name = details['name'];
-   _description = details['description'];
-   _rules = details['rules']??[];
-   _coordinators = details['coordinators'];
-   _coordinatorsNumber = details['coordinatorsNumber'];
-   _judgement = details['judgement']??[];
-   _location = details['location'];
-   _day = details['day'];
-   _time = details['time'];
+    _image = details['image'];
+    _name = details['name'];
+    _description = details['description'];
+    _rules = details['rules'] ?? [];
+    _coordinators = details['coordinators'];
+    _coordinatorsNumber = details['coordinatorsNumber'];
+    _judgement = details['judgement'] ?? [];
+    _location = details['location'];
+    _day = details['day'];
+    _time = details['time'];
+    // if (details['time'] == 0)
+    //   _time = "";
+    // else
+    //   _time = DateFormat("hh:mm a")
+    //       .format(DateTime.fromMillisecondsSinceEpoch(details['time']))
+    //       .toString();
   }
 
   get id => _id;
