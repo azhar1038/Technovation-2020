@@ -58,7 +58,7 @@ class Sponsors extends StatelessWidget {
                       Container(
                         margin: EdgeInsets.symmetric(horizontal: 24),
                         child: Image.asset(
-                          'images/${sponsors[i].image}',
+                          'images/sponsors/${sponsors[i].image}',
                           height: 64,
                         ),
                       ),

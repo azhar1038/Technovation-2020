@@ -192,7 +192,7 @@ class _FirstTimeItem extends StatelessWidget {
             padding: EdgeInsets.all(32),
             alignment: Alignment.center,
             child: Image.asset(
-              'images/$image.jpg',
+              'images/intro/$image.jpg',
             ),
           ),
           Padding(

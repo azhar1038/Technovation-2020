@@ -59,7 +59,7 @@ class _EventDetailState extends State<EventDetail> {
                   Hero(
                     tag: widget.tag,
                     child: Image.asset(
-                      'images/${widget.event.image}',
+                      'images/events/${widget.event.image}',
                       fit: BoxFit.cover,
                     ),
                   ),

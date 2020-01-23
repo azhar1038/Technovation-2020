@@ -151,7 +151,7 @@ class __TeamPageState extends State<_TeamPage> {
                     child: Material(
                       elevation: 8,
                       child: Image.asset(
-                        'images/$image',
+                        'images/team/$image',
                         fit: BoxFit.cover,
                       ),
                     ),

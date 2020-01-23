@@ -22,6 +22,7 @@ class TeamProvider {
       TeamModel(
         name: 'Neha Rai',
         post: 'Chief Event',
+        image: 'event2.jpg'
       ),
       TeamModel(
         name: 'Abinash Sahoo',
@@ -38,6 +39,7 @@ class TeamProvider {
       TeamModel(
         name: 'Srutismita Naik',
         post: 'Chief Admin',
+        image: 'admin2.jpg'
       ),
       TeamModel(
         name: 'Ashutosh Das Adhikari',
@@ -69,6 +71,7 @@ class TeamProvider {
       TeamModel(
         name: 'Smruti Swagatika Muduli',
         post: 'Fun Event',
+        image: 'fun2.jpg'
       ),
       TeamModel(
         name: 'Shiba Prasad Mallick',
@@ -125,6 +128,7 @@ class TeamProvider {
       TeamModel(
         name: 'Sonali Rashmirekha',
         post: 'Arena',
+        image: 'arena2.jpg'
       ),
       TeamModel(
         name: 'Amit Tripathi',

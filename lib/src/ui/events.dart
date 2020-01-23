@@ -257,7 +257,7 @@ class _EventsState extends State<Events> {
                     child: Hero(
                       tag: em.image,
                       child: Image.asset(
-                        'images/${em.image}',
+                        'images/events/${em.image}',
                         width: 100,
                         height: 80,
                         fit: BoxFit.cover,

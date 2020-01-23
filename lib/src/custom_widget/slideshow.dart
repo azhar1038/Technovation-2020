@@ -33,7 +33,7 @@ class _SlideshowState extends State<Slideshow> {
             child: ClipPath(
               clipper: _BorderClipper(),
               child: Image.asset(
-                asset,
+                'images/events/$asset',
                 fit: BoxFit.cover,
               ),
             ),
@@ -47,11 +47,11 @@ class _SlideshowState extends State<Slideshow> {
   void initState() {
     super.initState();
     images = [
-      getImage('images/event1.jpg', '100'),
-      getImage('images/event2.jpg', '201'),
-      getImage('images/event3.jpg', '001'),
-      getImage('images/event4.jpg', '000'),
-      getImage('images/event5.jpg', '103'),
+      getImage('event1.jpg', '100'),
+      getImage('event2.jpg', '201'),
+      getImage('event3.jpg', '001'),
+      getImage('event4.jpg', '000'),
+      getImage('event5.jpg', '103'),
     ];
     _fancyLineBloc = FancyLineBloc();
   }
