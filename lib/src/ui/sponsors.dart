@@ -59,7 +59,7 @@ class Sponsors extends StatelessWidget {
                         margin: EdgeInsets.symmetric(horizontal: 24),
                         child: Image.asset(
                           'images/sponsors/${sponsors[i].image}',
-                          height: 64,
+                          height: 100,
                         ),
                       ),
                       SizedBox(height: 24),
@@ -70,14 +70,13 @@ class Sponsors extends StatelessWidget {
                             fontWeight: FontWeight.bold, fontSize: 16),
                       ),
                       SizedBox(height: 24),
-                      Text(
-                        sponsors[i].description,
-                        textAlign: TextAlign.center,
-                        style: TextStyle(fontWeight: FontWeight.w300),
-                      ),
-                      SizedBox(height: 24),
+                      // Text(
+                      //   sponsors[i].description,
+                      //   textAlign: TextAlign.center,
+                      //   style: TextStyle(fontWeight: FontWeight.w300),
+                      // ),
                       Container(
-                        alignment: Alignment.bottomLeft,
+                        alignment: Alignment.bottomCenter,
                         child: OutlineButton(
                           child: Text('Know More...'),
                           highlightedBorderColor: Colors.white,
