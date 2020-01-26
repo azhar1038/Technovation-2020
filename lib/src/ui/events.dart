@@ -39,7 +39,7 @@ class _EventsState extends State<Events> {
 
   @override
   void dispose() {
-    if (eventProvider != null) eventProvider.close();
+    //if (eventProvider != null) eventProvider.close();
     super.dispose();
   }
 
@@ -129,7 +129,9 @@ class _EventsState extends State<Events> {
                                   EventModel result = await showSearch(
                                     context: context,
                                     delegate: EventsSearchDelegate(
-                                      events: eventProvider.events,
+                                      events: eventProvider.eventDetails
+                                          .expand((i) => i)
+                                          .toList(),
                                     ),
                                   );
                                   if (result != null)

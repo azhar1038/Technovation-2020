@@ -1,11 +1,13 @@
+import 'dart:convert';
+
 import 'package:technovation2020/src/custom_widget/floating_dots.dart';
 import 'package:flutter/material.dart';
 import 'package:technovation2020/src/custom_widget/fade_in.dart';
 import 'package:technovation2020/src/custom_widget/slideshow.dart';
 import 'package:technovation2020/src/bloc/fancy_line_bloc.dart';
 import 'package:technovation2020/src/model/event_model.dart';
-import 'package:technovation2020/src/resource/firebase_helper.dart';
 import 'package:technovation2020/src/ui/event_detail.dart';
+import 'package:http/http.dart' as http;
 
 class Home extends StatefulWidget {
   @override
@@ -86,10 +88,11 @@ class _HomeState extends State<Home> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: <Widget>[
                       Slideshow(
-                        onImageClick: (String id) {
+                        onImageClick: (EventModel em) {
                           Navigator.of(context).push(
                             MaterialPageRoute(
-                              builder: (context) => SpecialEventDetail(id: id),
+                              builder: (context) =>
+                                  SpecialEventDetail(event: em),
                             ),
                           );
                         },
@@ -126,17 +129,27 @@ class _HomeState extends State<Home> {
 }
 
 class SpecialEventDetail extends StatelessWidget {
-  final String id;
+  final EventModel event;
 
   SpecialEventDetail({
-    this.id,
+    this.event,
   });
+
+  Future<EventModel> getEventById() async {
+    EventModel e = event;
+    http.Response res = await http.get(
+        'https://omega.pythonanywhere.com/android_api/get_event_by_id/?event_id=${event.id}');
+    Map<String, dynamic> eventDynamic = json.decode(res.body)['event'];
+    e.time = int.parse(eventDynamic['time']);
+    e.location = eventDynamic['location'];
+    return e;
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: FutureBuilder(
-        future: FirebaseHelper.getEvent(id),
+        future: getEventById(),
         builder: (context, AsyncSnapshot<EventModel> snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
             if (snapshot.hasData && !snapshot.hasError) {

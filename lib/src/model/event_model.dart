@@ -9,9 +9,9 @@ class EventModel {
   List<dynamic> _coordinators;
   List<dynamic> _coordinatorsNumber;
   List<dynamic> _judgement;
-  String _location;
-  int _day;
-  int _time;
+  String location;
+  int day;
+  int time;
 
   EventModel.fromJson(Map<String, dynamic> details) {
     _id = details['id'];
@@ -22,9 +22,6 @@ class EventModel {
     _coordinators = details['coordinators'];
     _coordinatorsNumber = details['coordinatorsNumber'];
     _judgement = details['judgement'] ?? [];
-    _location = details['location'];
-    _day = details['day'];
-    _time = details['time'];
     // if (details['time'] == 0)
     //   _time = "";
     // else
@@ -41,7 +38,4 @@ class EventModel {
   get coordinators => _coordinators;
   get coordinatorsNumber => _coordinatorsNumber;
   get judgement => _judgement;
-  get location => _location;
-  get day => _day;
-  get time => _time;
 }

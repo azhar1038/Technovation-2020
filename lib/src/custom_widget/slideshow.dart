@@ -1,9 +1,10 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:technovation2020/src/bloc/fancy_line_bloc.dart';
+import 'package:technovation2020/src/model/event_model.dart';
 
 class Slideshow extends StatefulWidget {
-  final Function(String) onImageClick;
+  final Function(EventModel) onImageClick;
 
   Slideshow({
     this.onImageClick,
@@ -15,10 +16,67 @@ class Slideshow extends StatefulWidget {
 
 class _SlideshowState extends State<Slideshow> {
   List<Widget> images;
+  List<EventModel> specialEvents = [
+    EventModel.fromJson({
+      "id": 0,
+      "image": "000.jpg",
+      "name": "Internet Mystery",
+      "description":
+          "This is going to be the description of the event. It will be filled up later for you to know what this event is about.",
+      "rules": ["How to play rule 1", "How to play rule 2"],
+      "coordinators": ["Monkey D. Luffy", "Roronoa Zoro"],
+      "coordinatorsNumber": ["9747897864", "6392785637"],
+      "judgement": ["This is how you will get points"],
+    }),
+    EventModel.fromJson({
+      "id": 0,
+      "image": "000.jpg",
+      "name": "Internet Mystery",
+      "description":
+          "This is going to be the description of the event. It will be filled up later for you to know what this event is about.",
+      "rules": ["How to play rule 1", "How to play rule 2"],
+      "coordinators": ["Monkey D. Luffy", "Roronoa Zoro"],
+      "coordinatorsNumber": ["9747897864", "6392785637"],
+      "judgement": ["This is how you will get points"],
+    }),
+    EventModel.fromJson({
+      "id": 0,
+      "image": "000.jpg",
+      "name": "Internet Mystery",
+      "description":
+          "This is going to be the description of the event. It will be filled up later for you to know what this event is about.",
+      "rules": ["How to play rule 1", "How to play rule 2"],
+      "coordinators": ["Monkey D. Luffy", "Roronoa Zoro"],
+      "coordinatorsNumber": ["9747897864", "6392785637"],
+      "judgement": ["This is how you will get points"],
+    }),
+    EventModel.fromJson({
+      "id": 0,
+      "image": "000.jpg",
+      "name": "Internet Mystery",
+      "description":
+          "This is going to be the description of the event. It will be filled up later for you to know what this event is about.",
+      "rules": ["How to play rule 1", "How to play rule 2"],
+      "coordinators": ["Monkey D. Luffy", "Roronoa Zoro"],
+      "coordinatorsNumber": ["9747897864", "6392785637"],
+      "judgement": ["This is how you will get points"],
+    }),
+    EventModel.fromJson({
+      "id": 0,
+      "image": "000.jpg",
+      "name": "Internet Mystery",
+      "description":
+          "This is going to be the description of the event. It will be filled up later for you to know what this event is about.",
+      "rules": ["How to play rule 1", "How to play rule 2"],
+      "coordinators": ["Monkey D. Luffy", "Roronoa Zoro"],
+      "coordinatorsNumber": ["9747897864", "6392785637"],
+      "judgement": ["This is how you will get points"],
+    }),
+  ];
 
   FancyLineBloc _fancyLineBloc;
 
-  Widget getImage(String asset, String id) {
+  Widget getImage(String asset, int serial) {
     return Container(
       width: 300,
       padding: EdgeInsets.all(10),
@@ -27,7 +85,7 @@ class _SlideshowState extends State<Slideshow> {
           border: Colors.white,
         ),
         child: GestureDetector(
-          onTap: ()=>widget.onImageClick(id),
+          onTap: () => widget.onImageClick(specialEvents[serial]),
           child: Container(
             padding: EdgeInsets.zero,
             child: ClipPath(
@@ -47,11 +105,11 @@ class _SlideshowState extends State<Slideshow> {
   void initState() {
     super.initState();
     images = [
-      getImage('event1.jpg', '100'),
-      getImage('event2.jpg', '201'),
-      getImage('event3.jpg', '001'),
-      getImage('event4.jpg', '000'),
-      getImage('event5.jpg', '103'),
+      getImage('event1.jpg', 0),
+      getImage('event2.jpg', 1),
+      getImage('event3.jpg', 2),
+      getImage('event4.jpg', 3),
+      getImage('event5.jpg', 4),
     ];
     _fancyLineBloc = FancyLineBloc();
   }
