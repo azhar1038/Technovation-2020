@@ -37,13 +37,15 @@ class _HomeState extends State<Home> {
       body: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
-              begin: Alignment.topCenter,
+              begin: Alignment.topLeft,
               end: Alignment.bottomCenter,
               colors: [
                 Color(0xff122e4d),
                 Color(0xff122c3d),
+                Color(0xff121e2d),
                 Color(0xff09131d),
                 Color(0xff09131a),
+                Colors.black
               ]),
         ),
         child: Stack(
@@ -60,21 +62,33 @@ class _HomeState extends State<Home> {
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
                 Container(
-                  alignment: Alignment.bottomCenter,
-                  padding: EdgeInsets.only(top: 30),
-                  height: 160,
-                  child: Image.asset(
-                    'images/logo.png',
-                    width: 250.0,
+                  height: 136,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: <Widget>[
+                      Text(
+                        'Technovation',
+                        style: TextStyle(
+                          fontFamily: 'JustInTheFireStorm',
+                          fontSize: 26,
+                        ),
+                      ),
+                      Text(
+                        '13 - 15 March',
+                        style: TextStyle(
+                          fontFamily: 'JustInTheFireStorm',
+                        ),
+                      ),
+                    ],
                   ),
                   //),
                 ),
                 Container(
-                  padding: EdgeInsets.all(10),
+                  padding: EdgeInsets.all(16),
                   child: Text(
                     '\" A Saga of the Arcane \"',
                     style: TextStyle(
-                      fontSize: 25,
+                      fontSize: 20,
                       fontStyle: FontStyle.italic,
                       fontWeight: FontWeight.w300,
                     ),
@@ -137,12 +151,20 @@ class SpecialEventDetail extends StatelessWidget {
 
   Future<EventModel> getEventById() async {
     EventModel e = event;
-    http.Response res = await http.get(
-        'https://omega.pythonanywhere.com/android_api/get_event_by_id/?event_id=${event.id}');
-    Map<String, dynamic> eventDynamic = json.decode(res.body)['event'];
-    e.time = int.parse(eventDynamic['time']);
-    e.location = eventDynamic['location'];
-    return e;
+    try {
+      http.Response res = await http.get(
+          'https://omega.pythonanywhere.com/android_api/get_event_by_id/?event_id=${event.id}');
+      if (res.statusCode == 200) {
+        Map<String, dynamic> eventDynamic = json.decode(res.body)['event'];
+        e.time = int.parse(eventDynamic['time']);
+        e.location = eventDynamic['location'];
+        return e;
+      } else {
+        throw Exception("Failed to load");
+      }
+    } catch (e) {
+      throw Exception(e);
+    }
   }
 
   @override

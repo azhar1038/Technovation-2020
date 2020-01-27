@@ -120,8 +120,8 @@ class _AboutState extends State<About> {
                           ),
                           onTap: () {
                             try {
-                              createWait();
-                              IntentHelper.web('igittechnovation.co.in');
+                              IntentHelper.web(
+                                  'http://igittechnovation.co.in');
                             } catch (e) {
                               createSnackBar('Failed to Open.');
                             }
@@ -135,7 +135,7 @@ class _AboutState extends State<About> {
                           onTap: () {
                             try {
                               IntentHelper.web(
-                                  'm.facebook.com/Technovation2020/?ref=bookmarks');
+                                  'https://m.facebook.com/Technovation2020/?ref=bookmarks');
                             } catch (e) {
                               createSnackBar('Failed to Open.');
                             }
@@ -149,7 +149,7 @@ class _AboutState extends State<About> {
                           onTap: () {
                             try {
                               IntentHelper.web(
-                                  'instagram.com/technovation2020?igshid=1q1dyc186xc6x');
+                                  'https://instagram.com/technovation2020?igshid=1q1dyc186xc6x');
                             } catch (e) {
                               createSnackBar('Failed to Open.');
                             }
@@ -239,18 +239,5 @@ class _AboutState extends State<About> {
     Scaffold.of(context).showSnackBar(SnackBar(
       content: Text(message),
     ));
-  }
-
-  void createWait() {
-    showDialog(
-        context: context,
-        barrierDismissible: false,
-        builder: (context) {
-          return Center(
-            child: CircularProgressIndicator(
-              strokeWidth: 2,
-            ),
-          );
-        });
   }
 }

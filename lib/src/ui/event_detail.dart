@@ -17,14 +17,14 @@ class _EventDetailState extends State<EventDetail> {
   @override
   Widget build(BuildContext context) {
     String time;
-      if (widget.event.day == 0 || widget.event.time == 0)
-        time = "Will be Updated";
-      else {
-        String innerTime = DateFormat("hh:mm a")
-            .format(DateTime.fromMillisecondsSinceEpoch(widget.event.time))
-            .toString();
-        time = "Day ${widget.event.day} | $innerTime";
-      }
+    if (widget.event.day == 0 || widget.event.time == 0)
+      time = "Will be Updated";
+    else {
+      String innerTime = DateFormat("hh:mm a")
+          .format(DateTime.fromMillisecondsSinceEpoch(widget.event.time))
+          .toString();
+      time = "Day ${widget.event.day} | $innerTime";
+    }
     TextStyle header = Theme.of(context).textTheme.headline;
     TextStyle body = Theme.of(context).textTheme.subhead;
     return Scaffold(
@@ -83,171 +83,167 @@ class _EventDetailState extends State<EventDetail> {
           SliverList(
             delegate: SliverChildListDelegate(
               [
-                Container(
-                  height: MediaQuery.of(context).size.height,
-                  padding: EdgeInsets.all(16),
-                  child: Column(
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
                     mainAxisSize: MainAxisSize.min,
-                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: <Widget>[
-                          Icon(
-                            Icons.access_time,
-                            size: 16,
-                          ),
-                          SizedBox(
-                            width: 8,
-                          ),
-                          Text(
-                            time,
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w300,
-                            ),
-                          ),
-                        ],
+                      Icon(
+                        Icons.access_time,
+                        size: 16,
                       ),
                       SizedBox(
-                        height: 8,
-                      ),
-                      Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: <Widget>[
-                          Icon(
-                            Icons.location_on,
-                            size: 16,
-                          ),
-                          SizedBox(
-                            width: 8,
-                          ),
-                          Text(
-                            widget.event.location.isEmpty
-                                ? 'Will be updated'
-                                : widget.event.location,
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w300,
-                            ),
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 16,
+                        width: 8,
                       ),
                       Text(
-                        'Description: ',
-                        style: header,
-                      ),
-                      SizedBox(
-                        height: 16,
-                      ),
-                      Text(
-                        widget.event.description,
-                        style: body,
-                      ),
-
-                      //----------------Rules-------------------
-                      widget.event.rules.length > 0
-                          ? Column(
-                              mainAxisSize: MainAxisSize.min,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: <Widget>[
-                                SizedBox(
-                                  height: 32,
-                                ),
-                                Text(
-                                  'Rules: ',
-                                  style: header,
-                                ),
-                                SizedBox(
-                                  height: 16,
-                                ),
-                                Column(
-                                  mainAxisSize: MainAxisSize.min,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: List.generate(
-                                    widget.event.rules.length,
-                                    (int index) {
-                                      return Padding(
-                                        padding:
-                                            const EdgeInsets.only(bottom: 8.0),
-                                        child: Text(
-                                          '${index + 1}) ${widget.event.rules[index]}',
-                                          style: body,
-                                        ),
-                                      );
-                                    },
-                                  ),
-                                ),
-                              ],
-                            )
-                          : Container(),
-                      //--------------------Judgement-----------------
-                      widget.event.judgement.length > 0
-                          ? Column(
-                              mainAxisSize: MainAxisSize.min,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: <Widget>[
-                                SizedBox(
-                                  height: 24,
-                                ),
-                                Text(
-                                  'Judgement: ',
-                                  style: header,
-                                ),
-                                SizedBox(
-                                  height: 16,
-                                ),
-                                Column(
-                                  mainAxisSize: MainAxisSize.min,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: List.generate(
-                                    widget.event.judgement.length,
-                                    (int index) {
-                                      return Padding(
-                                        padding:
-                                            const EdgeInsets.only(bottom: 8.0),
-                                        child: Text(
-                                          '${index + 1}) ${widget.event.judgement[index]}',
-                                          style: body,
-                                        ),
-                                      );
-                                    },
-                                  ),
-                                ),
-                              ],
-                            )
-                          : Container(),
-
-                      SizedBox(
-                        height: 24,
-                      ),
-                      Text(
-                        'Coordinators: ',
-                        style: header,
-                      ),
-                      SizedBox(
-                        height: 16,
-                      ),
-                      Column(
-                        mainAxisSize: MainAxisSize.min,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: List.generate(
-                          widget.event.coordinators.length,
-                          (int index) {
-                            return Padding(
-                              padding: const EdgeInsets.only(bottom: 8.0),
-                              child: Text(
-                                '${index + 1}) ${widget.event.coordinators[index]}',
-                                style: body,
-                              ),
-                            );
-                          },
+                        time,
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w300,
                         ),
                       ),
                     ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      Icon(
+                        Icons.location_on,
+                        size: 16,
+                      ),
+                      SizedBox(
+                        width: 8,
+                      ),
+                      Text(
+                        widget.event.location.isEmpty
+                            ? 'Will be updated'
+                            : widget.event.location,
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w300,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    'Description: ',
+                    style: header,
+                  ),
+                ),
+
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    widget.event.description,
+                    style: body,
+                  ),
+                ),
+
+                //----------------Rules-------------------
+                widget.event.rules.length > 0
+                    ? Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Text(
+                              'Rules: ',
+                              style: header,
+                            ),
+                            SizedBox(
+                              height: 16,
+                            ),
+                            Column(
+                              mainAxisSize: MainAxisSize.min,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: List.generate(
+                                widget.event.rules.length,
+                                (int index) {
+                                  return Padding(
+                                    padding: const EdgeInsets.only(bottom: 8.0),
+                                    child: Text(
+                                      '${index + 1}) ${widget.event.rules[index]}',
+                                      style: body,
+                                    ),
+                                  );
+                                },
+                              ),
+                            ),
+                          ],
+                        ),
+                      )
+                    : Container(),
+                //--------------------Judgement-----------------
+                widget.event.judgement.length > 0
+                    ? Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Text(
+                              'Judgement: ',
+                              style: header,
+                            ),
+                            SizedBox(
+                              height: 16,
+                            ),
+                            Column(
+                              mainAxisSize: MainAxisSize.min,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: List.generate(
+                                widget.event.judgement.length,
+                                (int index) {
+                                  return Padding(
+                                    padding: const EdgeInsets.only(bottom: 8.0),
+                                    child: Text(
+                                      '${index + 1}) ${widget.event.judgement[index]}',
+                                      style: body,
+                                    ),
+                                  );
+                                },
+                              ),
+                            ),
+                          ],
+                        ),
+                      )
+                    : Container(),
+
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    'Coordinators: ',
+                    style: header,
+                  ),
+                ),
+                SizedBox(
+                  height: 16,
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: List.generate(
+                      widget.event.coordinators.length,
+                      (int index) {
+                        return Padding(
+                          padding: const EdgeInsets.only(bottom: 8.0),
+                          child: Text(
+                            '${index + 1}) ${widget.event.coordinators[index]}',
+                            style: body,
+                          ),
+                        );
+                      },
+                    ),
                   ),
                 ),
               ],

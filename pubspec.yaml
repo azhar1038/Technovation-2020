@@ -71,6 +71,9 @@ flutter:
     - family: IMFellGreatPrimerSC
       fonts:
         - asset: fonts/IMFellGreatPrimerSC.ttf
+    - family: JustInTheFirestorm
+      fonts:
+        - asset: fonts/just_in_the_firestorm.ttf
         
   #   - family: Trajan Pro
   #     fonts:
