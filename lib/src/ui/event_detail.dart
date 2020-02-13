@@ -25,8 +25,8 @@ class _EventDetailState extends State<EventDetail> {
           .toString();
       time = "Day ${widget.event.day} | $innerTime";
     }
-    TextStyle header = Theme.of(context).textTheme.headline;
-    TextStyle body = Theme.of(context).textTheme.subhead;
+    TextStyle header = Theme.of(context).textTheme.headline5;
+    TextStyle body = Theme.of(context).textTheme.subtitle1;
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         shape: BeveledRectangleBorder(
@@ -50,7 +50,7 @@ class _EventDetailState extends State<EventDetail> {
             flexibleSpace: FlexibleSpaceBar(
               title: Text(
                 widget.event.name,
-                style: Theme.of(context).textTheme.title.copyWith(fontSize: 18),
+                style: Theme.of(context).textTheme.headline6.copyWith(fontSize: 18),
               ),
               centerTitle: true,
               background: Stack(
@@ -269,7 +269,7 @@ class _EventDetailState extends State<EventDetail> {
                   width: double.infinity,
                   child: Text(
                     widget.event.coordinators[index],
-                    style: Theme.of(context).textTheme.subhead,
+                    style: Theme.of(context).textTheme.subtitle1,
                   ),
                 ),
               );

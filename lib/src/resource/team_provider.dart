@@ -14,10 +14,12 @@ class TeamProvider {
       TeamModel(
         name: 'Aradhana Behera',
         post: 'Deputy Chief Coordinator',
+	image: 'chief2.jpg',
       ),
       TeamModel(
         name: 'Azazul Haque',
         post: 'Chief Event',
+        image: 'event1.jpg',
       ),
       TeamModel(
         name: 'Neha Rai',
@@ -27,10 +29,12 @@ class TeamProvider {
       TeamModel(
         name: 'Abinash Sahoo',
         post: 'Treasurer',
+        image: 'treasurer1.jpg',
       ),
       TeamModel(
         name: 'Andhavarapu Supriya',
         post: 'Treasurer',
+        image: 'treasurer2.jpg',
       ),
       TeamModel(
         name: 'Soumya Ranjan Naik',
@@ -48,6 +52,7 @@ class TeamProvider {
       TeamModel(
         name: 'Gayatri Jena',
         post: 'Public Relation',
+        image: 'public2.jpg',
       ),
       TeamModel(
         name: 'Md.Azharuddin',
@@ -56,17 +61,22 @@ class TeamProvider {
       TeamModel(
         name: 'Sonali Mishra',
         post: 'Technical Event',
+        image: 'technical2.jpg',
       ),
       TeamModel(
         name: 'Prasant Kumar Dey',
         post: 'Cultural Event',
-      ),TeamModel(
+        image: 'cultural1.jpg',
+      ),
+      TeamModel(
         name: 'Monalisha Sahoo',
         post: 'Cultural Event',
+        image: 'cultural2.jpg',
       ),
       TeamModel(
         name: 'Nachiketa Dhal',
         post: 'Fun Event',
+        image: 'fun1.jpg',
       ),
       TeamModel(
         name: 'Smruti Swagatika Muduli',
@@ -76,10 +86,12 @@ class TeamProvider {
       TeamModel(
         name: 'Shiba Prasad Mallick',
         post: 'Sponsorship',
+        image: 'sponsorship1.jpg',
       ),
       TeamModel(
         name: 'Jhalsa Mishra',
         post: 'Sponsorship',
+        image: 'sponsorship2.jpg',
       ),
       TeamModel(
         name: 'Sekhar Das',
@@ -92,34 +104,42 @@ class TeamProvider {
       TeamModel(
         name: 'Maitri Ranjan Behera',
         post: 'Logistics',
+        image: 'logistics1.jpg',
       ),
       TeamModel(
         name: 'Shreeya Sethi',
         post: 'Logistics',
+        image: 'logistics2.jpg',
       ),
       TeamModel(
         name: 'Yashobanta Kumar Behera',
         post: 'Website',
+        image: 'website1.jpg',
       ),
       TeamModel(
         name: 'Supriya Panda',
         post: 'Website',
+        image: 'website2.jpg',
       ),
       TeamModel(
         name: 'Saswat Ranjan Hota',
         post: 'Media & Publicity',
+        image: 'media1.jpg',
       ),
       TeamModel(
         name: 'Debasmita Debadarshani',
         post: 'Media & Publicity',
+        image: 'media2.jpg',
       ),
       TeamModel(
         name: 'Abhinab Kumar Nayak',
         post: 'Decoration',
+        image: 'decoration1.jpg',
       ),
       TeamModel(
         name: 'Moumita Panda',
         post: 'Decoration',
+        image: 'decoration2.jpg',
       ),
       TeamModel(
         name: 'Debasish Moharana',
@@ -133,6 +153,7 @@ class TeamProvider {
       TeamModel(
         name: 'Amit Tripathi',
         post: 'Hospitality',
+        image: 'hospitality1.jpg',
       ),
       TeamModel(
         name: 'Ashmita Dora',
@@ -145,6 +166,7 @@ class TeamProvider {
       TeamModel(
         name: 'Rozaleen Satpathy',
         post: 'Workforce',
+        image: 'workforce2.jpg',
       ),
     ];
 

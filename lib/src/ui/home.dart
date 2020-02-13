@@ -180,7 +180,7 @@ class SpecialEventDetail extends StatelessWidget {
               return Center(
                 child: Text(
                   'Server Timeout.\nPlease try again.',
-                  style: Theme.of(context).textTheme.subhead.copyWith(
+                  style: Theme.of(context).textTheme.subtitle1.copyWith(
                         color: Colors.white60,
                         fontWeight: FontWeight.w300,
                       ),

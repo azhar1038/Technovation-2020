@@ -341,10 +341,13 @@ class EventProvider {
             .get('https://omega.pythonanywhere.com/android_api/get_events/');
         if (res.statusCode == 200)
           eventProvider.eventDynamic = json.decode(res.body)['events'];
-        else
+        else {
+          eventProvider = null;
           throw Exception("Failed to load data");
+        }
       } catch (e) {
         print(e);
+        eventProvider = null;
         throw Exception('$e');
       }
     }

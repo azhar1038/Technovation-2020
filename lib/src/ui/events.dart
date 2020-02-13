@@ -65,8 +65,9 @@ class _EventsState extends State<Events> {
     } else if (error) {
       return Center(
         child: Text(
-          'Server Timeout.\nPlease try again.',
-          style: Theme.of(context).textTheme.subhead.copyWith(
+          'Failed to load.\nPlease try again.',
+          textAlign: TextAlign.center,
+          style: Theme.of(context).textTheme.subtitle1.copyWith(
                 color: Colors.white60,
                 fontWeight: FontWeight.w300,
               ),
@@ -111,7 +112,7 @@ class _EventsState extends State<Events> {
                   SliverOverlapAbsorber(
                     handle: NestedScrollView.sliverOverlapAbsorberHandleFor(
                         context),
-                    child: SliverPersistentHeader(
+                    sliver: SliverPersistentHeader(
                       delegate: NotchedSliverAppBar(
                         expandedHeight: 150,
                         background: Padding(
@@ -121,7 +122,7 @@ class _EventsState extends State<Events> {
                             children: <Widget>[
                               Text(
                                 'Events',
-                                style: Theme.of(context).textTheme.title,
+                                style: Theme.of(context).textTheme.headline6,
                               ),
                               IconButton(
                                 icon: Icon(Icons.search),

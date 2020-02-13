@@ -13,6 +13,13 @@ class NotificationModel {
         .toString();
   }
 
+  NotificationModel.fromData(int time, String body){
+    _body = body;
+    _time = DateFormat("MMM d, hh:mm a")
+        .format(DateTime.fromMillisecondsSinceEpoch(time))
+        .toString();
+  }
+
   String get title => _title;
   String get body => _body;
   String get time => _time;

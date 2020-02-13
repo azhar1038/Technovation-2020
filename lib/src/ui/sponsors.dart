@@ -14,7 +14,7 @@ class Sponsors extends StatelessWidget {
         elevation: 0,
         title: Text(
           'Sponsors',
-          style: Theme.of(context).textTheme.title,
+          style: Theme.of(context).textTheme.headline6,
         ),
         leading: IconButton(
           icon: Icon(Icons.arrow_back_ios),

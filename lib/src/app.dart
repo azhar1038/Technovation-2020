@@ -52,7 +52,7 @@ class _TechnovationState extends State<Technovation> {
           textTheme: TextTheme(),
         ),
         textTheme: TextTheme(
-          title: TextStyle(
+          headline6: TextStyle(
             fontFamily: 'IMFellGreatPrimerSC',
             fontSize: 24,
             fontWeight: FontWeight.w500,

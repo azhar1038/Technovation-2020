@@ -31,7 +31,7 @@ class _NotificationsState extends State<Notifications> {
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
                   'Notifications',
-                  style: Theme.of(context).textTheme.title,
+                  style: Theme.of(context).textTheme.headline6,
                 ),
               ),
               expandedHeight: 150,
@@ -47,7 +47,7 @@ class _NotificationsState extends State<Notifications> {
                   child: Center(
                     child: Text(
                       'Server Timeout.\nPlease try again.',
-                      style: Theme.of(context).textTheme.subhead.copyWith(
+                      style: Theme.of(context).textTheme.subtitle1.copyWith(
                             color: Colors.white60,
                             fontWeight: FontWeight.w300,
                           ),
@@ -68,7 +68,7 @@ class _NotificationsState extends State<Notifications> {
                                 alignment: Alignment.topLeft,
                                 child: Text(
                                   snapshot.data[index].body,
-                                  style: Theme.of(context).textTheme.subhead,
+                                  style: Theme.of(context).textTheme.subtitle1,
                                 ),
                               ),
                               SizedBox(
@@ -80,7 +80,7 @@ class _NotificationsState extends State<Notifications> {
                                   snapshot.data[index].time,
                                   style: Theme.of(context)
                                       .textTheme
-                                      .subtitle
+                                      .subtitle2
                                       .copyWith(
                                         color: Colors.white38,
                                         fontStyle: FontStyle.italic,
