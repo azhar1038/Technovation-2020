@@ -2,7 +2,9 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:technovation2020/src/bloc/event_ready_bloc.dart';
 import 'package:technovation2020/src/bloc/notification_bloc.dart';
+import 'package:technovation2020/src/resource/event_provider.dart';
 import 'package:technovation2020/src/ui/first_time.dart';
 import 'package:technovation2020/src/ui/tabs.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
@@ -77,6 +79,7 @@ class _SplashScreen extends StatefulWidget {
 
 class __SplashScreenState extends State<_SplashScreen> {
   Timer t;
+  EventReadyBloc _eventReadyBloc;
 
   Future checkFirstTime() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -98,9 +101,17 @@ class __SplashScreenState extends State<_SplashScreen> {
   }
 
   @override
-  void initState() {
+  void initState(){
+    _eventReadyBloc = EventReadyBloc();
+
     t = Timer(Duration(milliseconds: 1000), () {
       checkFirstTime();
+    });
+    _eventReadyBloc.no();
+    EventProvider.create().then((_){
+      _eventReadyBloc.yes();
+    }).catchError((e){
+      _eventReadyBloc.error(e);
     });
     super.initState();
   }

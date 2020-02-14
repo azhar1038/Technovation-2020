@@ -6,6 +6,7 @@ import 'package:technovation2020/src/custom_widget/fade_in.dart';
 import 'package:technovation2020/src/custom_widget/slideshow.dart';
 import 'package:technovation2020/src/bloc/fancy_line_bloc.dart';
 import 'package:technovation2020/src/model/event_model.dart';
+import 'package:technovation2020/src/resource/intent.dart';
 import 'package:technovation2020/src/ui/event_detail.dart';
 import 'package:http/http.dart' as http;
 
@@ -22,11 +23,11 @@ class _HomeState extends State<Home> {
   void initState() {
     super.initState();
     fancyLine = [
-      "Get ready for the best Music Party",
-      "Guess who is coming to meet you!",
-      "Rock and Roll !",
-      "It's Never late to learn new things.",
-      "What the heck a Sale poster is doing here!"
+      "We are live now!",
+      "Unsolved mystery with Usual Suspects",
+      "Guess, who is comming to meet you!",
+      "Hunt for the best talent begins",
+      "Jump, duck and evade the Lasers"
     ];
     _fancyLineBloc = FancyLineBloc();
   }
@@ -103,12 +104,15 @@ class _HomeState extends State<Home> {
                     children: <Widget>[
                       Slideshow(
                         onImageClick: (EventModel em) {
-                          Navigator.of(context).push(
-                            MaterialPageRoute(
-                              builder: (context) =>
-                                  SpecialEventDetail(event: em),
-                            ),
-                          );
+                          if (em.id == 300) {
+                            IntentHelper.web('http://igittechnovation.co.in');
+                          } else
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    SpecialEventDetail(event: em),
+                              ),
+                            );
                         },
                       ),
                       StreamBuilder(

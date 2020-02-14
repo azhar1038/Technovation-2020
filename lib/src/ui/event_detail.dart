@@ -169,9 +169,17 @@ class _EventDetailState extends State<EventDetail> {
                                 (int index) {
                                   return Padding(
                                     padding: const EdgeInsets.only(bottom: 8.0),
-                                    child: Text(
-                                      '${index + 1}) ${widget.event.rules[index]}',
-                                      style: body,
+                                    child: Row(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: <Widget>[
+                                        Text('${index+1} ) '),
+                                        Flexible(
+                                          child: Text(
+                                            '${widget.event.rules[index]}',
+                                            style: body,
+                                          ),
+                                        ),
+                                      ],
                                     ),
                                   );
                                 },
@@ -204,9 +212,17 @@ class _EventDetailState extends State<EventDetail> {
                                 (int index) {
                                   return Padding(
                                     padding: const EdgeInsets.only(bottom: 8.0),
-                                    child: Text(
-                                      '${index + 1}) ${widget.event.judgement[index]}',
-                                      style: body,
+                                    child: Row(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: <Widget>[
+                                        Text('${index+1} ) '),
+                                        Flexible(
+                                          child: Text(
+                                            '${widget.event.judgement[index]}',
+                                            style: body,
+                                          ),
+                                        ),
+                                      ],
                                     ),
                                   );
                                 },

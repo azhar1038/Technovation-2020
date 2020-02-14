@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart' show DateFormat;
+import 'package:technovation2020/src/bloc/event_ready_bloc.dart';
 import 'package:technovation2020/src/bloc/event_type_bloc.dart';
 import 'package:technovation2020/src/custom_widget/notched_sliverappbar.dart';
 import 'package:technovation2020/src/custom_widget/slide_in.dart';
@@ -15,6 +16,7 @@ class Events extends StatefulWidget {
 
 class _EventsState extends State<Events> {
   EventTypeBloc etb;
+  EventReadyBloc erb;
   EventProvider eventProvider;
   bool error;
 
@@ -22,13 +24,16 @@ class _EventsState extends State<Events> {
   void initState() {
     error = false;
     etb = EventTypeBloc();
+    erb = EventReadyBloc();
 
     EventProvider.create().then((EventProvider ep) {
       if (mounted)
         setState(() {
           eventProvider = ep;
+          erb.yes();
         });
     }).catchError((e) {
+      erb.error(e);
       setState(() {
         error = true;
       });
@@ -44,9 +49,22 @@ class _EventsState extends State<Events> {
   }
 
   Widget getBody(snapshot) {
-    if (eventProvider != null) {
-      return Builder(
-        builder: (context) {
+    return StreamBuilder(
+      initialData: false,
+      stream: erb.eventReadyStream,
+      builder: (context, AsyncSnapshot<bool> readySnapshot) {
+        if (readySnapshot.hasError) {
+          return Center(
+            child: Text(
+              'Failed to load.\nPlease try again.',
+              textAlign: TextAlign.center,
+              style: Theme.of(context).textTheme.subtitle1.copyWith(
+                    color: Colors.white60,
+                    fontWeight: FontWeight.w300,
+                  ),
+            ),
+          );
+        } else if (readySnapshot.data && eventProvider != null) {
           List<List<EventModel>> eventsByType;
           if (snapshot.data)
             eventsByType = eventProvider.getEventsByType(EventProviderType.DAY);
@@ -60,26 +78,14 @@ class _EventsState extends State<Events> {
               getPage('third', eventsByType[2]),
             ],
           );
-        },
-      );
-    } else if (error) {
-      return Center(
-        child: Text(
-          'Failed to load.\nPlease try again.',
-          textAlign: TextAlign.center,
-          style: Theme.of(context).textTheme.subtitle1.copyWith(
-                color: Colors.white60,
-                fontWeight: FontWeight.w300,
-              ),
-        ),
-      );
-    } else {
-      return Center(
-        child: CircularProgressIndicator(
-          strokeWidth: 2,
-        ),
-      );
-    }
+        }
+        return Center(
+          child: CircularProgressIndicator(
+            strokeWidth: 2,
+          ),
+        );
+      },
+    );
   }
 
   @override
@@ -186,23 +192,34 @@ class _EventsState extends State<Events> {
       bottom: false,
       child: Builder(
         builder: (context) {
-          return CustomScrollView(
-            key: PageStorageKey<String>(name),
-            slivers: <Widget>[
-              SliverOverlapInjector(
-                handle:
-                    NestedScrollView.sliverOverlapAbsorberHandleFor(context),
-              ),
-              SliverPadding(
-                padding: EdgeInsets.all(8),
-                sliver: SliverList(
-                  delegate: SliverChildListDelegate(
-                    getCategoryEventList(data),
+          return data.length != 0
+              ? CustomScrollView(
+                  key: PageStorageKey<String>(name),
+                  slivers: <Widget>[
+                    SliverOverlapInjector(
+                      handle: NestedScrollView.sliverOverlapAbsorberHandleFor(
+                          context),
+                    ),
+                    SliverPadding(
+                      padding: EdgeInsets.all(8),
+                      sliver: SliverList(
+                        delegate: SliverChildListDelegate(
+                          getCategoryEventList(data),
+                        ),
+                      ),
+                    ),
+                  ],
+                )
+              : Center(
+                  child: Text(
+                    'Will be updated soon.',
+                    textAlign: TextAlign.center,
+                    style: Theme.of(context).textTheme.subtitle1.copyWith(
+                          color: Colors.white60,
+                          fontWeight: FontWeight.w300,
+                        ),
                   ),
-                ),
-              ),
-            ],
-          );
+                );
         },
       ),
     );

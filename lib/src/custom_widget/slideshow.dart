@@ -7,7 +7,7 @@ class Slideshow extends StatefulWidget {
   final Function(EventModel) onImageClick;
 
   Slideshow({
-    this.onImageClick,
+    @required this.onImageClick,
   });
 
   @override
@@ -18,7 +18,7 @@ class _SlideshowState extends State<Slideshow> {
   List<Widget> images;
   List<EventModel> specialEvents = [
     EventModel.fromJson({
-      "id": 0,
+      "id": 300,
       "image": "000.jpg",
       "name": "Internet Mystery",
       "description":
@@ -33,44 +33,56 @@ class _SlideshowState extends State<Slideshow> {
       "image": "000.jpg",
       "name": "Internet Mystery",
       "description":
-          "This is going to be the description of the event. It will be filled up later for you to know what this event is about.",
-      "rules": ["How to play rule 1", "How to play rule 2"],
+      "This is an event to test the deciphering abilities of participants. Participants will need to solve some mind-boggling puzzles to get to the treasure. This event will be conducted in two phases.\n\nPhase1: It will be a pre-event. Participants will need to solve all the puzzles to know when and where phase 2 will be conducted.\n\nPhase 2: The final puzzle which will be provided on the spot.",
+      "rules": [
+        "Number of participants-1",
+        "Full use of internet is allowed"
+      ],
       "coordinators": ["Monkey D. Luffy", "Roronoa Zoro"],
       "coordinatorsNumber": ["9747897864", "6392785637"],
-      "judgement": ["This is how you will get points"],
+      "judgement": [
+        "The very first person to solve the puzzle will win the prize."
+      ],
     }),
     EventModel.fromJson({
-      "id": 0,
-      "image": "000.jpg",
-      "name": "Internet Mystery",
+      "id": 101,
+      "image": "101.jpg",
+      "name": "Star Night",
       "description":
-          "This is going to be the description of the event. It will be filled up later for you to know what this event is about.",
-      "rules": ["How to play rule 1", "How to play rule 2"],
-      "coordinators": ["Monkey D. Luffy", "Roronoa Zoro"],
-      "coordinatorsNumber": ["9747897864", "6392785637"],
-      "judgement": ["This is how you will get points"],
+      "Come and Enjoy! We have a Special guest waiting to make your night a lifetime experience.",
+      "rules": [],
+      "coordinators": ["Prasant Kumar Dey", "Monalisha Sahoo"],
+      "coordinatorsNumber": ["7789890440", "7788818623"],
+      "judgement": []
     }),
     EventModel.fromJson({
-      "id": 0,
-      "image": "000.jpg",
-      "name": "Internet Mystery",
+      "id": 102,
+      "image": "102.jpg",
+      "name": "Spectacolo-di-Talenti",
       "description":
-          "This is going to be the description of the event. It will be filled up later for you to know what this event is about.",
-      "rules": ["How to play rule 1", "How to play rule 2"],
-      "coordinators": ["Monkey D. Luffy", "Roronoa Zoro"],
-      "coordinatorsNumber": ["9747897864", "6392785637"],
-      "judgement": ["This is how you will get points"],
+      "\"The entire world ‘s a stage\", they say. For the people who believe this , for the people with passion ans obsession, we have the right stage for you!. Be it comedy, mimicry, acting, magic, dance or any quirky thing you are passionately curious about, we have the stage ready for you!. Give the crowd and the judges the trime of their lives. ",
+      "rules": [
+        "Dance: It may be solo or duet or group performance having maximum 8 members.(Duration: 3-4 min)",
+        "Song: Songs of any language may be sung. (Duration: 2-3 min)",
+        "Instrumental:- All types of instruments are allowed.(Duration: 2-3 min)",
+        "Act:- Mono act or skit can be performed. (Duration: 3-5 min)",
+        "Band Performance"
+      ],
+      "coordinators": ["Prasant Kumar Dey", "Monalisha Sahoo"],
+      "coordinatorsNumber": ["7789890440", "7788818623"],
+      "judgement": []
     }),
     EventModel.fromJson({
-      "id": 0,
-      "image": "000.jpg",
-      "name": "Internet Mystery",
+      "id": 205,
+      "image": "205.jpg",
+      "name": "Lazer Maze",
       "description":
-          "This is going to be the description of the event. It will be filled up later for you to know what this event is about.",
-      "rules": ["How to play rule 1", "How to play rule 2"],
-      "coordinators": ["Monkey D. Luffy", "Roronoa Zoro"],
-      "coordinatorsNumber": ["9747897864", "6392785637"],
-      "judgement": ["This is how you will get points"],
+      "It is a real life heist style game where you dodge lasers and finish the track levels as quickly as possible without setting off the alarm.\n\nYou have to use your body balance and flexibility to reach the end of the room without touching the lasers.",
+      "rules": [
+      ],
+      "coordinators": ["Nachiketa Dhal", "Smruti Swagatika Muduli"],
+      "coordinatorsNumber": ["8328992036", "9556027382"],
+      "judgement": []
     }),
   ];
 
@@ -106,10 +118,10 @@ class _SlideshowState extends State<Slideshow> {
     super.initState();
     images = [
       getImage('event1.jpg', 0),
-      getImage('event2.jpg', 1),
-      getImage('event3.jpg', 2),
-      getImage('event4.jpg', 3),
-      getImage('event5.jpg', 4),
+      getImage('000.jpg', 1),
+      getImage('101.jpg', 2),
+      getImage('102.jpg', 3),
+      getImage('205.jpg', 4),
     ];
     _fancyLineBloc = FancyLineBloc();
   }

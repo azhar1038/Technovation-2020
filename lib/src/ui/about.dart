@@ -20,6 +20,13 @@ class _AboutState extends State<About> {
       wordSpacing: 3,
       letterSpacing: 1,
     );
+    TextStyle my = TextStyle(
+      wordSpacing: 3,
+      letterSpacing: 2,
+      fontStyle: FontStyle.italic,
+      fontWeight: FontWeight.w300,
+      color: Colors.white54,
+    );
 
     return CustomScrollView(
       slivers: <Widget>[
@@ -158,21 +165,35 @@ class _AboutState extends State<About> {
                       ],
                     ),
                     SizedBox(
-                      height: 32,
+                      height: 48,                    ),
+                    Text(
+                      'Design and Developed by:',
+                      style: my,
                     ),
+                    SizedBox(height: 8),
                     GestureDetector(
                       onTap: () =>
-                          IntentHelper.web('github.com/mdazharuddin1011999/'),
+                          IntentHelper.web('https://github.com/mdazharuddin1011999/'),
                       child: Text(
-                        '----- App by Md.Azharuddin -----',
-                        style: TextStyle(
-                          wordSpacing: 3,
-                          letterSpacing: 2,
-                          fontStyle: FontStyle.italic,
-                          fontWeight: FontWeight.w300,
-                          color: Colors.white54,
-                        ),
+                        'Md Azharuddin',
+                        style: my,
                       ),
+                    ),
+                    SizedBox(height: 16),
+                    Text(
+                      'Version: 1.8.6',
+                      style: my,
+                    ),
+                    SizedBox(height: 16),
+                    Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        Icon(Icons.copyright, size: 16, color: Colors.white54,),
+                        Text(
+                          'Technovation 2020',
+                          style: my,
+                        ),
+                      ],
                     ),
                   ],
                 ),
