@@ -8,7 +8,7 @@ class SponsorModel{
     _name = name;
     _description = description;
     _image = image;
-    _website = "https://"+website;
+    _website = "http://"+website;
   }
 
   String get name => _name;

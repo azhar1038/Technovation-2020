@@ -49,38 +49,38 @@ class _FirstTimeState extends State<FirstTime> {
       _FirstTimeItem(
         image: 'intro1',
         header: 'Events',
-        body: 'List of all the events we are going to conduct.',
+        body: 'List of all events sorted according to day or category.',
       ),
       _FirstTimeItem(
         image: 'intro2',
-        header: 'Sorted Events',
-        body: 'Use this to sort the events according to category or day.',
+        header: 'Event Details',
+        body: 'Click on any event to know it\'s details or search any event.',
       ),
       _FirstTimeItem(
         image: 'intro3',
-        header: 'Search Events',
-        body: 'Use this to search the name of events.',
+        header: 'Notification',
+        body: 'Here you can see all the notifications or any announcement.',
       ),
       _FirstTimeItem(
         image: 'intro4',
-        header: 'Events Details',
-        body: 'Tap on any event you are interested in to know it\'s details.',
-      ),
-      _FirstTimeItem(
-        image: 'intro5',
-        header: 'Helpline',
-        body: 'Just tap to call any event coordinator for further enquiry.',
-      ),
-      _FirstTimeItem(
-        image: 'intro6',
-        header: 'Notification',
-        body: 'Here you can see all the notifications about any announcement.',
-      ),
-      _FirstTimeItem(
-        image: 'intro7',
         header: 'About',
         body: 'Wanna know who we are? Check it out.',
       ),
+//      _FirstTimeItem(
+//        image: 'intro5',
+//        header: 'Helpline',
+//        body: 'Just tap to call any event coordinator for further enquiry.',
+//      ),
+//      _FirstTimeItem(
+//        image: 'intro6',
+//        header: 'Notification',
+//        body: 'Here you can see all the notifications about any announcement.',
+//      ),
+//      _FirstTimeItem(
+//        image: 'intro7',
+//        header: 'About',
+//        body: 'Wanna know who we are? Check it out.',
+//      ),
     ];
     super.initState();
   }

@@ -25,8 +25,8 @@ class _HomeState extends State<Home> {
     fancyLine = [
       "We are live now!",
       "Unsolved mystery with Usual Suspects",
-      "Guess, who is comming to meet you!",
-      "Hunt for the best talent begins",
+      "Guess, who is coming to meet you!",
+      "Prove that you are the best",
       "Jump, duck and evade the Lasers"
     ];
     _fancyLineBloc = FancyLineBloc();
@@ -137,6 +137,7 @@ class _HomeState extends State<Home> {
                     ],
                   ),
                 ),
+                SizedBox(height: 30),
               ],
             ),
           ],

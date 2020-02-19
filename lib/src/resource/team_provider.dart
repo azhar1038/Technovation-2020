@@ -10,11 +10,12 @@ class TeamProvider {
       TeamModel(
         name: 'Sankalp Rath',
         post: 'Chief Coordinator',
+        image: 'chief1.jpg'
       ),
       TeamModel(
         name: 'Aradhana Behera',
         post: 'Deputy Chief Coordinator',
-	image: 'chief2.jpg',
+	      image: 'chief2.jpg',
       ),
       TeamModel(
         name: 'Azazul Haque',
@@ -39,6 +40,7 @@ class TeamProvider {
       TeamModel(
         name: 'Soumya Ranjan Naik',
         post: 'Chief Admin',
+        image: 'admin1.jpg'
       ),
       TeamModel(
         name: 'Srutismita Naik',
@@ -48,6 +50,7 @@ class TeamProvider {
       TeamModel(
         name: 'Ashutosh Das Adhikari',
         post: 'Public Relation',
+        image: 'public1.jpg',
       ),
       TeamModel(
         name: 'Gayatri Jena',
@@ -56,7 +59,8 @@ class TeamProvider {
       ),
       TeamModel(
         name: 'Md.Azharuddin',
-        post: 'Technical Event',
+        post: 'Technical Event and App',
+        image: 'technical1.jpg',
       ),
       TeamModel(
         name: 'Sonali Mishra',
@@ -96,10 +100,12 @@ class TeamProvider {
       TeamModel(
         name: 'Sekhar Das',
         post: 'Design',
+        image: 'design1.jpg',
       ),
       TeamModel(
         name: 'Monalisa Giri',
         post: 'Design',
+        image: 'design2.jpg',
       ),
       TeamModel(
         name: 'Maitri Ranjan Behera',
@@ -144,6 +150,7 @@ class TeamProvider {
       TeamModel(
         name: 'Debasish Moharana',
         post: 'Arena',
+          image: 'arena1.jpg'
       ),
       TeamModel(
         name: 'Sonali Rashmirekha',
@@ -158,10 +165,12 @@ class TeamProvider {
       TeamModel(
         name: 'Ashmita Dora',
         post: 'Hospitality',
+        image: 'hospitality2.jpg',
       ),
       TeamModel(
         name: 'Sibaram Sahoo',
         post: 'Workforce',
+        image: 'workforce1.jpg',
       ),
       TeamModel(
         name: 'Rozaleen Satpathy',
@@ -279,7 +288,7 @@ class TeamProvider {
         image: 'logistics3.jpg',
       ),
       TeamModel(
-        name: 'Prangya Paramita Madali',
+        name: 'Gayatri Sahoo',
         post: 'Logistics',
         image: 'logistics4.jpg',
       ),
@@ -319,7 +328,7 @@ class TeamProvider {
         image: 'arena3.jpg',
       ),
       TeamModel(
-        name: 'Suryakanti Parhi',
+        name: 'Arpita Mallik',
         post: 'Arena',
         image: 'arena4.jpg',
       ),

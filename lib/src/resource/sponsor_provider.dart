@@ -65,6 +65,16 @@ class SponsorProvider{
         image: 'studio11.png',
         website: 'studio11.co',
       ),
+      SponsorModel(
+        name: 'Teeshood',
+        image: 'teeshood.jpg',
+        website: 'teeshood.com/en/',
+      ),
+      SponsorModel(
+        name: 'Tiaamo',
+        image: 'tiaamo.jpg',
+        website: 'tiaamo.com',
+      ),
 
 
 //      SponsorModel(

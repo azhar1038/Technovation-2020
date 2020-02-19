@@ -24,9 +24,9 @@ class _SlideshowState extends State<Slideshow> {
       "description":
           "This is going to be the description of the event. It will be filled up later for you to know what this event is about.",
       "rules": ["How to play rule 1", "How to play rule 2"],
-      "coordinators": ["Monkey D. Luffy", "Roronoa Zoro"],
-      "coordinatorsNumber": ["9747897864", "6392785637"],
-      "judgement": ["This is how you will get points"],
+      "coordinators": ["Md.Azharuddin", "Sonali Mishra"],
+      "coordinatorsNumber": ["9078600498", "9439141156"],
+      "judgement": [],
     }),
     EventModel.fromJson({
       "id": 0,
@@ -38,8 +38,8 @@ class _SlideshowState extends State<Slideshow> {
         "Number of participants-1",
         "Full use of internet is allowed"
       ],
-      "coordinators": ["Monkey D. Luffy", "Roronoa Zoro"],
-      "coordinatorsNumber": ["9747897864", "6392785637"],
+      "coordinators": ["Md.Azharuddin", "Sonali Mishra"],
+      "coordinatorsNumber": ["9078600498", "9439141156"],
       "judgement": [
         "The very first person to solve the puzzle will win the prize."
       ],
@@ -56,30 +56,34 @@ class _SlideshowState extends State<Slideshow> {
       "judgement": []
     }),
     EventModel.fromJson({
-      "id": 102,
-      "image": "102.jpg",
-      "name": "Spectacolo-di-Talenti",
+      "id": 103,
+      "image": "103.jpg",
+      "name": "Mr. & Mrs. Technovation",
       "description":
-      "\"The entire world ‘s a stage\", they say. For the people who believe this , for the people with passion ans obsession, we have the right stage for you!. Be it comedy, mimicry, acting, magic, dance or any quirky thing you are passionately curious about, we have the stage ready for you!. Give the crowd and the judges the trime of their lives. ",
+      "“Success is a series of small wins”.\n\nThe most awaited, charismatic, Mr. and Mrs. Technovation is back with a bang. An online event where you will be asked to send a picture of yours And the participant with the highest number of likes will qualify to the next round followed by some other interesting rounds.\n\nThe difference between ordinary and extraordinary is that little “extra”. Go that extra mile, Make it happen . Cause no one is you and that is your superpower."
+          "\n\nProcedure:\n\nThe contestants will send their photo on the email ID mrandmisstechnovation2020@gmail.com on or before 10TH MARCH.\n\nThe pics sent by the contestants will be posted in Mr and Miss Technovation page.\n\nThe jury shall consider the likes of those persons who like the pic as well as the Mr  & Miss Technovation page.\n\nTop 16 participants (8 boys and 8 girls inclusively) getting the maximum likes for their pic on the page will be selected for the 2nd round to be conducted at IGIT, Sarang during Technovation 2020."
+          "\n\nMr & Miss Fame (the boy and the girl who will be the Highest like holder) will get some bonus point in this competition.\n\nIn the 2nd round the participants will face the quiz test and self performance (Dancing , singing or Solo Act) and PI.\n\nAmong all the 16 participants, 10 (5 boys and 5 girls) will be selected for the final round.\n\nWinner of Mr. Technovation and Miss Technovation will be decided based on the participants' performance in the Final round (Ramp Walk)."
+          "\n\nDo check the page regularly to stay updated with the event and related posts.",
       "rules": [
-        "Dance: It may be solo or duet or group performance having maximum 8 members.(Duration: 3-4 min)",
-        "Song: Songs of any language may be sung. (Duration: 2-3 min)",
-        "Instrumental:- All types of instruments are allowed.(Duration: 2-3 min)",
-        "Act:- Mono act or skit can be performed. (Duration: 3-5 min)",
-        "Band Performance"
+        "The contestants need to send their photos along with their full name & college name to mrandmisstechnovation2020@gmail.com",
+        "Photo size should be less than 10 MB and it must not have any filter effects or edits.",
+        "Selfies are not allowed in the competition.",
+        "Use of auto liker and auto commenter is  not allowed. Participants using such means will be disqualified.",
+        "Photo should be decent where the participant should be properly dressed.",
+        "Only a single picture without any collage shall be taken into consideration.",
+        "If any of the above rules is not followed by any of the contestants they will be disqualified.",
       ],
-      "coordinators": ["Prasant Kumar Dey", "Monalisha Sahoo"],
-      "coordinatorsNumber": ["7789890440", "7788818623"],
+      "coordinators": ["Abhijit Panda", "Moumita Panda"],
+      "coordinatorsNumber": ["8114957735", "8917242677"],
       "judgement": []
     }),
     EventModel.fromJson({
-      "id": 205,
-      "image": "205.jpg",
+      "id": 9,
+      "image": "009.jpg",
       "name": "Lazer Maze",
       "description":
       "It is a real life heist style game where you dodge lasers and finish the track levels as quickly as possible without setting off the alarm.\n\nYou have to use your body balance and flexibility to reach the end of the room without touching the lasers.",
-      "rules": [
-      ],
+      "rules": [],
       "coordinators": ["Nachiketa Dhal", "Smruti Swagatika Muduli"],
       "coordinatorsNumber": ["8328992036", "9556027382"],
       "judgement": []
@@ -120,8 +124,8 @@ class _SlideshowState extends State<Slideshow> {
       getImage('event1.jpg', 0),
       getImage('000.jpg', 1),
       getImage('101.jpg', 2),
-      getImage('102.jpg', 3),
-      getImage('205.jpg', 4),
+      getImage('103.jpg', 3),
+      getImage('009.jpg', 4),
     ];
     _fancyLineBloc = FancyLineBloc();
   }
@@ -131,7 +135,7 @@ class _SlideshowState extends State<Slideshow> {
     return Transform.rotate(
       angle: 6.2,
       child: Transform.scale(
-        scale: 1.12,
+        scale: 1.1,
         child: CarouselSlider(
           items: images,
           height: 200,

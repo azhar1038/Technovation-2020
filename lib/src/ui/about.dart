@@ -181,7 +181,7 @@ class _AboutState extends State<About> {
                     ),
                     SizedBox(height: 16),
                     Text(
-                      'Version: 1.8.6',
+                      'Version: 1.8.7',
                       style: my,
                     ),
                     SizedBox(height: 16),
@@ -215,7 +215,7 @@ class _AboutState extends State<About> {
         Color(0xff00a6fb),
         Colors.transparent,
       ];
-      alignment = Alignment.centerLeft;
+      alignment = Alignment.topLeft;
     } else if (startX > 0) {
       gradient = [
         Colors.transparent,
@@ -223,7 +223,7 @@ class _AboutState extends State<About> {
         Color(0xff00a6fb),
         Color(0xff005bea),
       ];
-      alignment = Alignment.centerRight;
+      alignment = Alignment.topRight;
     }
     return SlideIn(
       startX: startX,
@@ -246,7 +246,7 @@ class _AboutState extends State<About> {
             title,
             style: TextStyle(
               fontFamily: 'IMFellGreatPrimerSC',
-              fontSize: 24,
+              fontSize: 22,
               fontWeight: FontWeight.w500,
               color: Colors.white,
             ),
