@@ -450,12 +450,13 @@ class EventProvider {
           e.location = event['location'];
           int time = int.parse(event['time']);
           e.time = time;
+          print(time);
           int p = -1;
           if (time >= 1584037800000 && time <= 1584124199000)
             p = 0;
           else if (time >= 1584124200000 && time <= 1584210599000)
             p = 1;
-          else if (time >= 1584210600000 && time <= 1584210600000) p = 2;
+          else if (time >= 1584210600000 && time <= 1584296999000) p = 2;
           e.day = p + 1;
           res[i].add(e);
         } catch (e) {}
@@ -471,7 +472,7 @@ class EventProvider {
           p = 0;
         else if (time >= 1584124200000 && time <= 1584210599000)
           p = 1;
-        else if (time >= 1584210600000 && time <= 1584210600000) p = 2;
+        else if (time >= 1584210600000 && time <= 1584296999000) p = 2;
         try {
           if (p != -1) {
             EventModel e = eventDetails[i][j];
