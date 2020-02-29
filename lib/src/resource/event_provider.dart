@@ -348,7 +348,7 @@ class EventProvider {
                 "All the matches will be knock out",
                 "Number of players per team: 5"
               ],
-              "coordinators": ["Jyotisman Moharana", "Neha Rai", "Sworaj"],
+              "coordinators": ["Jyotishman Maharana", "Neha Rai", "Sworaj"],
               "coordinatorsNumber": ["9124026162", "8917364985", "7683847373"],
               "judgement": [
                 "The team that wins the final is declared the winner "
