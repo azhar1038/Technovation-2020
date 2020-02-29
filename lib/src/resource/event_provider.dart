@@ -49,8 +49,8 @@ class EventProvider {
                 "Full access to internet.",
                 "Time: 1 hr."
               ],
-              "coordinators": ["Md.Azharuddin", "Sonali Mishra"],
-              "coordinatorsNumber": ["9078600498", "9439141156"],
+              "coordinators": ["Md.Azharuddin", "Rashmi Rekha Dash"],
+              "coordinatorsNumber": ["9078600498", "8658937992"],
               "judgement": ["The one who scores maximum points will win."]
             }),
             EventModel.fromJson({
@@ -60,8 +60,8 @@ class EventProvider {
               "description":
                   "If you are looking for a lively event humming with the energy of sparked-up brains working together, your destination is here!\n\nRound 1: An aptitude test to examine the basic understanding of problems.\n\nRound 2: You will be given puzzles which you are expected to decode with given constraints. Each puzzle solved will put you ahead in the race.\nFeeling the heat, right!!",
               "rules": ["At max 2 students per team."],
-              "coordinators": ["Md.Azharuddin", "Sonali Mishra"],
-              "coordinatorsNumber": ["9078600498", "9439141156"],
+              "coordinators": ["Hrushikesh Sahu", "Satya Sarathi Barik"],
+              "coordinatorsNumber": ["9668633561", "7377477891"],
               "judgement": []
             }),
             EventModel.fromJson({
@@ -75,8 +75,8 @@ class EventProvider {
                 "Use of internet is prohibited",
                 "Time: 1 hr"
               ],
-              "coordinators": ["Md.Azharuddin", "Sonali Mishra"],
-              "coordinatorsNumber": ["9078600498", "9439141156"],
+              "coordinators": ["Andhavarapu Supriya", "Poonam Das"],
+              "coordinatorsNumber": ["8018917590", "9090832910"],
               "judgement": ["One who scores highest points will win."]
             }),
             EventModel.fromJson({
@@ -86,8 +86,8 @@ class EventProvider {
               "description":
                   "Ever wondered what is to type code without seeing what you are writing. This event will let you experience this.\n\nParticipants will be given a question for which they need to write a program in paper. After they are done, they will need to type their program into their computer with their monitor turned off.",
               "rules": ["One person per team", "Time: 1hr"],
-              "coordinators": ["Md.Azharuddin", "Sonali Mishra"],
-              "coordinatorsNumber": ["9078600498", "9439141156"],
+              "coordinators": ["Gayatri Jena", "Simarani Rout"],
+              "coordinatorsNumber": ["8118035303", "7596806985"],
               "judgement": [
                 "Points will be rewarded based on how less mistakes one makes during typing."
               ]
@@ -103,8 +103,8 @@ class EventProvider {
                 "Time: 15 minutes per group",
                 "Must have a ppt"
               ],
-              "coordinators": ["Md.Azharuddin", "Sonali Mishra"],
-              "coordinatorsNumber": ["9078600498", "9439141156"],
+              "coordinators": ["Md.Azharuddin", "Swadesh Patra"],
+              "coordinatorsNumber": ["9078600498", "8598930053"],
               "judgement": ["Group with best presentation will win"]
             }),
             EventModel.fromJson({
@@ -112,13 +112,13 @@ class EventProvider {
               "image": "006.jpg",
               "name": "Mock Interview",
               "description":
-                  "So, you have never faced any interview before! Wanna know how it feels to sit for an interview? . Then what are you for! Come and test how good you are when it comes to interview.",
+                  "So, you have never faced any interview before! Wanna know how it feels to sit for an interview? . Then what are you waiting for! Come and test how good you are when it comes to interview.",
               "rules": [
                 "1 participant per team",
                 "Time: Will depend on interviewer"
               ],
-              "coordinators": ["Md.Azharuddin", "Sonali Mishra"],
-              "coordinatorsNumber": ["9078600498", "9439141156"],
+              "coordinators": ["Supriya Panda", "Monalisa Giri"],
+              "coordinatorsNumber": ["8280737707", "8339820727"],
               "judgement": ["Based on performance"]
             }),
             EventModel.fromJson({
@@ -132,8 +132,8 @@ class EventProvider {
                 "Time: 1 hr per round",
                 "Use of interner is prohibited"
               ],
-              "coordinators": ["Md.Azharuddin", "Sonali Mishra"],
-              "coordinatorsNumber": ["9078600498", "9439141156"],
+              "coordinators": ["Yashobanta Kumar Behera", "Anuranjita Kund"],
+              "coordinatorsNumber": ["9556580938", "6370400017"],
               "judgement": []
             }),
             EventModel.fromJson({
@@ -143,8 +143,8 @@ class EventProvider {
               "description":
                   "We have all seen an episode of CSI or Law and Order, read a John Grisham book, or listen to a true crime podcast, and thought, \"Yeah, I could do that, I could solve those cases too.\"\n\nIf you want to take your passion of mystery beyond reading books, we have a good news! Use your detective instinct and common sense to solve some real life problems within a given time frame.\n\nCome Decrypt, Defuse, Decode and survive.",
               "rules": ["At max 2 students per team."],
-              "coordinators": ["Md.Azharuddin", "Sonali Mishra"],
-              "coordinatorsNumber": ["9078600498", "9439141156"],
+              "coordinators": ["Sonali Mishra", "Digvijay"],
+              "coordinatorsNumber": ["9439141156", "8908804085"],
               "judgement": ["One who solves all the puzzles first, will win"]
             }),
             EventModel.fromJson({
@@ -154,8 +154,8 @@ class EventProvider {
               "description":
               "It is a real life heist style game where you dodge lasers and finish the track levels as quickly as possible without setting off the alarm.\n\nYou have to use your body balance and flexibility to reach the end of the room without touching the lasers.",
               "rules": [],
-              "coordinators": ["Nachiketa Dhal", "Smruti Swagatika Muduli"],
-              "coordinatorsNumber": ["8328992036", "9556027382"],
+              "coordinators": ["Swadesh Patra", "Soumya Ranjan Naik"],
+              "coordinatorsNumber": ["8598930053", "8249595118"],
               "judgement": []
             }),
           ],
@@ -165,7 +165,7 @@ class EventProvider {
               "image": "100.jpg",
               "name": "Encantador",
               "description":
-                  "\"Being well dressed hasn’t much to do with having good clothes. It’s a question of good balance and good common sense. So in order to be irreplaceable one must always be different.\"\n\nSo wake up beauties its time to beast for we are back with the 4th edition of Encantador, the fashion show.\n\nBe the designer of your own and let the fire inside you burn brighter than the fire around you.\n\nThemes:\n\n \"Coming Soon\"",
+                  "Being well dressed hasn’t much to do with having good clothes. It’s a question of good balance and good common sense. So in order to be irreplaceable one must always be different.\n\nSo wake up beauties and hunks, its time to beast, for we are back with the 4th edition of Encantador, the fashion show.\n\nBe the designer of your own and let the fire inside you burn brighter than the fire around you.\n\nThemes:\n\nBollywood\nWizardry\nColors of the sea\nAnimals in cage\nShades of karma \"Zodiac\"\nPalace of illusions\nGarbage bag gala\nDiversity of India\nCandy Land\nK-Pop\n",
               "rules": [
                 "Each team will consist of 6-9 members",
                 "Every team will have to base their performance on a specific theme",
@@ -173,14 +173,15 @@ class EventProvider {
                 "Every team will have to bring its own music track for the walk.",
                 "Each theme can be taken up by a maximum of 2 teams on a first come first serve basis."
               ],
-              "coordinators": ["Azazul Haque", "Monalisha sahoo"],
-              "coordinatorsNumber": ["8457867856", "7788818623"],
+              "coordinators": ["Azazul Haque", "Monalisha sahoo", "Satya Prakash Rout", "Pujarani Rout"],
+              "coordinatorsNumber": ["8457867856", "9348328210", "9040583814", "6370873252"],
               "judgement": [
-//                "On the basis of Creativity",
-//                "On the basis of Costume design",
-//                "On the basis of Relevance to the theme",
-//                "On the basis of Originality of concept",
-//                "On the basis of Interaction with the audience"
+                "On the basis of Creativity",
+                "On the basis of Confidense",
+                "On the basis of Costume design",
+                "On the basis of Relevance to the theme",
+                "On the basis of Originality of concept",
+                "On the basis of Interaction with the audience"
               ]
             }),
             EventModel.fromJson({
@@ -191,7 +192,7 @@ class EventProvider {
                   "Come and Enjoy! We have a Special guest waiting to make your night a lifetime experience.",
               "rules": [],
               "coordinators": ["Prasant Kumar Dey", "Monalisha Sahoo"],
-              "coordinatorsNumber": ["7789890440", "7788818623"],
+              "coordinatorsNumber": ["7789890440", "9348328210"],
               "judgement": []
             }),
             EventModel.fromJson({
@@ -207,8 +208,8 @@ class EventProvider {
                 "Act:- Mono act or skit can be performed. (Duration: 3-5 min)",
                 "Band Performance"
               ],
-              "coordinators": ["Prasant Kumar Dey", "Monalisha Sahoo"],
-              "coordinatorsNumber": ["7789890440", "7788818623"],
+              "coordinators": ["Prasant Kumar Dey", "Jhalsa Mishra", "Kaushik Kumar Behera", "Pujarani Rout"],
+              "coordinatorsNumber": ["7789890440", "7788818623", "8328820950", "6370873252"],
               "judgement": []
             }),
             EventModel.fromJson({
@@ -282,8 +283,8 @@ class EventProvider {
                 "Any kind of misbehaviour would resul t in direct disqualification.",
                 "The decision taken by the organisers is final and binding for the performers.",
               ],
-              "coordinators": ["Prasant Kumar Dey", "Monalisha Sahoo"],
-              "coordinatorsNumber": ["7789890440", "7788818623"],
+              "coordinators": ["Srutismita Naik", "Ansuman Samal", "Alina Rout"],
+              "coordinatorsNumber": ["9438668886", "9439922731", "9658946248"],
               "judgement": []
             }),
             EventModel.fromJson({
@@ -301,8 +302,8 @@ class EventProvider {
                 "The time limi t for each performance shouldnot exceed 4 minutes.",
                 "The decision taken by the organisers is final and binding for the performers.",
               ],
-              "coordinators": ["Prasant Kumar Dey", "Monalisha Sahoo"],
-              "coordinatorsNumber": ["7789890440", "7788818623"],
+              "coordinators": ["Prasant Kumar Dey", "Monalisha Sahoo", "Bibekananda Pradhan", "Shurtika"],
+              "coordinatorsNumber": ["7789890440", "9348328210", "9658990582", "9556119141"],
               "judgement": []
             }),
             EventModel.fromJson({
@@ -330,8 +331,8 @@ class EventProvider {
                 "The aim is to build the maximum number of required sets",
                 "Number of players per team: 3-4"
               ],
-              "coordinators": ["Nachiketa Dhal", "Smruti Swagatika Muduli"],
-              "coordinatorsNumber": ["8328992036", "9556027382"],
+              "coordinators": ["Abinash Sahoo", "Sonali Rashmirekha", "Neelesh Mohanty"],
+              "coordinatorsNumber": ["7609929488", "7978520885", "9438120178"],
               "judgement": [
                 "The team with highest number of sets cumulated with remaining budget will win"
               ]
@@ -341,14 +342,14 @@ class EventProvider {
               "image": "201.jpg",
               "name": "Gully Cricket",
               "description":
-                  "Who doesn't love gully cricket? School and college life is virtually incomplete without a cricket match in the streets.\n\nWith strange rules and regulations, gully cricket is excellent entertainment and an integral part of every Indian's childhood.\n\nTake a break from the craze of online games and come to feel the emotions of gully cricket.",
+                  "Who doesn't love gully cricket? School and college life is virtually incomplete without a cricket match in the streets.\n\nWith strange rules and regulations, gully cricket is excellent entertainment and an integral part of every Indian's childhood.\n\nTake a break from the craze of online games and come to feel the emotions of gully cricket.\n\nENTRY FEES: RS. 50/- PER TEAM",
               "rules": [
                 "Matches will be played in league style",
                 "All the matches will be knock out",
                 "Number of players per team: 5"
               ],
-              "coordinators": ["Nachiketa Dhal", "Smruti Swagatika Muduli"],
-              "coordinatorsNumber": ["8328992036", "9556027382"],
+              "coordinators": ["Jyotisman Moharana", "Neha Rai", "Sworaj"],
+              "coordinatorsNumber": ["9124026162", "8917364985", "7683847373"],
               "judgement": [
                 "The team that wins the final is declared the winner "
               ]
@@ -360,8 +361,8 @@ class EventProvider {
               "description":
                   "You got 60 seconds to prove your worth and beat your opponent in a series of challenges.\n\nThe challenges will be quite innovative and truly take you on a funny enjoyable ride.",
               "rules": ["Number of players per team: 1"],
-              "coordinators": ["Nachiketa Dhal", "Smruti Swagatika Muduli"],
-              "coordinatorsNumber": ["8328992036", "9556027382"],
+              "coordinators": ["Nachiketa Dhal", "Smruti Swagatika Muduli", "Trupti Prava Patra", "Supratika Bhuyan"],
+              "coordinatorsNumber": ["8328992036", "9556027382", "8763113661", "8249046351"],
               "judgement": []
             }),
             EventModel.fromJson({
@@ -371,8 +372,8 @@ class EventProvider {
               "description":
                   "\"Follow my steps, only then you can judge me.\"Ohh! sorry, but we kinda modified it...you follow our steps, and then we will judge you.\n\n Small steps in the right direction will take you to the destination.",
               "rules": ["Number of player per team: 1"],
-              "coordinators": ["Nachiketa Dhal", "Smruti Swagatika Muduli"],
-              "coordinatorsNumber": ["8328992036", "9556027382"],
+              "coordinators": ["Nachiketa Dhal", "Smruti Swagatika Muduli", "Rajib Kumar Behera"],
+              "coordinatorsNumber": ["8328992036", "9556027382", "8917679815"],
               "judgement": [
                 "One who successfully completes the track in right order will win."
               ]
@@ -384,8 +385,8 @@ class EventProvider {
               "description":
                   "The day you start saying that I am a struggler you start losing out. Don't struggle love what you do. You are your own superhero...make adventure your damsel in distress.\n\nInspired from the youth-based reality show MTV Roadies, we bring you E-roadies.\n\nParticipants selected via auditions, compete against each other in various tasks that challenge their physical and mental strength, and go on to win the title.",
               "rules": ["Number of players per team: 1"],
-              "coordinators": ["Nachiketa Dhal", "Smruti Swagatika Muduli"],
-              "coordinatorsNumber": ["8328992036", "9556027382"],
+              "coordinators": ["Amit Tripathi", "Shreeya Sethi"],
+              "coordinatorsNumber": ["7381159118", "7655831682"],
               "judgement": [
                 "On the basis of performances of the participants in various tasks"
               ]
@@ -400,8 +401,8 @@ class EventProvider {
                 "Participants have to take photo or video as proof to show while reporting",
                 "Number of players per team: 5"
               ],
-              "coordinators": ["Nachiketa Dhal", "Smruti Swagatika Muduli"],
-              "coordinatorsNumber": ["8328992036", "9556027382"],
+              "coordinators": ["Debasmita Debadarshani", "Gyana Ranjan Behera"],
+              "coordinatorsNumber": ["8280078980", "6360154302"],
               "judgement": [
                 "The first team to report with all the tasks done will win."
               ]
@@ -412,10 +413,10 @@ class EventProvider {
               "image": "206.jpg",
               "name": "E-Gaming",
               "description":
-                  "Unleash your gaming capabilities to a whole new level. Compete against the best out there. Games: \n\nPUBG\n\nFIFA\n\nMobile Legends\n\n Call of Duty\n\nNFS\n\nTekken\n\nCS Go",
+                  "Unleash your gaming capabilities to a whole new level. Compete against the best out there.\n\nGames: \n\nPUBG\nFIFA\nMobile Legends\nCall of Duty Mobile\nNFS\nTekken\nCS Go",
               "rules": [],
-              "coordinators": ["Nachiketa Dhal", "Smruti Swagatika Muduli"],
-              "coordinatorsNumber": ["8328992036", "9556027382"],
+              "coordinators": ["Satya Narayan Patra", "Aditya Ranjan Mohanty"],
+              "coordinatorsNumber": ["9556989814", "7504948433"],
               "judgement": ["There will be only one winner team per game"]
             }),
 
@@ -450,7 +451,6 @@ class EventProvider {
           e.location = event['location'];
           int time = int.parse(event['time']);
           e.time = time;
-          print(time);
           int p = -1;
           if (time >= 1584037800000 && time <= 1584124199000)
             p = 0;

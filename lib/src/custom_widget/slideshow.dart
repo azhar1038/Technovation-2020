@@ -84,8 +84,8 @@ class _SlideshowState extends State<Slideshow> {
       "description":
       "It is a real life heist style game where you dodge lasers and finish the track levels as quickly as possible without setting off the alarm.\n\nYou have to use your body balance and flexibility to reach the end of the room without touching the lasers.",
       "rules": [],
-      "coordinators": ["Nachiketa Dhal", "Smruti Swagatika Muduli"],
-      "coordinatorsNumber": ["8328992036", "9556027382"],
+      "coordinators": ["Swadesh Patra", "Soumya Ranjan Naik"],
+      "coordinatorsNumber": ["8598930053", "8249595118"],
       "judgement": []
     }),
   ];

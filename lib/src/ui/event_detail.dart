@@ -240,9 +240,6 @@ class _EventDetailState extends State<EventDetail> {
                     style: header,
                   ),
                 ),
-                SizedBox(
-                  height: 16,
-                ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Column(
