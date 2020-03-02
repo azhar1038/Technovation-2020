@@ -27,15 +27,16 @@ class EventProvider {
               "image": "000.jpg",
               "name": "Internet Mystery",
               "description":
-                  "This is an event to test the deciphering abilities of participants. Participants will need to solve some mind-boggling puzzles to get to the treasure. This event will be conducted in two phases.\n\nPhase1: It will be a pre-event. Participants will need to solve all the puzzles to know when and where phase 2 will be conducted.\n\nPhase 2: The final puzzle which will be provided on the spot.",
+                  "This is an event to test the deciphering abilities of participants. Participants will need to solve some mind-boggling puzzles to get to the treasure. This event will be conducted in two phases.\n\nPhase1: It will be a pre-event. Participants will need to solve all the puzzles to know when and where phase 2 will be conducted.\n\nPhase 2: The final puzzle, which will be provided on the spot."
+                  "\n\nIMPORTANT: App provided with puzzle is only required in phase 2 and its entry code will be provided on the spot.",
               "rules": [
-                "Number of participants-1",
+                "It is an individual challenge",
                 "Full use of internet is allowed"
               ],
               "coordinators": ["Md.Azharuddin", "Sonali Mishra"],
               "coordinatorsNumber": ["9078600498", "9439141156"],
               "judgement": [
-                "The very first person to solve the puzzle will win the prize."
+                "The very first person to solve the final puzzle will win the prize."
               ],
             }),
             EventModel.fromJson({
@@ -141,8 +142,8 @@ class EventProvider {
               "image": "008.jpg",
               "name": "Chanakya Neeti",
               "description":
-                  "We have all seen an episode of CSI or Law and Order, read a John Grisham book, or listen to a true crime podcast, and thought, \"Yeah, I could do that, I could solve those cases too.\"\n\nIf you want to take your passion of mystery beyond reading books, we have a good news! Use your detective instinct and common sense to solve some real life problems within a given time frame.\n\nCome Decrypt, Defuse, Decode and survive.",
-              "rules": ["At max 2 students per team."],
+                  "If you want to take your passion of mystery beyond reading books and listening to podcast, we have some good news!\n\nUse your instinct and common sense to solve the real life problems within a given time frame.\n\nCome Decrypt, Defuse, Decode and Survive.",
+              "rules": ["Maximum number of participants per team is 2."],
               "coordinators": ["Sonali Mishra", "Digvijay"],
               "coordinatorsNumber": ["9439141156", "8908804085"],
               "judgement": ["One who solves all the puzzles first, will win"]
@@ -192,7 +193,7 @@ class EventProvider {
                   "Come and Enjoy! We have a Special guest waiting to make your night a lifetime experience.",
               "rules": [],
               "coordinators": ["Prasant Kumar Dey", "Monalisha Sahoo"],
-              "coordinatorsNumber": ["7789890440", "9348328210"],
+              "coordinatorsNumber": ["9078824629", "9348328210"],
               "judgement": []
             }),
             EventModel.fromJson({
@@ -200,17 +201,29 @@ class EventProvider {
               "image": "102.jpg",
               "name": "Spectacolo-di-Talenti",
               "description":
-                  "\"The entire world ‘s a stage\", they say. For the people who believe this , for the people with passion and obsession, we have the right stage for you!. Be it comedy, mimicry, acting, magic, dance or any quirky thing you are passionately curious about, we have the stage ready for you!. Give the crowd and the judges the trime of their lives. ",
+                  "\"The entire world ‘s a stage\", they say. For the people who believe this , for the people with passion and obsession, we have the right stage for you!. Be it comedy, mimicry, acting, magic, dance or any quirky thing you are passionately curious about, we have the stage ready for you!. Give the crowd the time of their lives. Spectacolo-di-talenti brings the opportunityto make your move.",
+                  "\n\nDance:- It may be solo or duet or group performance having maximum 8 members.(Duration: 3-4 min)"
+                  "\n\nSong:- Songs of any language may be sung. (Duration: 3-4 min)."
+                  "\n\nInstrumental:- All types of instruments are allowed. (Duration: 3-4 min)"
+                  "\n\nAct:- Mono act or skit can be performed. (Duration: 3-4 min)"
+                  "\n\nBand Performance (Duration: 3-4 min)"
               "rules": [
-                "Dance: It may be solo or duet or group performance having maximum 8 members.(Duration: 3-4 min)",
-                "Song: Songs of any language may be sung. (Duration: 2-3 min)",
-                "Instrumental:- All types of instruments are allowed.(Duration: 2-3 min)",
-                "Act:- Mono act or skit can be performed. (Duration: 3-5 min)",
-                "Band Performance"
+                "The entry fee per person will be Rs 50/-",
+                "Time limit for every performance must be strictly within 3 - 4 minutes.",
+                "Any kind of talent may be showcased on the stage, be it comedy, mimicry, acting, magic, dance, etc.",
+                "The contestants need to submit their music track to the coordinators in advance.",
+                "Use of props is allowed.",
+                "Requirements of any sort must be informed well before hand.",
+                "Use of fire/water/smoke in any form is not allowed.",
+                "The decision of the judges will be final and binding in all cases.",
+                "Organizers have full authority to disqualify the participation in case of any discrepancy."
               ],
               "coordinators": ["Prasant Kumar Dey", "Jhalsa Mishra", "Kaushik Kumar Behera", "Pujarani Rout"],
-              "coordinatorsNumber": ["7789890440", "7788818623", "8328820950", "6370873252"],
-              "judgement": []
+              "coordinatorsNumber": ["9078824629", "7788818623", "8328820950", "6370873252"],
+              "judgement": [
+                "On the basis of Skill and Creativity",
+                "On the basis of Presentation",
+              ]
             }),
             EventModel.fromJson({
               "id": 103,
@@ -242,7 +255,7 @@ class EventProvider {
                   "Come and Enjoy! We have a Special guest waiting to rock you to the core!!",
               "rules": [],
               "coordinators": ["Prasant Kumar Dey", "Monalisha Sahoo"],
-              "coordinatorsNumber": ["7789890440", "7788818623"],
+              "coordinatorsNumber": ["9078824629", "7788818623"],
               "judgement": []
             }),
             EventModel.fromJson({
@@ -263,7 +276,7 @@ class EventProvider {
                 "Teams have to bring their own props and costumes.",
               ],
               "coordinators": ["Prasant Kumar Dey", "Monalisha Sahoo"],
-              "coordinatorsNumber": ["7789890440", "7788818623"],
+              "coordinatorsNumber": ["9078824629", "7788818623"],
               "judgement": []
             }),
             EventModel.fromJson({
@@ -303,7 +316,7 @@ class EventProvider {
                 "The decision taken by the organisers is final and binding for the performers.",
               ],
               "coordinators": ["Prasant Kumar Dey", "Monalisha Sahoo", "Bibekananda Pradhan", "Shurtika"],
-              "coordinatorsNumber": ["7789890440", "9348328210", "9658990582", "9556119141"],
+              "coordinatorsNumber": ["9078824629", "9348328210", "9658990582", "9556119141"],
               "judgement": []
             }),
             EventModel.fromJson({
@@ -314,7 +327,7 @@ class EventProvider {
                   "They gathered, they danced and they left. Gathering people together is an art and the one who holds someone’s at tention is the art ist. So let’s assemble to entertain and sat irize the crowd .Come and let your body move in every beat of the music.",
               "rules": [],
               "coordinators": ["Prasant Kumar Dey", "Monalisha Sahoo"],
-              "coordinatorsNumber": ["7789890440", "7788818623"],
+              "coordinatorsNumber": ["9078824629", "7788818623"],
               "judgement": []
             }),
           ],
