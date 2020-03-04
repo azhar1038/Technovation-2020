@@ -29,31 +29,45 @@ class _SlideshowState extends State<Slideshow> {
       "judgement": [],
     }),
     EventModel.fromJson({
-      "id": 0,
-      "image": "000.jpg",
-      "name": "Internet Mystery",
-      "description":
-      "This is an event to test the deciphering abilities of participants. Participants will need to solve some mind-boggling puzzles to get to the treasure. This event will be conducted in two phases.\n\nPhase1: It will be a pre-event. Participants will need to solve all the puzzles to know when and where phase 2 will be conducted.\n\nPhase 2: The final puzzle which will be provided on the spot.",
-      "rules": [
-        "Number of participants-1",
+        "id": 0,
+        "image": "000.jpg",
+        "name": "Internet Mystery",
+        "description":
+            "This is an event to test the deciphering abilities of participants. Participants will need to solve some mind-boggling puzzles to get to the treasure. This event will be conducted in two phases.\n\nPhase1: It will be a pre-event. Participants will need to solve all the puzzles to know when and where phase 2 will be conducted.\n\nPhase 2: The final puzzle, which will be provided on the spot."
+            "\n\nIMPORTANT: App provided with puzzle is only required in phase 2 and its entry code will be provided on the spot.",
+        "rules": [
+        "It is an individual challenge",
         "Full use of internet is allowed"
-      ],
-      "coordinators": ["Md.Azharuddin", "Sonali Mishra"],
-      "coordinatorsNumber": ["9078600498", "9439141156"],
-      "judgement": [
-        "The very first person to solve the puzzle will win the prize."
-      ],
+        ],
+        "coordinators": ["Md.Azharuddin", "Sonali Mishra"],
+        "coordinatorsNumber": ["9078600498", "9439141156"],
+        "judgement": [
+        "The very first person to solve the final puzzle will win the prize."
+        ],
     }),
     EventModel.fromJson({
-      "id": 101,
-      "image": "101.jpg",
-      "name": "Star Night",
-      "description":
-      "Come and Enjoy! We have a Special guest waiting to make your night a lifetime experience.",
-      "rules": [],
-      "coordinators": ["Prasant Kumar Dey", "Monalisha Sahoo"],
-      "coordinatorsNumber": ["7789890440", "7788818623"],
-      "judgement": []
+        "id": 100,
+        "image": "100.jpg",
+        "name": "Encantador",
+        "description":
+            "Being well dressed hasn’t much to do with having good clothes. It’s a question of good balance and good common sense. So in order to be irreplaceable one must always be different.\n\nSo wake up beauties and hunks, its time to beast, for we are back with the 4th edition of Encantador, the fashion show.\n\nBe the designer of your own and let the fire inside you burn brighter than the fire around you.\n\nThemes:\n\nBollywood\nWizardry\nColors of the sea\nAnimals in cage\nShades of karma \"Zodiac\"\nPalace of illusions\nGarbage bag gala\nDiversity of India\nCandy Land\nK-Pop\n",
+        "rules": [
+        "Each team will consist of 6-9 members",
+        "Every team will have to base their performance on a specific theme",
+        "Every team will be given a time limit of maximum 3 minutes.",
+        "Every team will have to bring its own music track for the walk.",
+        "Each theme can be taken up by a maximum of 2 teams on a first come first serve basis."
+        ],
+        "coordinators": ["Azazul Haque", "Monalisha sahoo", "Satya Prakash Rout", "Pujarani Rout"],
+        "coordinatorsNumber": ["8457867856", "9348328210", "9040583814", "6370873252"],
+        "judgement": [
+        "On the basis of Creativity",
+        "On the basis of Confidense",
+        "On the basis of Costume design",
+        "On the basis of Relevance to the theme",
+        "On the basis of Originality of concept",
+        "On the basis of Interaction with the audience"
+        ]
     }),
     EventModel.fromJson({
       "id": 103,
@@ -78,15 +92,15 @@ class _SlideshowState extends State<Slideshow> {
       "judgement": []
     }),
     EventModel.fromJson({
-      "id": 9,
-      "image": "009.jpg",
-      "name": "Lazer Maze",
-      "description":
-      "It is a real life heist style game where you dodge lasers and finish the track levels as quickly as possible without setting off the alarm.\n\nYou have to use your body balance and flexibility to reach the end of the room without touching the lasers.",
-      "rules": [],
-      "coordinators": ["Swadesh Patra", "Soumya Ranjan Naik"],
-      "coordinatorsNumber": ["8598930053", "8249595118"],
-      "judgement": []
+        "id": 207,
+        "image": "207.jpg",
+        "name": "Stunt Show",
+        "description":
+            "Stay off the tracks! Team RTZ is all set to awe you in disbelief with the roar and thunder of their bikes.\n\nGet Ready to experience an enthralling evening very soon!",
+        "rules": [],
+        "coordinators": ["Mahesh", "Nrusinghnath"],
+        "coordinatorsNumber": ["8249752218", "7327057891"],
+        "judgement": []
     }),
   ];
 
@@ -123,9 +137,9 @@ class _SlideshowState extends State<Slideshow> {
     images = [
       getImage('event1.jpg', 0),
       getImage('000.jpg', 1),
-      getImage('101.jpg', 2),
+      getImage('100.jpg', 2),
       getImage('103.jpg', 3),
-      getImage('009.jpg', 4),
+      getImage('207.jpg', 4),
     ];
     _fancyLineBloc = FancyLineBloc();
   }
@@ -135,7 +149,7 @@ class _SlideshowState extends State<Slideshow> {
     return Transform.rotate(
       angle: 6.2,
       child: Transform.scale(
-        scale: 1.1,
+        scale: 1,
         child: CarouselSlider(
           items: images,
           height: 200,

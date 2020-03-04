@@ -355,16 +355,18 @@ class EventProvider {
               "image": "201.jpg",
               "name": "Gully Cricket",
               "description":
-                  "Who doesn't love gully cricket? School and college life is virtually incomplete without a cricket match in the streets.\n\nWith strange rules and regulations, gully cricket is excellent entertainment and an integral part of every Indian's childhood.\n\nTake a break from the craze of online games and come to feel the emotions of gully cricket.\n\nENTRY FEES: RS. 50/- PER TEAM",
+                  "Who doesn't love gully cricket? School and college life is virtually incomplete without a cricket match in the streets.\n\nWith strange rules and regulations, gully cricket is excellent entertainment and an integral part of every Indian's childhood.\n\nTake a break from the craze of online games and come to feel the emotions of gully cricket.\n\nENTRY FEES: RS. 50/- PER TEAM\nRE-ENTRY FEE: Rs. 30 PER TEAM",
               "rules": [
-                "Matches will be played in league style",
                 "All the matches will be knock out",
-                "Number of players per team: 5"
+                "Number of players per team: 5",
+                "1st over will be a magic over (runs scored will be doubled)",
+                "One drop one hand out rule",
+                "Entry fee is Rs 50 and  Re-entry is Rs 30.",
               ],
               "coordinators": ["Jyotishman Maharana", "Neha Rai", "Sworaj"],
-              "coordinatorsNumber": ["9124026162", "8917364985", "7683847373"],
+              "coordinatorsNumber": ["7008377271", "8917364985", "7683847373"],
               "judgement": [
-                "The team that wins the final is declared the winner "
+                "Winner & runners-up both will be awarded with prize."
               ]
             }),
             EventModel.fromJson({
@@ -432,7 +434,18 @@ class EventProvider {
               "coordinatorsNumber": ["9556989814", "7504948433"],
               "judgement": ["There will be only one winner team per game"]
             }),
-
+            
+            EventModel.fromJson({
+              "id": 207,
+              "image": "207.jpg",
+              "name": "Stunt Show",
+              "description":
+                  "Stay off the tracks! Team RTZ is all set to awe you in disbelief with the roar and thunder of their bikes.\n\nGet Ready to experience an enthralling evening very soon!",
+              "rules": [],
+              "coordinators": ["Mahesh", "Nrusinghnath"],
+              "coordinatorsNumber": ["8249752218", "7327057891"],
+              "judgement": []
+            }),
           ],
         ];
 

@@ -16,6 +16,11 @@ class SponsorProvider{
         website: 'ntpc.co.in',
       ),
       SponsorModel(
+        name: 'Tata Consultancy Services',
+        image: 'tcs.jpg',
+        website: 'tcs.com',
+      ),
+      SponsorModel(
         name: 'Bharat Petroleum',
         image: 'bharat.png',
         website: 'bharatpetroleum.com',
@@ -75,43 +80,16 @@ class SponsorProvider{
         image: 'tiaamo.jpg',
         website: 'tiaamo.com',
       ),
-
-
-//      SponsorModel(
-//        name: 'Samal Care',
-//        image: 'samalcare.jpg',
-//        website: 'm.facebook.com/SAMAL-CARE-Hospital-1933696440187852',
-//      ),
-//      SponsorModel(
-//        name: 'B21 Salon & Spa',
-//        image: 'b21.png',
-//        website: 'b21india.com',
-//      ),
-//      SponsorModel(
-//        name: 'BOCCA Cafe',
-//        image: 'bocca.png',
-//        website: 'm.facebook.com/BoccaCafeBBSR',
-//      ),
-//      SponsorModel(
-//        name: 'Khalo-Ji',
-//        image: 'khaloji.png',
-//        website: 'm.facebook.com/khalojirestrocafe',
-//      ),
-//      SponsorModel(
-//        name: 'The Cricket\'s Cafe',
-//        image: 'cricketscafe.jpg',
-//        website: 'm.facebook.com/thecricketscafe',
-//      ),
-//      SponsorModel(
-//        name: 'Modi Collection',
-//        image: 'modi.jpg',
-//        website: 'm.facebook.com/modicollectionangul',
-//      ),
-//      SponsorModel(
-//        name: 'Cineplexx',
-//        image: 'cineplexx.png',
-//        website: 'cineplexx.in',
-//      ),
+      SponsorModel(
+        name: 'Sixit Sports',
+        image: 'sixit.png',
+        website: 'sixitsports.com',
+      ),
+      SponsorModel(
+        name: 'Career Launcher',
+        image: 'career.jpg',
+        website: 'careerlauncher.com',
+      ),
     ];
   }
 

@@ -14,6 +14,41 @@ class EventDetail extends StatefulWidget {
 }
 
 class _EventDetailState extends State<EventDetail> {
+  Widget getLink(int id) {
+    String link;
+    String text;
+    if (id == 0) {
+      link = "https://bit.ly/TechnoIM";
+      text = 'Click here to start solving';
+    } else if (id == 5) {
+      link = "https://bit.ly/TechnoPP";
+      text = 'Click here to register';
+    } else if (id == 6) {
+      link = "https://bit.ly/TechnoMI";
+      text = 'Click here to register';
+    }
+    if (link != null) {
+      return GestureDetector(
+        onTap: () {
+          try {
+            IntentHelper.web(link);
+          } catch (e) {
+            print(e);
+          }
+        },
+        child: Container(
+          color: Colors.white,
+          padding: EdgeInsets.all(8),
+          child: Text(
+            text,
+            style: TextStyle(color: Colors.black),
+          ),
+        ),
+      );
+    } else
+      return Container();
+  }
+
   @override
   Widget build(BuildContext context) {
     String time;
@@ -50,7 +85,10 @@ class _EventDetailState extends State<EventDetail> {
             flexibleSpace: FlexibleSpaceBar(
               title: Text(
                 widget.event.name,
-                style: Theme.of(context).textTheme.headline6.copyWith(fontSize: 18),
+                style: Theme.of(context)
+                    .textTheme
+                    .headline6
+                    .copyWith(fontSize: 18),
               ),
               centerTitle: true,
               background: Stack(
@@ -146,6 +184,8 @@ class _EventDetailState extends State<EventDetail> {
                   ),
                 ),
 
+                getLink(widget.event.id),
+
                 //----------------Rules-------------------
                 widget.event.rules.length > 0
                     ? Padding(
@@ -170,9 +210,10 @@ class _EventDetailState extends State<EventDetail> {
                                   return Padding(
                                     padding: const EdgeInsets.only(bottom: 8.0),
                                     child: Row(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
                                       children: <Widget>[
-                                        Text('${index+1} ) '),
+                                        Text('${index + 1} ) '),
                                         Flexible(
                                           child: Text(
                                             '${widget.event.rules[index]}',
@@ -213,9 +254,10 @@ class _EventDetailState extends State<EventDetail> {
                                   return Padding(
                                     padding: const EdgeInsets.only(bottom: 8.0),
                                     child: Row(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
                                       children: <Widget>[
-                                        Text('${index+1} ) '),
+                                        Text('${index + 1} ) '),
                                         Flexible(
                                           child: Text(
                                             '${widget.event.judgement[index]}',
