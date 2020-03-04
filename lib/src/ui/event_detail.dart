@@ -28,20 +28,21 @@ class _EventDetailState extends State<EventDetail> {
       text = 'Click here to register';
     }
     if (link != null) {
-      return GestureDetector(
-        onTap: () {
-          try {
-            IntentHelper.web(link);
-          } catch (e) {
-            print(e);
-          }
-        },
-        child: Container(
+      return Container(
+        padding: EdgeInsets.all(8),
+        alignment: Alignment.centerLeft,
+        child: FlatButton(
           color: Colors.white,
-          padding: EdgeInsets.all(8),
+          textColor: Colors.black,
+          onPressed: () {
+            try {
+                IntentHelper.web(link);
+            } catch (e) {
+                print(e);
+            }
+          },
           child: Text(
             text,
-            style: TextStyle(color: Colors.black),
           ),
         ),
       );

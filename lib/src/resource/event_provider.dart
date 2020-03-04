@@ -127,7 +127,7 @@ class EventProvider {
               "image": "007.jpg",
               "name": "Techno Cupid",
               "description":
-                  "The most awaited couple event from last year is back!. In this a male and a female coder needs to work with each other to defeat other couples. It consists of two rounds each related to programming and partnership.\n\nRound 1: In this round couples will be given a piece if code which they have to type and run within specified time. The code may have errors which they need to correct. Top 10 pairs with fastest performance will be selected for next round.\n\nRound 2: This round is based on mutual understanding and how much do they know about each other.",
+                  "The most awaited couple event from last year is back!. In this a male and a female coder needs to work with each other to defeat other couples. It consists of two rounds each related to programming and partnership.\n\nRound 1: This round is based on mutual understanding and how much do they know about each other. Top 10 pairs with fastest performance will be selected for next round.\n\nRound 2: In this round couples will be given a piece if code which they have to type and run within specified time. The code may have errors which they need to correct.",
               "rules": [
                 "1 male and 1 female per group",
                 "Time: 1 hr per round",
@@ -201,12 +201,12 @@ class EventProvider {
               "image": "102.jpg",
               "name": "Spectacolo-di-Talenti",
               "description":
-                  "\"The entire world ‘s a stage\", they say. For the people who believe this , for the people with passion and obsession, we have the right stage for you!. Be it comedy, mimicry, acting, magic, dance or any quirky thing you are passionately curious about, we have the stage ready for you!. Give the crowd the time of their lives. Spectacolo-di-talenti brings the opportunityto make your move.",
+                  "\"The entire world ‘s a stage\", they say. For the people who believe this , for the people with passion and obsession, we have the right stage for you!. Be it comedy, mimicry, acting, magic, dance or any quirky thing you are passionately curious about, we have the stage ready for you!. Give the crowd the time of their lives. Spectacolo-di-talenti brings the opportunityto make your move."
                   "\n\nDance:- It may be solo or duet or group performance having maximum 8 members.(Duration: 3-4 min)"
                   "\n\nSong:- Songs of any language may be sung. (Duration: 3-4 min)."
                   "\n\nInstrumental:- All types of instruments are allowed. (Duration: 3-4 min)"
                   "\n\nAct:- Mono act or skit can be performed. (Duration: 3-4 min)"
-                  "\n\nBand Performance (Duration: 3-4 min)"
+                  "\n\nBand Performance (Duration: 3-4 min)",
               "rules": [
                 "The entry fee per person will be Rs 50/-",
                 "Time limit for every performance must be strictly within 3 - 4 minutes.",
@@ -355,7 +355,7 @@ class EventProvider {
               "image": "201.jpg",
               "name": "Gully Cricket",
               "description":
-                  "Who doesn't love gully cricket? School and college life is virtually incomplete without a cricket match in the streets.\n\nWith strange rules and regulations, gully cricket is excellent entertainment and an integral part of every Indian's childhood.\n\nTake a break from the craze of online games and come to feel the emotions of gully cricket.\n\nENTRY FEES: RS. 50/- PER TEAM\nRE-ENTRY FEE: Rs. 30 PER TEAM",
+                  "Who doesn't love gully cricket? School and college life is virtually incomplete without a cricket match in the streets.\n\nWith strange rules and regulations, gully cricket is excellent entertainment and an integral part of every Indian's childhood.\n\nTake a break from the craze of online games and come to feel the emotions of gully cricket.\n\nENTRY FEES: RS. 50 PER TEAM\nRE-ENTRY FEE: Rs. 30 PER TEAM",
               "rules": [
                 "All the matches will be knock out",
                 "Number of players per team: 5",
