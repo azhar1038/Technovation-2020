@@ -25,9 +25,9 @@ class _HomeState extends State<Home> {
     fancyLine = [
       "We are live now!",
       "Unsolved mystery with Usual Suspects",
-      "Guess, who is coming to meet you!",
+      "The best Fashion Show awaits!",
       "Prove that you are the best",
-      "Jump, duck and evade the Lasers"
+      "Stay off the Tracks!"
     ];
     _fancyLineBloc = FancyLineBloc();
   }

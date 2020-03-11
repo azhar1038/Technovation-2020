@@ -102,7 +102,8 @@ class EventProvider {
               "rules": [
                 "At max 3 participants per group",
                 "Time: 15 minutes per group",
-                "Must have a ppt"
+                "Must have a PowerPoint presentation",
+                "Must submit the abstract on or before 10th March"
               ],
               "coordinators": ["Md.Azharuddin", "Swadesh Patra"],
               "coordinatorsNumber": ["9078600498", "8598930053"],
