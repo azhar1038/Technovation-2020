@@ -90,6 +90,11 @@ class SponsorProvider{
         image: 'career.jpg',
         website: 'careerlauncher.com',
       ),
+      SponsorModel(
+        name: 'Weirdo',
+        image: 'a.png',
+        website: 'google.com',
+      ),
     ];
   }
 
