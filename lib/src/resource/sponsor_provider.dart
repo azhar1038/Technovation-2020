@@ -42,7 +42,7 @@ class SponsorProvider{
       ),
       SponsorModel(
         name: 'Punjab National Bank',
-        image: 'pnb.png',
+        image: 'pnb.jpg',
         website: 'pnbindia.in',
       ),
       SponsorModel(
