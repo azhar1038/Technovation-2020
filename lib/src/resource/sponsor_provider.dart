@@ -41,6 +41,16 @@ class SponsorProvider{
         website: 'infaso.in',
       ),
       SponsorModel(
+        name: 'Punjab National Bank',
+        image: 'pnb.png',
+        website: 'pnbindia.in',
+      ),
+      SponsorModel(
+        name: 'Surya Garden',
+        image: 'surya.jpg',
+        website: 'suryagarden.com',
+      ),
+      SponsorModel(
         name: 'Salaam Namaste',
         image: 'salaam.png',
         website: 'm.facebook.com/Salaam-Namaste-Restaurant-293393481081643',

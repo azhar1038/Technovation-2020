@@ -181,7 +181,7 @@ class _AboutState extends State<About> {
                     ),
                     SizedBox(height: 16),
                     Text(
-                      'Version: 2.0.2',
+                      'Version: 2.0.3',
                       style: my,
                     ),
                     SizedBox(height: 16),
